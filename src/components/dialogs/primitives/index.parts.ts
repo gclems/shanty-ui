@@ -1,0 +1,9 @@
+export {DialogPrimitiveRoot as Root} from './dialog-primitive-root';
+export {DialogPrimitiveTrigger as Trigger} from './dialog-primitive-trigger';
+export {DialogPrimitivePortal as Portal} from './dialog-primitive-portal';
+export {DialogPrimitiveBackdrop as Backdrop} from './dialog-primitive-backdrop';
+export {DialogPrimitivePopup as Popup} from './dialog-primitive-popup';
+export {DialogPrimitiveTitle as Title} from './dialog-primitive-title';
+export {DialogPrimitiveDescription as Description} from './dialog-primitive-description';
+export {DialogPrimitiveFooter as Footer} from './dialog-primitive-footer';
+export {DialogPrimitiveClose as Close} from './dialog-primitive-close';

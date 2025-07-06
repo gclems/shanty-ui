@@ -1,0 +1,116 @@
+@import './default-colors.css';
+
+:root {
+    --background: var(--grey-50);
+    --foreground: var(--grey-950);
+
+    /** Nomenclature:
+    * [component][sub-component?][variant?][state?][property]
+    */
+
+    --accordion-trigger-background: var(--grey-100);
+    --accordion-trigger-foreground: var(--grey-950);
+    --accordion-trigger-hover-background: var(--grey-200);
+    --accordion-trigger-hover-foreground: var(--grey-950);
+    --accordion-panel-background: var(--grey-50);
+    --accordion-panel-foreground: var(--grey-950);
+    --accordion-item-border: var(--grey-200);
+    --accordion-trigger-ring: var(--peach-500);
+
+    --alert-info-background: var(--sea-blue-100);
+    --alert-info-foreground: var(--sea-blue-950);
+    --alert-info-border: var(--sea-blue-300);
+
+    --alert-warning-background: var(--sand-200);
+    --alert-warning-foreground: var(--sand-950);
+    --alert-warning-border: var(--sand-300);
+
+    --alert-error-background: var(--dark-salmon-200);
+    --alert-error-foreground: var(--dark-salmon-950);
+    --alert-error-border: var(--dark-salmon-300);
+
+    --badge-primary-background: var(--peach-200);
+    --badge-primary-foreground: var(--peach-950);
+    --badge-primary-border: var(--peach-300);
+
+    --badge-secondary-background: var(--sea-blue-300);
+    --badge-secondary-foreground: var(--sea-grey-950);
+    --badge-secondary-border: var(--sea-blue-500);
+
+    --badge-neutral-background: var(--grey-100);
+    --badge-neutral-foreground: var(--grey-950);
+    --badge-neutral-border: var(--grey-300);
+
+    --badge-info-background: var(--sea-blue-100);
+    --badge-info-foreground: var(--sea-blue-950);
+    --badge-info-border: var(--sea-blue-300);
+
+    --badge-success-background: var(--hospital-green-400);
+    --badge-success-foreground: var(--hospital-green-950);
+    --badge-success-border: var(--hospital-green-700);
+
+    --badge-warning-background: var(--sand-200);
+    --badge-warning-foreground: var(--sand-950);
+    --badge-warning-border: var(--sand-300);
+
+    --badge-error-background: var(--dark-salmon-200);
+    --badge-error-foreground: var(--dark-salmon-950);
+    --badge-error-border: var(--dark-salmon-300);
+
+    --button-primary-background: var(--peach-500);
+    --button-primary-foreground: var(--grey-950);
+    --button-primary-border: var(--peach-500);
+    --button-primary-hover-background: var(--peach-400);
+    --button-primary-hover-foreground: var(--grey-950);
+    --button-primary-hover-border: var(--peach-400);
+    --button-primary-active-background: var(--peach-600);
+    --button-primary-active-foreground: var(--grey-950);
+    --button-primary-active-border: var(--peach-600);
+    --button-primary-ring: var(--peach-500);
+
+    --button-secondary-background: var(--sea-blue-500);
+    --button-secondary-foreground: var(--grey-50);
+    --button-secondary-border: var(--sea-blue-500);
+    --button-secondary-hover-background: var(--sea-blue-400);
+    --button-secondary-hover-foreground: var(--grey-50);
+    --button-secondary-hover-border: var(--sea-blue-400);
+    --button-secondary-active-background: var(--sea-blue-600);
+    --button-secondary-active-foreground: var(--grey-50);
+    --button-secondary-active-border: var(--sea-blue-600);
+    --button-secondary-ring: var(--sea-blue-500);
+
+    --button-ghost-background: transparent;
+    --button-ghost-foreground: var(--grey-950);
+    --button-ghost-border: transparent;
+    --button-ghost-hover-background: var(--grey-200);
+    --button-ghost-hover-foreground: var(--grey-950);
+    --button-ghost-hover-border: transparent;
+    --button-ghost-active-background: var(--grey-300);
+    --button-ghost-active-foreground: var(--grey-950);
+    --button-ghost-active-border: transparent;
+    --button-ghost-ring: var(--grey-200);
+
+    --button-link-foreground: var(--grey-950);
+    --button-link-hover-foreground: var(--peach-600);
+    --button-link-active-foreground: var(--peach-700);
+    --button-link-ring: var(--grey-200);
+
+    --button-destructive-background: var(--dark-salmon-600);
+    --button-destructive-foreground: var(--grey-50);
+    --button-destructive-border: var(--dark-salmon-600);
+    --button-destructive-hover-background: var(--dark-salmon-500);
+    --button-destructive-hover-foreground: var(--grey-50);
+    --button-destructive-hover-border: var(--dark-salmon-500);
+    --button-destructive-active-background: var(--dark-salmon-700);
+    --button-destructive-active-foreground: var(--grey-50);
+    --button-destructive-active-border: var(--dark-salmon-700);
+    --button-destructive-ring: var(--dark-salmon-500);
+
+    --dialog-backdrop: oklch(0 0 0);
+    --dialog-background: var(--grey-50);
+    --dialog-foreground: var(--grey-950);
+    --dialog-description-foreground: var(--grey-600);
+
+    --tooltip-background: var(--grey-950);
+    --tooltip-foreground: var(--grey-50);
+}
