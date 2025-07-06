@@ -58,8 +58,8 @@ interface ButtonProps extends useRender.ComponentProps<'button'> {
     square?: boolean;
 }
 
-const Button = ({ render = <button />, role="button", variant, square, className, ...props }: ButtonProps) => {
-    const element = useRender({
+const Button = ({ render = <button />, role = "button", variant, square, className, ...props }: ButtonProps) => {
+    return useRender({
         render,
         props: mergeProps<'button'>({
             className: button({ variant, square, class: className })
@@ -68,8 +68,6 @@ const Button = ({ render = <button />, role="button", variant, square, className
             props
         )
     })
-
-    return element;
 }
 
 export { Button }

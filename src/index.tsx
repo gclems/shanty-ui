@@ -18,6 +18,16 @@ export { Button } from '@/components/button';
 export { DialogPrimitive } from '@/components/dialogs/primitives';
 export { SimpleDialog } from '@/components/dialogs/simple-dialog';
 
+export { Field } from '@/components/field';
+
+export { Input } from '@/components/input';
+
+export { Label } from '@/components/label';
+
+export { NumberFieldPrimitive } from '@/components/number-fields/primitives';
+
+export { Password } from '@/components/password';
+
 export { SheetPrimitive } from '@/components/sheets/primitives';
 export { SimpleSheet } from '@/components/sheets/simple-sheet';
 

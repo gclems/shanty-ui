@@ -107,8 +107,17 @@
   --color-dialog-foreground: var(--dialog-foreground);
   --color-dialog-description-foreground: var(--dialog-description-foreground);
 
+  --color-input-background: var(--input-background);
+  --color-input-foreground: var(--input-foreground);
+  --color-input-placeholder: var(--input-placeholder);
+  --color-input-border: var(--input-border);
+  --color-input-ring: var(--input-ring);
+
   --color-tooltip-background: var(--tooltip-background);
   --color-tooltip-foreground: var(--tooltip-foreground);
+
+  --color-label-foreground: var(--label-foreground);
+  --color-label-required: var(--label-required);
 }
 
 body {

@@ -19,6 +19,10 @@ import { UserIcon } from 'lucide-react'
 import { AlertWarning } from './components/alerts/alert-warning'
 import { AlertError } from './components/alerts/alert-error'
 import { Badge } from './components/badge.tsx'
+import { Input } from './components/input.tsx'
+import { Label } from './components/label.tsx'
+import { Field } from './components/field.tsx'
+import { Password } from './components/password.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -189,7 +193,7 @@ createRoot(document.getElementById('root')!).render(
         </div>
       </div>
 
-      <div className="m-4 p-4">
+      <div className="mx-4 px-4">
         <DialogPrimitive.Root>
           <DialogPrimitive.Trigger>
             <Button variant="ghost">Dialog primitive</Button>
@@ -218,7 +222,7 @@ createRoot(document.getElementById('root')!).render(
           </DialogPrimitive.Portal>
         </DialogPrimitive.Root>
       </div>
-      <div className="m-4 p-4">
+      <div className="mx-4 px-4">
         <SimpleDialog.Root>
           <SimpleDialog.Trigger>
             <Button variant="ghost">Simple Dialog</Button>
@@ -240,7 +244,7 @@ createRoot(document.getElementById('root')!).render(
         </SimpleDialog.Root>
       </div>
 
-      <div className="m-4 p-4">
+      <div className="mx-4 px-4">
         <SheetPrimitive.Root>
           <SheetPrimitive.Trigger>
             <Button variant="ghost">Sheet primitive</Button>
@@ -269,7 +273,7 @@ createRoot(document.getElementById('root')!).render(
           </SheetPrimitive.Portal>
         </SheetPrimitive.Root>
       </div>
-      <div className="m-4 p-4">
+      <div className="mx-4 px-4">
         <SimpleSheet.Root>
           <SimpleSheet.Trigger>
             <Button variant="ghost">Simple Sheet</Button>
@@ -290,6 +294,27 @@ createRoot(document.getElementById('root')!).render(
           </SimpleSheet.Popup>
         </SimpleSheet.Root>
       </div>
+
+      <Field className="m-4 p-4">
+        <Label htmlFor="test" required>
+          Test input
+        </Label>
+        <Input
+          id="test"
+          name="test"
+          placeholder="Type something..."
+        />
+      </Field>
+      <Field className="m-4 p-4">
+        <Label htmlFor="password" required>
+          Test password
+        </Label>
+        <Password
+          id="password"
+          name="password"
+          placeholder="Type something..."
+        />
+      </Field>
     </Providers>
   </StrictMode>,
 )

@@ -111,6 +111,15 @@
     --dialog-foreground: var(--grey-950);
     --dialog-description-foreground: var(--grey-600);
 
+    --input-background: var(--grey-50);
+    --input-foreground: var(--grey-950);
+    --input-placeholder: var(--grey-500);
+    --input-border: var(--grey-300);
+    --input-ring: var(--peach-500);
+
+    --label-foreground: var(--grey-950);
+    --label-required: var(--dark-salmon-500);
+
     --tooltip-background: var(--grey-950);
     --tooltip-foreground: var(--grey-50);
 }
