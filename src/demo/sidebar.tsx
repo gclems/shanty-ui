@@ -13,17 +13,17 @@ const Sidebar = () => {
           <SidebarPrimitive.GroupContent>
             <SidebarPrimitive.Menu>
               <SidebarPrimitive.MenuItem>
-                <SidebarPrimitive.MenuButton render={<a />} href="#" isActive>
+                <SidebarPrimitive.MenuButton render={<a href="#" />} isActive>
                   <HomeIcon /> Item 1
                 </SidebarPrimitive.MenuButton>
               </SidebarPrimitive.MenuItem>
               <SidebarPrimitive.MenuItem>
-                <SidebarPrimitive.MenuButton render={<a />} href="#">
+                <SidebarPrimitive.MenuButton render={<a href="#" />}>
                   <HomeIcon /> Item 2
                 </SidebarPrimitive.MenuButton>
               </SidebarPrimitive.MenuItem>
               <SidebarPrimitive.MenuItem>
-                <SidebarPrimitive.MenuButton render={<a />} href="#">
+                <SidebarPrimitive.MenuButton render={<a href="#" />}>
                   <HomeIcon /> Item 3
                 </SidebarPrimitive.MenuButton>
               </SidebarPrimitive.MenuItem>
