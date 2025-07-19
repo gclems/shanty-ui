@@ -12,10 +12,10 @@ export default defineConfig({
     tailwindcss(),
     viteStaticCopy({
       targets: [
-        {
-          src: "src/fonts",
-          dest: "",
-        },
+        // {
+        //   src: "src/fonts",
+        //   dest: "",
+        // },
         {
           src: "src/themes",
           dest: "",
