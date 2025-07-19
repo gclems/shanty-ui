@@ -1,4 +1,5 @@
-@import "tailwindcss";
+@import "tailwindcss" source("..");
 
 @import "../themes/tailwind-config.css";
-@import "../themes/shanty.css";
+
+@import "../themes/default.css";
