@@ -16,6 +16,7 @@
     "declarationMap": false,
     "emitDeclarationOnly": true,
     "declarationDir": "dist",
+    // "composite": true,
     "outDir": "dist",
 
     /* Bundler mode */
@@ -33,5 +34,5 @@
     "noUncheckedSideEffectImports": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "src/demo"]
+  "exclude": ["node_modules", "dist", "src/demo", "src/demo.tsx"]
 }
