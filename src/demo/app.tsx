@@ -22,6 +22,7 @@ import {
 } from "../index";
 import { UserIcon } from "lucide-react";
 import { Sidebar } from "./sidebar";
+import { Checkbox } from "@/lib/components/checkbox";
 
 function App() {
   return (
@@ -422,6 +423,10 @@ function App() {
               name="password"
               placeholder="Type something..."
             />
+          </Field>
+
+          <Field className="m-4 p-4">
+            <Checkbox>Checkbox</Checkbox>
           </Field>
 
           <Table.Root>

@@ -147,6 +147,13 @@ body {
   --color-input-border: var(--input-border);
   --color-input-ring: var(--input-ring);
 
+  --color-checkbox-background: var(--checkbox-background);
+  --color-checkbox-border: var(--checkbox-border);
+  --color-checkbox-hover-background: var(--checkbox-hover-background);
+  --color-checkbox-checked-background: var(--checkbox-checked-background);
+  --color-checkbox-checked-foreground: var(--checkbox-checked-foreground);
+  --color-checkbox-checked-border: var(--checkbox-checked-border);
+
   --color-tooltip-background: var(--tooltip-background);
   --color-tooltip-foreground: var(--tooltip-foreground);
 
