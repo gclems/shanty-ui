@@ -15,6 +15,8 @@ export { Badge } from "@/lib/components/badge";
 
 export { Button } from "@/lib/components/button";
 
+export { Checkbox } from "@/lib/components/checkbox";
+
 export { DialogPrimitive } from "@/lib/components/dialogs/primitives";
 export { SimpleDialog } from "@/lib/components/dialogs/simple-dialog";
 
@@ -29,6 +31,10 @@ export { NumberFieldPrimitive } from "@/lib/components/number-fields/primitives"
 export { Password } from "@/lib/components/password";
 
 export { Providers } from "@/lib/components/providers";
+
+export { RadioGroup } from "@/lib/components/radio-group";
+
+export { RadioTab } from "@/lib/components/radio-tab";
 
 export { SheetPrimitive } from "@/lib/components/sheets/primitives";
 export { SimpleSheet } from "@/lib/components/sheets/simple-sheet";

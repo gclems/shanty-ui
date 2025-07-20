@@ -5,12 +5,15 @@ import {
   AlertWarning,
   Badge,
   Button,
+  Checkbox,
   DialogPrimitive,
   Field,
   Input,
   Label,
   Password,
   Providers,
+  RadioGroup,
+  RadioTab,
   SheetPrimitive,
   SidebarPrimitive,
   SimpleAccordion,
@@ -22,9 +25,6 @@ import {
 } from "../index";
 import { UserIcon } from "lucide-react";
 import { Sidebar } from "./sidebar";
-import { Checkbox } from "@/lib/components/checkbox";
-import { RadioGroup } from "@/lib/components/radio-group";
-import { RadioTab } from "@/lib/components/radio-tab";
 
 function App() {
   return (
