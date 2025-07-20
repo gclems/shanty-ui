@@ -35,6 +35,8 @@ export { SimpleSheet } from "@/lib/components/sheets/simple-sheet";
 
 export { SidebarPrimitive } from "@/lib/components/sidebar/primitives";
 
+export { Table } from "@/lib/components/table";
+
 export { TooltipPrimitive } from "@/lib/components/tooltips/primitives";
 export { SimpleTooltip } from "@/lib/components/tooltips/simple-tooltip";
 

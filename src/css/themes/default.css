@@ -135,4 +135,14 @@
 
   --sidebar-item-selected-background: var(--peach-300);
   --sidebar-item-selected-foreground: var(--grey-950);
+
+  --table-background: var(--grey-100);
+  --table-foreground: var(--grey-950);
+  --table-border: var(--grey-500);
+  --table-header-background: var(--grey-200);
+  --table-header-foreground: var(--grey-950);
+  --table-row-hover-background: var(--grey-200);
+  --table-row-hover-foreground: var(--grey-950);
+  --table-footer-background: var(--grey-200);
+  --table-footer-foreground: var(--grey-950);
 }

@@ -5,21 +5,24 @@ import { childrenAsRender } from "@/lib/tools/children-as-render";
 const SimpleTooltip = ({
   children,
   content,
+  side,
+  hidden,
   ...props
 }: ComponentProps<typeof TooltipPrimitive.Root> & {
   content?: React.ReactNode;
+  side?: ComponentProps<typeof TooltipPrimitive.Positioner>["side"];
+  hidden?: ComponentProps<typeof TooltipPrimitive.Popup>["hidden"];
 }) => {
   return (
     <TooltipPrimitive.Root {...props}>
       <TooltipPrimitive.Trigger
-        {...props}
         render={childrenAsRender(children)}
         className="data-[state=open]:bg-tooltip-background data-[state=open]:text-tooltip-foreground data-[state=open]:outline-tooltip-background data-[state=open]:outline-1 data-[state=open]:outline-offset-1"
       />
       <TooltipPrimitive.Portal>
-        <TooltipPrimitive.Positioner sideOffset={10}>
+        <TooltipPrimitive.Positioner side={side} sideOffset={10}>
           <TooltipPrimitive.Popup
-            {...props}
+            hidden={hidden}
             className="shadow-tooltip-background bg-tooltip-background text-tooltip-foreground outline-tooltip-background flex origin-[var(--transform-origin)] flex-col rounded-md px-2 py-1 text-sm shadow-lg outline-1 transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[starting-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 data-[instant]:duration-0 dark:shadow-none dark:-outline-offset-1"
           >
             <TooltipPrimitive.Arrow className="data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=right]:left-[-13px] data-[side=top]:bottom-[-8px] data-[side=left]:rotate-90 data-[side=right]:-rotate-90 data-[side=top]:rotate-180">

@@ -168,4 +168,14 @@ body {
   --color-sidebar-item-selected-foreground: var(
     --sidebar-item-selected-foreground
   );
+
+  --color-table-background: var(--table-background);
+  --color-table-foreground: var(--table-foreground);
+  --color-table-border: var(--table-border);
+  --color-table-header-background: var(--table-header-background);
+  --color-table-header-foreground: var(--table-header-foreground);
+  --color-table-row-hover-background: var(--table-row-hover-background);
+  --color-table-row-hover-foreground: var(--table-row-hover-foreground);
+  --color-table-footer-background: var(--table-footer-background);
+  --color-table-footer-foreground: var(--table-footer-foreground);
 }
