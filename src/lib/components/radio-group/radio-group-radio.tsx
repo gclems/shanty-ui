@@ -1,21 +1,20 @@
+import { cn } from "@/lib/tools/cn";
+import { Radio } from "@base-ui-components/react/radio";
 import { CheckIcon } from "lucide-react";
-
-import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
 import { ComponentProps } from "react";
-import { cn } from "../tools/cn";
 
-function Checkbox({
-  className,
+function RadioGroupRadio({
   children,
+  className,
   ...props
-}: ComponentProps<typeof CheckboxBase.Root> & {
+}: ComponentProps<typeof Radio.Root> & {
   children?: React.ReactNode;
 }) {
   return (
     <label className="flex w-fit items-center gap-x-1">
-      <CheckboxBase.Root
+      <Radio.Root
         className={cn(
-          "size-4 rounded-sm border",
+          "size-4 rounded-full border",
           "flex items-center justify-center",
           "[&_svg]:size-3.5",
           "bg-checkbox-background border-checkbox-border",
@@ -25,13 +24,13 @@ function Checkbox({
         )}
         {...props}
       >
-        <CheckboxBase.Indicator>
+        <Radio.Indicator>
           <CheckIcon />
-        </CheckboxBase.Indicator>
-      </CheckboxBase.Root>
+        </Radio.Indicator>
+      </Radio.Root>
       {children}
     </label>
   );
 }
 
-export { Checkbox };
+export { RadioGroupRadio };

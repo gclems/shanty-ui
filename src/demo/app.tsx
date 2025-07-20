@@ -23,6 +23,7 @@ import {
 import { UserIcon } from "lucide-react";
 import { Sidebar } from "./sidebar";
 import { Checkbox } from "@/lib/components/checkbox";
+import { RadioGroup } from "@/lib/components/radio-group";
 
 function App() {
   return (
@@ -429,11 +430,19 @@ function App() {
             <Checkbox>Checkbox</Checkbox>
           </Field>
 
+          <Field className="m-4 p-4">
+            <RadioGroup.Root>
+              <RadioGroup.Radio value="option1">Option 1</RadioGroup.Radio>
+              <RadioGroup.Radio value="option2">Option 2</RadioGroup.Radio>
+              <RadioGroup.Radio value="option3">Option 3</RadioGroup.Radio>
+            </RadioGroup.Root>
+          </Field>
+
           <Table.Root>
             <Table.Header>
               <Table.Row>
                 <Table.Head fit>
-                  <input type="checkbox" role="checkbox" />
+                  <Checkbox />
                 </Table.Head>
                 <Table.Head>Column 1</Table.Head>
                 <Table.Head colSpan={2}>Column 2</Table.Head>
@@ -442,7 +451,7 @@ function App() {
             <Table.Body>
               <Table.Row>
                 <Table.Head fit>
-                  <input type="checkbox" role="checkbox" />
+                  <Checkbox />
                 </Table.Head>
                 <Table.Cell>Row 1, Cell 1</Table.Cell>
                 <Table.Cell>Row 1, Cell 2</Table.Cell>
@@ -452,7 +461,7 @@ function App() {
               </Table.Row>
               <Table.Row>
                 <Table.Head fit>
-                  <input type="checkbox" role="checkbox" />
+                  <Checkbox />
                 </Table.Head>
                 <Table.Cell>Row 2, Cell 1</Table.Cell>
                 <Table.Cell>Row 2, Cell 2</Table.Cell>
