@@ -141,6 +141,10 @@ body {
   --color-dialog-foreground: var(--dialog-foreground);
   --color-dialog-description-foreground: var(--dialog-description-foreground);
 
+  --color-card-background: var(--card-background);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-border: var(--card-border);
+
   --color-input-background: var(--input-background);
   --color-input-foreground: var(--input-foreground);
   --color-input-placeholder: var(--input-placeholder);

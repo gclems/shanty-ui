@@ -5,6 +5,7 @@ import { tv } from "tailwind-variants";
 
 const popup = tv({
   base: cn(
+    "shadow-md",
     "fixed left-1/2 top-1/2 -mt-8 max-w-[calc(100vw-3rem)]",
     "bg-dialog-background text-dialog-foreground",
     "space-y-6 rounded-sm p-6",

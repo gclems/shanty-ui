@@ -13,7 +13,7 @@ function RadioTabRadio({
     <div className="group/radio">
       <Radio.Root
         className={cn(
-          "border px-2",
+          "border px-2 py-0.5",
           "group-first/radio:rounded-l-sm",
           "group-last/radio:rounded-r-sm",
           "flex items-center justify-center",

@@ -15,6 +15,8 @@ export { Badge } from "@/lib/components/badge";
 
 export { Button } from "@/lib/components/button";
 
+export { Card } from "@/lib/components/card";
+
 export { Checkbox } from "@/lib/components/checkbox";
 
 export { DialogPrimitive } from "@/lib/components/dialogs/primitives";
