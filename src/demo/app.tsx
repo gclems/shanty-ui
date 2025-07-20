@@ -24,6 +24,7 @@ import { UserIcon } from "lucide-react";
 import { Sidebar } from "./sidebar";
 import { Checkbox } from "@/lib/components/checkbox";
 import { RadioGroup } from "@/lib/components/radio-group";
+import { RadioTab } from "@/lib/components/radio-tab";
 
 function App() {
   return (
@@ -436,6 +437,14 @@ function App() {
               <RadioGroup.Radio value="option2">Option 2</RadioGroup.Radio>
               <RadioGroup.Radio value="option3">Option 3</RadioGroup.Radio>
             </RadioGroup.Root>
+          </Field>
+
+          <Field className="m-4 p-4">
+            <RadioTab.Root>
+              <RadioTab.Radio value="option1">Option 1</RadioTab.Radio>
+              <RadioTab.Radio value="option2">Option 2</RadioTab.Radio>
+              <RadioTab.Radio value="option3">Option 3</RadioTab.Radio>
+            </RadioTab.Root>
           </Field>
 
           <Table.Root>

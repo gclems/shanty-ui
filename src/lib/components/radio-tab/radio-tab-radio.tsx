@@ -1,9 +1,8 @@
 import { cn } from "@/lib/tools/cn";
 import { Radio } from "@base-ui-components/react/radio";
-import { CheckIcon } from "lucide-react";
 import { ComponentProps } from "react";
 
-function RadioGroupRadio({
+function RadioTabRadio({
   children,
   className,
   ...props
@@ -11,27 +10,26 @@ function RadioGroupRadio({
   children?: React.ReactNode;
 }) {
   return (
-    <label className="flex w-fit items-center gap-x-1">
+    <div className="group/radio">
       <Radio.Root
         className={cn(
-          "size-4 rounded-full border",
+          "border px-2",
+          "group-first/radio:rounded-l-sm",
+          "group-last/radio:rounded-r-sm",
           "flex items-center justify-center",
           "[&_svg]:size-3.5",
           "bg-checkbox-background border-checkbox-border",
           "hover:bg-checkbox-hover-background",
           "focus:outline-3 focus:outline-checkbox-background/50",
-          "data-[checked]:bg-checkbox-checked-background data-[checked]:text-checkbox-checked-foreground data-[checked]:border-checkbox-checked-border",
+          "data-[checked]:bg-checkbox-checked-background data-[checked]:border-checkbox-checked-background data-[checked]:text-checkbox-checked-foreground",
           className,
         )}
         {...props}
       >
-        <Radio.Indicator>
-          <CheckIcon />
-        </Radio.Indicator>
+        <label>{children}</label>
       </Radio.Root>
-      {children}
-    </label>
+    </div>
   );
 }
 
-export { RadioGroupRadio };
+export { RadioTabRadio };

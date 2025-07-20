@@ -21,6 +21,7 @@ function Checkbox({
           "bg-checkbox-background border-checkbox-border",
           "hover:bg-checkbox-hover-background",
           "data-[checked]:bg-checkbox-checked-background data-[checked]:text-checkbox-checked-foreground data-[checked]:border-checkbox-checked-border",
+          "focus:outline-3 focus:outline-checkbox-background/50",
           className,
         )}
         {...props}
