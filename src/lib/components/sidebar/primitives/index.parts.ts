@@ -3,6 +3,7 @@ export { SidebarPrimitiveContent as Content } from "./sidebar-primitive-content"
 export { SidebarPrimitiveFooter as Footer } from "./sidebar-primitive-footer";
 export { SidebarPrimitiveGroupContent as GroupContent } from "./sidebar-primitive-group-content";
 export { SidebarPrimitiveGroup as Group } from "./sidebar-primitive-group";
+export { SidebarPrimitiveGroupLabel as GroupLabel } from "./sidebar-primitive-group-label";
 export { SidebarPrimitiveHeader as Header } from "./sidebar-primitive-header";
 export { SidebarPrimitiveMenuButton as MenuButton } from "./sidebar-primitive-menu-button";
 export { SidebarPrimitiveMenuItem as MenuItem } from "./sidebar-primitive-menu-item";

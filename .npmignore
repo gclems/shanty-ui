@@ -1,0 +1,14 @@
+src
+tests
+public
+node_modules
+.storybook
+.vscode
+.git
+*.config.js
+tsconfig.json
+tsconfig.*.json
+*.workspace.ts
+components.json
+README.md
+docs

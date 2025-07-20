@@ -10,6 +10,7 @@ const Sidebar = () => {
       </SidebarPrimitive.Header>
       <SidebarPrimitive.Content>
         <SidebarPrimitive.Group>
+          <SidebarPrimitive.GroupLabel>Group Label</SidebarPrimitive.GroupLabel>
           <SidebarPrimitive.GroupContent>
             <SidebarPrimitive.Menu>
               <SidebarPrimitive.MenuItem>

@@ -17,7 +17,7 @@ export default defineConfig({
         //   dest: "",
         // },
         {
-          src: "src/themes",
+          src: "src/css",
           dest: "",
         },
       ],
@@ -49,12 +49,25 @@ export default defineConfig({
         preserveModulesRoot: "src",
         entryFileNames: "[name].js",
       },
-      external: [
-        ...Object.keys(pkg.dependencies || {}),
-        ...Object.keys(pkg.devDependencies || {}),
-        ...Object.keys(pkg.peerDependencies || {}),
-        "react/jsx-runtime",
-      ],
+      // external: [
+      //   ...Object.keys(pkg.dependencies || {}),
+      //   ...Object.keys(pkg.devDependencies || {}),
+      //   ...Object.keys(pkg.peerDependencies || {}),
+      //   "react/jsx-runtime",
+      // ],
+      external: (id) => {
+        return (
+          /^react/.test(id) ||
+          /^@mui\/base/.test(id) ||
+          /^@floating-ui/.test(id) ||
+          Object.keys(pkg.dependencies || {}).some(
+            (dep) => id === dep || id.startsWith(dep + "/"),
+          ) ||
+          Object.keys(pkg.peerDependencies || {}).some(
+            (dep) => id === dep || id.startsWith(dep + "/"),
+          )
+        );
+      },
       treeshake: {
         moduleSideEffects: false,
       },

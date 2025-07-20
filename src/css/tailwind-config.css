@@ -152,4 +152,20 @@ body {
 
   --color-label-foreground: var(--label-foreground);
   --color-label-required: var(--label-required);
+
+  --color-sidebar-background: var(--sidebar-background);
+  --color-sidebar-border: var(--sidebar-border);
+
+  --color-sidebar-item-background: var(--sidebar-item-background);
+  --color-sidebar-item-foreground: var(--sidebar-item-foreground);
+  --color-sidebar-item-hover-background: var(--sidebar-item-hover-background);
+  --color-sidebar-item-hover-foreground: var(--sidebar-item-hover-foreground);
+  --color-sidebar-item-active-background: var(--sidebar-item-active-background);
+  --color-sidebar-item-active-foreground: var(--sidebar-item-active-foreground);
+  --color-sidebar-item-selected-background: var(
+    --sidebar-item-selected-background
+  );
+  --color-sidebar-item-selected-foreground: var(
+    --sidebar-item-selected-foreground
+  );
 }

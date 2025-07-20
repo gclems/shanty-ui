@@ -21,10 +21,7 @@ function SidebarPrimitiveRoot({
     return (
       <div
         data-slot="sidebar"
-        className={cn(
-          "bg-sidebar text-sidebar-foreground w-(--sidebar-width) flex h-full flex-col",
-          className,
-        )}
+        className={cn("w-(--sidebar-width) flex h-full flex-col", className)}
         {...props}
       >
         {children}
@@ -38,7 +35,7 @@ function SidebarPrimitiveRoot({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
+          className="w-(--sidebar-width) p-0 [&>button]:hidden"
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -57,7 +54,7 @@ function SidebarPrimitiveRoot({
   }
   return (
     <div
-      className="text-sidebar-foreground group peer hidden md:block"
+      className="group peer hidden md:block"
       data-state={state}
       data-collapsible={state === "collapsed" ? collapsible : ""}
       data-variant={variant}
@@ -79,7 +76,7 @@ function SidebarPrimitiveRoot({
       <div
         data-slot="sidebar-container"
         className={cn(
-          "w-(--sidebar-width) fixed inset-y-0 z-10 hidden h-svh transition-[left,right,width] duration-200 ease-linear md:flex",
+          "w-(--sidebar-width) fixed inset-y-0 hidden h-svh transition-[left,right,width] duration-200 ease-linear md:flex",
           side === "left"
             ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
             : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
@@ -94,7 +91,7 @@ function SidebarPrimitiveRoot({
         <div
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
-          className="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
+          className="bg-sidebar-background group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
         >
           {children}
         </div>
