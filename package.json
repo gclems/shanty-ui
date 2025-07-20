@@ -21,7 +21,7 @@
     "dev": "vite",
     "build": "rimraf dist && pnpm build:types && pnpm build:components && pnpm build:themes && pnpm build:clean",
     "build:types": "tsc -p tsconfig.build.json && tsc-alias",
-    "build:themes": "pnpm dlx @tailwindcss/cli -i ./src/shanty-ui.css -o ./dist/shanty-ui.css",
+    "build:themes": "pnpm dlx @tailwindcss/cli -i ./src/css/shanty-ui.css -o ./dist/css/shanty-ui.css",
     "build:components": "vite build",
     "build:clean": "rimraf dist/vite.config.d.ts dist/vite.config.d.ts.map",
     "lint": "eslint .",
