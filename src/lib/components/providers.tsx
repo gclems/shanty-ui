@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
 
 import { SidebarPrimitive } from "./sidebar/primitives";
+import { SimpleToastProvider } from "./toast/simple-toast/simple-toast-provider";
 import { TooltipPrimitive } from "./tooltips/primitives";
 
 const Providers = ({
@@ -13,7 +14,9 @@ const Providers = ({
 }) => {
   return (
     <TooltipPrimitive.Provider {...tooltip}>
-      <SidebarPrimitive.Provider>{children}</SidebarPrimitive.Provider>
+      <SimpleToastProvider>
+        <SidebarPrimitive.Provider>{children}</SidebarPrimitive.Provider>
+      </SimpleToastProvider>
     </TooltipPrimitive.Provider>
   );
 };

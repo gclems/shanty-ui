@@ -45,8 +45,12 @@ export { SidebarPrimitive } from "@/lib/components/sidebar/primitives";
 
 export { Table } from "@/lib/components/table";
 
+export { ToastPrimitive } from "@/lib/components/toast/primitives";
+export { SimpleToast } from "@/lib/components/toast/simple-toast";
+
 export { TooltipPrimitive } from "@/lib/components/tooltips/primitives";
 export { SimpleTooltip } from "@/lib/components/tooltips/simple-tooltip";
 
 export { useIsMobile } from "@/lib/hooks/use-is-mobile";
 export { useSidebar } from "@/lib/hooks/use-sidebar";
+export { useToastManager } from "@/lib/hooks/use-toast-manager";

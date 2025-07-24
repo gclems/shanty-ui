@@ -202,4 +202,8 @@ body {
   --color-table-row-hover-foreground: var(--table-row-hover-foreground);
   --color-table-footer-background: var(--table-footer-background);
   --color-table-footer-foreground: var(--table-footer-foreground);
+
+  --color-toast-background: var(--toast-background);
+  --color-toast-foreground: var(--toast-foreground);
+  --color-toast-border: var(--toast-border);
 }

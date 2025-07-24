@@ -169,4 +169,8 @@
   --table-row-hover-foreground: var(--grey-950);
   --table-footer-background: var(--grey-200);
   --table-footer-foreground: var(--grey-950);
+
+  --toast-background: var(--grey-100);
+  --toast-foreground: var(--grey-950);
+  --toast-border: var(--grey-500);
 }
