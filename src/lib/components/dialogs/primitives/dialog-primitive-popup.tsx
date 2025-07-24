@@ -8,6 +8,7 @@ const popup = tv({
     "shadow-md",
     "fixed left-1/2 top-1/2 -mt-8 max-w-[calc(100vw-3rem)]",
     "bg-dialog-background text-dialog-foreground",
+    "border-dialog-border border",
     "space-y-6 rounded-sm p-6",
     "-translate-x-1/2 -translate-y-1/2 transition-all duration-150",
     "data-[ending-style]:scale-90 data-[starting-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",

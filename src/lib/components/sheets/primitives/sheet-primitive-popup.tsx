@@ -7,6 +7,7 @@ const popup = tv({
   base: cn(
     "fixed inset-y-0",
     "bg-dialog-background text-dialog-foreground",
+    "border-dialog-border",
     "space-y-6 p-6",
     "transition-all duration-150",
     "data-[ending-style]:-right-[100%] data-[starting-style]:-right-[100%]",
@@ -19,8 +20,8 @@ const popup = tv({
       full: "w-full",
     },
     side: {
-      left: "left-0",
-      right: "right-0",
+      left: "left-0 border-r",
+      right: "right-0 border-l",
     },
   },
   defaultVariants: {

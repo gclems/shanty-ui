@@ -139,6 +139,7 @@ body {
   --color-dialog-backdrop: var(--dialog-backdrop);
   --color-dialog-background: var(--dialog-background);
   --color-dialog-foreground: var(--dialog-foreground);
+  --color-dialog-border: var(--dialog-border);
   --color-dialog-description-foreground: var(--dialog-description-foreground);
 
   --color-card-background: var(--card-background);

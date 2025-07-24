@@ -31,24 +31,28 @@ function SidebarPrimitiveRoot({
   if (isMobile) {
     return (
       <Sheet.Root open={openMobile} onOpenChange={setOpenMobile} {...props}>
-        <Sheet.Popup
-          data-sidebar="sidebar"
-          data-slot="sidebar"
-          data-mobile="true"
-          className="w-(--sidebar-width) p-0 [&>button]:hidden"
-          style={
-            {
-              "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-            } as React.CSSProperties
-          }
-          side={side}
-        >
-          <Sheet.Title className="sr-only">
-            <Sheet.Title>Sidebar</Sheet.Title>
-            <Sheet.Description>Displays the mobile sidebar.</Sheet.Description>
-          </Sheet.Title>
-          <div className="flex h-full w-full flex-col">{children}</div>
-        </Sheet.Popup>
+        <Sheet.Portal>
+          <Sheet.Popup
+            data-sidebar="sidebar"
+            data-slot="sidebar"
+            data-mobile="true"
+            className="w-(--sidebar-width) p-0 [&>button]:hidden"
+            style={
+              {
+                "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
+              } as React.CSSProperties
+            }
+            side={side}
+          >
+            <Sheet.Title className="sr-only">
+              <Sheet.Title>Sidebar</Sheet.Title>
+              <Sheet.Description>
+                Displays the mobile sidebar.
+              </Sheet.Description>
+            </Sheet.Title>
+            <div className="flex h-full w-full flex-col">{children}</div>
+          </Sheet.Popup>
+        </Sheet.Portal>
       </Sheet.Root>
     );
   }
