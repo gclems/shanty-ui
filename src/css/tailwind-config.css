@@ -206,4 +206,8 @@ body {
   --color-toast-background: var(--toast-background);
   --color-toast-foreground: var(--toast-foreground);
   --color-toast-border: var(--toast-border);
+
+  --color-popover-background: var(--popover-background);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover-border: var(--popover-border);
 }

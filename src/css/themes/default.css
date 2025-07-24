@@ -173,4 +173,8 @@
   --toast-background: var(--grey-100);
   --toast-foreground: var(--grey-950);
   --toast-border: var(--grey-500);
+
+  --popover-background: var(--grey-100);
+  --popover-foreground: var(--grey-950);
+  --popover-border: var(--grey-500);
 }

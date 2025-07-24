@@ -22,6 +22,7 @@ import {
   SimpleAccordion,
   SimpleAvatar,
   SimpleDialog,
+  SimplePopover,
   SimpleSheet,
   SimpleTooltip,
   Table,
@@ -499,6 +500,13 @@ function InnerApp() {
             </Table.Row>
           </Table.Footer>
         </Table.Root>
+
+        <SimplePopover.Root>
+          <SimplePopover.Trigger render={<Button>Popover</Button>} />
+          <SimplePopover.Popup>
+            <div>Hola buenos dias</div>
+          </SimplePopover.Popup>
+        </SimplePopover.Root>
       </main>
     </>
   );

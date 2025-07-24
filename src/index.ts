@@ -32,6 +32,9 @@ export { NumberFieldPrimitive } from "@/lib/components/number-fields/primitives"
 
 export { Password } from "@/lib/components/password";
 
+export { PopoverPrimitive } from "@/lib/components/popovers/primitives";
+export { SimplePopover } from "@/lib/components/popovers/simple-popover";
+
 export { Providers } from "@/lib/components/providers";
 
 export { RadioGroup } from "@/lib/components/radio-group";
@@ -45,8 +48,8 @@ export { SidebarPrimitive } from "@/lib/components/sidebar/primitives";
 
 export { Table } from "@/lib/components/table";
 
-export { ToastPrimitive } from "@/lib/components/toast/primitives";
-export { SimpleToast } from "@/lib/components/toast/simple-toast";
+export { ToastPrimitive } from "@/lib/components/toasts/primitives";
+export { SimpleToast } from "@/lib/components/toasts/simple-toast";
 
 export { TooltipPrimitive } from "@/lib/components/tooltips/primitives";
 export { SimpleTooltip } from "@/lib/components/tooltips/simple-tooltip";

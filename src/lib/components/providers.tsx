@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 
 import { SidebarPrimitive } from "./sidebar/primitives";
-import { SimpleToastProvider } from "./toast/simple-toast/simple-toast-provider";
+import { SimpleToastProvider } from "./toasts/simple-toast/simple-toast-provider";
 import { TooltipPrimitive } from "./tooltips/primitives";
 
 const Providers = ({
