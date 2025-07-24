@@ -1,7 +1,9 @@
-import { cn } from "@/lib/tools/cn";
-import { Dialog } from "@base-ui-components/react";
 import type { ComponentProps } from "react";
+
+import { Dialog } from "@base-ui-components/react";
 import { tv } from "tailwind-variants";
+
+import { cn } from "@/lib/tools/cn";
 
 const popup = tv({
   base: cn(

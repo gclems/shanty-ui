@@ -1,1 +1,1 @@
-export * as SimpleAccordion from './index.parts';
+export * as SimpleAccordion from "./index.parts";

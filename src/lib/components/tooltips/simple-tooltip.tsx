@@ -1,6 +1,8 @@
 import { type ComponentProps } from "react";
-import { TooltipPrimitive } from "./primitives";
+
 import { childrenAsRender } from "@/lib/tools/children-as-render";
+
+import { TooltipPrimitive } from "./primitives";
 
 const SimpleTooltip = ({
   children,

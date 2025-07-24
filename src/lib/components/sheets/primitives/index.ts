@@ -1,1 +1,1 @@
-export * as SheetPrimitive from './index.parts';
+export * as SheetPrimitive from "./index.parts";

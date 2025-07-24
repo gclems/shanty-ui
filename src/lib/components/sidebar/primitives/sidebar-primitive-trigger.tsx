@@ -1,7 +1,8 @@
+import { MenuIcon } from "lucide-react";
+
 import { Button } from "@/lib/components/button";
 import { useSidebar } from "@/lib/hooks/use-sidebar";
 import { cn } from "@/lib/tools/cn";
-import { MenuIcon } from "lucide-react";
 
 function SidebarPrimitiveTrigger({
   className,

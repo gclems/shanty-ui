@@ -1,5 +1,6 @@
-import { cn } from "@/lib/tools/cn";
 import { mergeProps, useRender } from "@base-ui-components/react";
+
+import { cn } from "@/lib/tools/cn";
 
 function SidebarPrimitiveGroupLabel({
   className,

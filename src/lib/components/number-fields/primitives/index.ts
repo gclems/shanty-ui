@@ -1,1 +1,1 @@
-export * as NumberFieldPrimitive from './index.parts';
+export * as NumberFieldPrimitive from "./index.parts";

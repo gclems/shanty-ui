@@ -1,7 +1,9 @@
-import { cn } from "@/lib/tools/cn";
+import { ComponentProps } from "react";
+
 import { Radio } from "@base-ui-components/react/radio";
 import { CheckIcon } from "lucide-react";
-import { ComponentProps } from "react";
+
+import { cn } from "@/lib/tools/cn";
 
 function RadioGroupRadio({
   children,

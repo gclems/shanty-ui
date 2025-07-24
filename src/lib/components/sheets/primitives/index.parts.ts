@@ -1,9 +1,9 @@
-export {SheetPrimitiveRoot as Root} from './sheet-primitive-root';
-export {SheetPrimitiveTrigger as Trigger} from './sheet-primitive-trigger';
-export {SheetPrimitivePortal as Portal} from './sheet-primitive-portal';
-export {SheetPrimitiveBackdrop as Backdrop} from './sheet-primitive-backdrop';
-export {SheetPrimitivePopup as Popup} from './sheet-primitive-popup';
-export {SheetPrimitiveTitle as Title} from './sheet-primitive-title';
-export {SheetPrimitiveDescription as Description} from './sheet-primitive-description';
-export {SheetPrimitiveFooter as Footer} from './sheet-primitive-footer';
-export {SheetPrimitiveClose as Close} from './sheet-primitive-close';
+export { SheetPrimitiveRoot as Root } from "./sheet-primitive-root";
+export { SheetPrimitiveTrigger as Trigger } from "./sheet-primitive-trigger";
+export { SheetPrimitivePortal as Portal } from "./sheet-primitive-portal";
+export { SheetPrimitiveBackdrop as Backdrop } from "./sheet-primitive-backdrop";
+export { SheetPrimitivePopup as Popup } from "./sheet-primitive-popup";
+export { SheetPrimitiveTitle as Title } from "./sheet-primitive-title";
+export { SheetPrimitiveDescription as Description } from "./sheet-primitive-description";
+export { SheetPrimitiveFooter as Footer } from "./sheet-primitive-footer";
+export { SheetPrimitiveClose as Close } from "./sheet-primitive-close";

@@ -1,6 +1,12 @@
-import { Dialog } from '@base-ui-components/react/dialog';
-import type { ComponentProps } from 'react';
+import type { ComponentProps } from "react";
 
-const SheetPrimitiveRoot = ({modal = true, ...props}:ComponentProps<typeof Dialog.Root>) => <Dialog.Root {...props} modal={modal} />
+import { Dialog } from "@base-ui-components/react/dialog";
+
+const SheetPrimitiveRoot = ({
+  modal = true,
+  ...props
+}: ComponentProps<typeof Dialog.Root>) => (
+  <Dialog.Root {...props} modal={modal} />
+);
 
 export { SheetPrimitiveRoot };

@@ -1,1 +1,1 @@
-export * as SimpleDialog from './index.parts';
+export * as SimpleDialog from "./index.parts";

@@ -1,8 +1,11 @@
-import { Button } from "@/lib/components/button";
-import { DialogPrimitive } from "../primitives";
-import { XIcon } from "lucide-react";
-import { cn } from "@/lib/tools/cn";
 import type { ComponentProps, ReactNode } from "react";
+
+import { XIcon } from "lucide-react";
+
+import { Button } from "@/lib/components/button";
+import { cn } from "@/lib/tools/cn";
+
+import { DialogPrimitive } from "../primitives";
 
 const SimpleDialogHeader = ({
   title,

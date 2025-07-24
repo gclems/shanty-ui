@@ -1,1 +1,1 @@
-export * as AvatarPrimitive from './index.parts';
+export * as AvatarPrimitive from "./index.parts";

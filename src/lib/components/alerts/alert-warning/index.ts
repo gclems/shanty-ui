@@ -1,1 +1,1 @@
-export * as AlertWarning from './index.parts';
+export * as AlertWarning from "./index.parts";

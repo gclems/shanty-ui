@@ -1,6 +1,8 @@
-import { childrenAsRender } from "@/lib/tools/children-as-render";
-import { Dialog } from "@base-ui-components/react";
 import type { ComponentProps } from "react";
+
+import { Dialog } from "@base-ui-components/react";
+
+import { childrenAsRender } from "@/lib/tools/children-as-render";
 
 const SheetPrimitiveClose = ({
   children,

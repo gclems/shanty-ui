@@ -1,8 +1,11 @@
-import { cn } from "@/lib/tools/cn";
-import { Input as InputPrimitive } from "@base-ui-components/react/input";
 import { useState, type ComponentProps } from "react";
-import { Button } from "./button";
+
+import { Input as InputPrimitive } from "@base-ui-components/react/input";
 import { EyeClosed, EyeIcon } from "lucide-react";
+
+import { cn } from "@/lib/tools/cn";
+
+import { Button } from "./button";
 
 const Password = ({
   className,

@@ -1,1 +1,1 @@
-export * as SimpleSheet from './index.parts';
+export * as SimpleSheet from "./index.parts";

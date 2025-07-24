@@ -1,6 +1,8 @@
+import { mergeProps, useRender } from "@base-ui-components/react";
+
 import { useSidebar } from "@/lib/hooks/use-sidebar";
 import { cn } from "@/lib/tools/cn";
-import { mergeProps, useRender } from "@base-ui-components/react";
+
 import { SimpleTooltip } from "../../tooltips/simple-tooltip";
 
 interface SidebarPrimitiveMenuButtonProps

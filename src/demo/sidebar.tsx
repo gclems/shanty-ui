@@ -1,6 +1,8 @@
-import { HomeIcon } from "lucide-react";
-import { SidebarPrimitive } from "../index";
 import { useState } from "react";
+
+import { HomeIcon } from "lucide-react";
+
+import { SidebarPrimitive } from "../index";
 
 const Sidebar = () => {
   const [activeMenuKey, setActiveMenuKey] = useState<string>("menu1");

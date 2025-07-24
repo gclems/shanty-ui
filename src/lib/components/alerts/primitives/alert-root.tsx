@@ -1,6 +1,8 @@
-import { cn } from "@/lib/tools/cn";
 import type { ComponentProps } from "react";
+
 import { tv } from "tailwind-variants";
+
+import { cn } from "@/lib/tools/cn";
 
 const alert = tv({
   base: cn(

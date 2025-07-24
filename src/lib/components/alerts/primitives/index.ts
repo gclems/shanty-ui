@@ -1,1 +1,1 @@
-export * as AlertPrimitive from './index.parts';
+export * as AlertPrimitive from "./index.parts";

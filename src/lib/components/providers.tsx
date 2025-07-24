@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
-import { TooltipPrimitive } from "./tooltips/primitives";
+
 import { SidebarPrimitive } from "./sidebar/primitives";
+import { TooltipPrimitive } from "./tooltips/primitives";
 
 const Providers = ({
   tooltip,

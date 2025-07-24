@@ -1,7 +1,9 @@
-import { cn } from "@/lib/tools/cn";
+import type { ComponentProps } from "react";
+
 import { Accordion } from "@base-ui-components/react";
 import { PlusIcon } from "lucide-react";
-import type { ComponentProps } from "react";
+
+import { cn } from "@/lib/tools/cn";
 
 const AccordionPrimitiveTrigger = ({
   className,

@@ -1,7 +1,8 @@
-import { CheckIcon } from "lucide-react";
+import { ComponentProps } from "react";
 
 import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
-import { ComponentProps } from "react";
+import { CheckIcon } from "lucide-react";
+
 import { cn } from "../tools/cn";
 
 function Checkbox({

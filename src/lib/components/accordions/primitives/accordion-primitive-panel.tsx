@@ -1,6 +1,8 @@
-import { cn } from "@/lib/tools/cn";
-import { Accordion } from "@base-ui-components/react";
 import type { ComponentProps } from "react";
+
+import { Accordion } from "@base-ui-components/react";
+
+import { cn } from "@/lib/tools/cn";
 
 const AccordionPrimitivePanel = ({
   className,

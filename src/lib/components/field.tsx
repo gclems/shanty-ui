@@ -1,9 +1,12 @@
-import { cn } from "@/lib/tools/cn";
 import { mergeProps, useRender } from "@base-ui-components/react";
 
-interface FieldProps extends useRender.ComponentProps<"div"> {}
+import { cn } from "@/lib/tools/cn";
 
-const Field = ({ render = <div />, className, ...props }: FieldProps) =>
+const Field = ({
+  render = <div />,
+  className,
+  ...props
+}: useRender.ComponentProps<"div">) =>
   useRender({
     render,
     props: mergeProps<"div">(

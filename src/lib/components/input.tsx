@@ -1,6 +1,8 @@
-import { cn } from "@/lib/tools/cn";
-import { Input as InputPrimitive } from "@base-ui-components/react/input";
 import type { ComponentProps } from "react";
+
+import { Input as InputPrimitive } from "@base-ui-components/react/input";
+
+import { cn } from "@/lib/tools/cn";
 
 const Input = ({
   className,

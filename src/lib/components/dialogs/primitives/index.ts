@@ -1,1 +1,1 @@
-export * as DialogPrimitive from './index.parts';
+export * as DialogPrimitive from "./index.parts";

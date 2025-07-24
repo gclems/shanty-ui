@@ -1,6 +1,8 @@
-import { cn } from "@/lib/tools/cn";
-import { Radio } from "@base-ui-components/react/radio";
 import { ComponentProps } from "react";
+
+import { Radio } from "@base-ui-components/react/radio";
+
+import { cn } from "@/lib/tools/cn";
 
 function RadioTabRadio({
   children,

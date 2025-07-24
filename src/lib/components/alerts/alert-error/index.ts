@@ -1,1 +1,1 @@
-export * as AlertError from './index.parts';
+export * as AlertError from "./index.parts";

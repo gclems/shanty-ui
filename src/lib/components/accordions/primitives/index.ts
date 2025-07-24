@@ -1,1 +1,1 @@
-export * as AccordionPrimitive from './index.parts';
+export * as AccordionPrimitive from "./index.parts";

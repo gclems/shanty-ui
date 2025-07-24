@@ -1,6 +1,3 @@
-import { cn } from "@/index";
-import { SidebarContext, SidebarContextProps } from "./sidebar-context";
-import { useIsMobile } from "@/index";
 import {
   ComponentProps,
   CSSProperties,
@@ -9,6 +6,11 @@ import {
   useMemo,
   useState,
 } from "react";
+
+import { cn } from "@/index";
+import { useIsMobile } from "@/index";
+
+import { SidebarContext, SidebarContextProps } from "./sidebar-context";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;

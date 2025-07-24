@@ -1,5 +1,6 @@
-import { cn } from "@/lib/tools/cn";
 import type { ComponentProps } from "react";
+
+import { cn } from "@/lib/tools/cn";
 
 const Label = ({
   className,

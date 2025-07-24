@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+import { UserIcon } from "lucide-react";
+
 import {
   AlertError,
   AlertInfo,
@@ -23,7 +26,7 @@ import {
   SimpleTooltip,
   Table,
 } from "../index";
-import { UserIcon } from "lucide-react";
+
 import { Sidebar } from "./sidebar";
 
 function App() {

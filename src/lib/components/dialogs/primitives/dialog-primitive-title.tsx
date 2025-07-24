@@ -1,6 +1,8 @@
-import { cn } from "@/lib/tools/cn";
-import { Dialog } from "@base-ui-components/react";
 import type { ComponentProps } from "react";
+
+import { Dialog } from "@base-ui-components/react";
+
+import { cn } from "@/lib/tools/cn";
 
 const DialogPrimitiveTitle = ({
   className,
