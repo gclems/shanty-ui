@@ -4,6 +4,18 @@
   --background: var(--grey-50);
   --foreground: var(--grey-950);
 
+  --info: oklch(0.57 0.148 230.69);
+  --info-foreground: oklch(0.25 0.0419 230.69);
+
+  --success: oklch(0.58 0.1751 145.99);
+  --success-foreground: oklch(1 0 0);
+
+  --warning: oklch(0.7 0.1603 60.22);
+  --warning-foreground: oklch(0.27 0.0715 60.22);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+
   /** Nomenclature:
     * [component][sub-component?][variant?][state?][property]
     */
