@@ -1,1 +1,1 @@
-export * as ToastPrimitive from "./index.parts";
+export { Toast as ToastPrimitive } from "@base-ui-components/react/toast";

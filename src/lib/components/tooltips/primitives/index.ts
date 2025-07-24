@@ -1,3 +1,1 @@
-import { Tooltip } from "@base-ui-components/react/tooltip";
-
-export { Tooltip as TooltipPrimitive };
+export { Tooltip as TooltipPrimitive } from "@base-ui-components/react/tooltip";
