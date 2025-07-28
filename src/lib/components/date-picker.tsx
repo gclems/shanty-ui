@@ -20,7 +20,6 @@ interface DatePickerProps {
   onSelect?: (date: Date | null) => void | undefined;
   min?: Date | undefined;
   max?: Date | undefined;
-  clearable?: boolean;
 }
 
 const DatePicker: React.FC<DatePickerProps> = ({
@@ -31,7 +30,6 @@ const DatePicker: React.FC<DatePickerProps> = ({
   onSelect = undefined,
   min = undefined,
   max = undefined,
-  clearable = false,
 }) => {
   const [isOpened, setIsOpened] = React.useState(false);
 
