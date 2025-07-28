@@ -1,7 +1,5 @@
 import { PopoverPrimitive } from "../primitives";
 
-const SimplePopoverRoot = ({ children }: { children: React.ReactNode }) => (
-  <PopoverPrimitive.Root>{children}</PopoverPrimitive.Root>
-);
+const SimplePopoverRoot = PopoverPrimitive.Root;
 
 export { SimplePopoverRoot };

@@ -68,6 +68,7 @@ const Button = ({
   variant,
   square,
   className,
+  type = "button",
   ...props
 }: ButtonProps) => {
   return useRender({
@@ -76,7 +77,7 @@ const Button = ({
       {
         className: button({ variant, square, class: className }),
       },
-      { role },
+      { role, type },
       props,
     ),
   });

@@ -20,14 +20,17 @@ const SimpleSelect = ({
   const options: SimpleSelectItem[] = useMemo(() => {
     const opts = [...(items ?? [])];
     if (placeholder) {
-      opts.unshift({ label: placeholder, value: null });
+      opts.unshift({
+        label: <span className="text-input-placeholder">{placeholder}</span>,
+        value: null,
+      });
     }
     return opts;
   }, [items, placeholder]);
 
   return (
     <SelectPrimitive.Root {...props} items={options}>
-      <SelectPrimitive.Trigger className="border-input-border text-input-foreground bg-input-background focus-visible:outline-input-ring flex h-10 min-w-36 select-none items-center justify-between gap-3 rounded-md border pl-3.5 pr-3 text-base focus-visible:outline-2 focus-visible:-outline-offset-1">
+      <SelectPrimitive.Trigger className="border-input-border text-input-foreground bg-input-background focus-visible:outline-input-ring flex h-10 min-w-36 select-none items-center justify-between gap-3 rounded-sm border pl-3.5 pr-3 text-base focus-visible:outline-2 focus-visible:-outline-offset-1">
         <SelectPrimitive.Value />
         <SelectPrimitive.Icon className="flex">
           <ChevronDown />
@@ -35,8 +38,8 @@ const SimpleSelect = ({
       </SelectPrimitive.Trigger>
       <SelectPrimitive.Portal>
         <SelectPrimitive.Positioner className="outline-none" sideOffset={8}>
-          <SelectPrimitive.ScrollUpArrow className="bg-input-background top-0 z-[1] flex h-4 w-full cursor-default items-center justify-center rounded-md text-center text-xs before:absolute before:left-0 before:top-[-100%] before:h-full before:w-full before:content-[''] data-[direction=down]:bottom-0 data-[direction=down]:before:bottom-[-100%]" />
-          <SelectPrimitive.Popup className="border-input-border bg-input-background text-input-foreground group max-h-[var(--available-height)] origin-[var(--transform-origin)] overflow-y-auto rounded-md border py-1 shadow-lg shadow-gray-200 outline-none transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[side=none]:data-[starting-style]:scale-100 data-[starting-style]:scale-90 data-[ending-style]:opacity-0 data-[side=none]:data-[starting-style]:opacity-100 data-[starting-style]:opacity-0 data-[ending-style]:transition-none data-[side=none]:data-[starting-style]:transition-none">
+          <SelectPrimitive.ScrollUpArrow className="bg-input-background top-0 z-[1] flex h-4 w-full cursor-default items-center justify-center rounded-sm text-center text-xs before:absolute before:left-0 before:top-[-100%] before:h-full before:w-full before:content-[''] data-[direction=down]:bottom-0 data-[direction=down]:before:bottom-[-100%]" />
+          <SelectPrimitive.Popup className="border-input-border bg-input-background text-input-foreground group max-h-[var(--available-height)] origin-[var(--transform-origin)] overflow-y-auto rounded-sm border py-1 shadow-lg shadow-gray-200 outline-none transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[side=none]:data-[starting-style]:scale-100 data-[starting-style]:scale-90 data-[ending-style]:opacity-0 data-[side=none]:data-[starting-style]:opacity-100 data-[starting-style]:opacity-0 data-[ending-style]:transition-none data-[side=none]:data-[starting-style]:transition-none">
             {options.map(
               ({ label, value }: SimpleSelectItem, index: number) => (
                 <SelectPrimitive.Item
@@ -54,7 +57,7 @@ const SimpleSelect = ({
               ),
             )}
           </SelectPrimitive.Popup>
-          <SelectPrimitive.ScrollDownArrow className="bg-input-background bottom-0 z-[1] flex h-4 w-full cursor-default items-center justify-center rounded-md text-center text-xs before:absolute before:left-0 before:top-[-100%] before:h-full before:w-full before:content-[''] data-[direction=down]:bottom-0 data-[direction=down]:before:bottom-[-100%]" />
+          <SelectPrimitive.ScrollDownArrow className="bg-input-background bottom-0 z-[1] flex h-4 w-full cursor-default items-center justify-center rounded-sm text-center text-xs before:absolute before:left-0 before:top-[-100%] before:h-full before:w-full before:content-[''] data-[direction=down]:bottom-0 data-[direction=down]:before:bottom-[-100%]" />
         </SelectPrimitive.Positioner>
       </SelectPrimitive.Portal>
     </SelectPrimitive.Root>

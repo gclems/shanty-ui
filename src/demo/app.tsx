@@ -9,6 +9,7 @@ import {
   Badge,
   Button,
   Checkbox,
+  DatePicker,
   DialogPrimitive,
   Field,
   Input,
@@ -518,6 +519,8 @@ function InnerApp() {
           ]}
           name="toto"
         />
+
+        <DatePicker />
       </main>
     </>
   );

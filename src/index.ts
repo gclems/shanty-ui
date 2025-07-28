@@ -15,9 +15,13 @@ export { Badge } from "@/lib/components/badge";
 
 export { Button } from "@/lib/components/button";
 
+export { Calendar } from "@/lib/components/calendar";
+
 export { Card } from "@/lib/components/card";
 
 export { Checkbox } from "@/lib/components/checkbox";
+
+export { DatePicker } from "@/lib/components/date-picker";
 
 export { DialogPrimitive } from "@/lib/components/dialogs/primitives";
 export { SimpleDialog } from "@/lib/components/dialogs/simple-dialog";
