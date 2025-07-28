@@ -134,6 +134,9 @@
   --input-border: var(--grey-500);
   --input-ring: var(--peach-500);
 
+  --input-accent-background: var(--grey-100);
+  --input-accent-foreground: var(--grey-950);
+
   --checkbox-background: var(--grey-50);
   --checkbox-border: var(--grey-500);
   --checkbox-hover-background: var(--peach-50);

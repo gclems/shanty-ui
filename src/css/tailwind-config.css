@@ -164,6 +164,9 @@ body {
   --color-input-border: var(--input-border);
   --color-input-ring: var(--input-ring);
 
+  --color-input-accent-background: var(--input-accent-background);
+  --color-input-accent-foreground: var(--input-accent-foreground);
+
   --color-checkbox-background: var(--checkbox-background);
   --color-checkbox-border: var(--checkbox-border);
   --color-checkbox-hover-background: var(--checkbox-hover-background);
