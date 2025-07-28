@@ -41,6 +41,9 @@ export { RadioGroup } from "@/lib/components/radio-group";
 
 export { RadioTab } from "@/lib/components/radio-tab";
 
+export { SelectPrimitive } from "@/lib/components/select/primitives";
+export { SimpleSelect } from "@/lib/components/select/simple-select";
+
 export { SheetPrimitive } from "@/lib/components/sheets/primitives";
 export { SimpleSheet } from "@/lib/components/sheets/simple-sheet";
 

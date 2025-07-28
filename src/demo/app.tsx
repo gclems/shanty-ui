@@ -23,6 +23,7 @@ import {
   SimpleAvatar,
   SimpleDialog,
   SimplePopover,
+  SimpleSelect,
   SimpleSheet,
   SimpleTooltip,
   Table,
@@ -507,6 +508,16 @@ function InnerApp() {
             <div>Hola buenos dias</div>
           </SimplePopover.Popup>
         </SimplePopover.Root>
+
+        <SimpleSelect
+          placeholder="Select an option"
+          items={[
+            { label: "Option 1", value: "option1" },
+            { label: "Option 2", value: "option2" },
+            { label: "Option 3", value: "option3" },
+          ]}
+          name="toto"
+        />
       </main>
     </>
   );
