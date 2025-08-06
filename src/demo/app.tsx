@@ -24,6 +24,7 @@ import {
   SimpleAvatar,
   SimpleDialog,
   SimplePopover,
+  SimpleScrollArea,
   SimpleSelect,
   SimpleSheet,
   SimpleTooltip,
@@ -389,7 +390,22 @@ function InnerApp() {
                   You are all caught up. Good job!
                 </SheetPrimitive.Description>
 
-                <div>Here's the Sheet content</div>
+                <SimpleScrollArea>
+                  {[...Array(10)].map((_, index) => (
+                    <div key={index}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc facilisis est nec varius condimentum. Vestibulum eu
+                      tortor ultricies, fringilla nulla a, ultrices metus.
+                      Mauris tincidunt felis magna, et finibus mi commodo eu.
+                      Fusce sit amet auctor diam. Mauris nec consequat leo, quis
+                      vehicula leo. Vivamus et dapibus purus. Ut vulputate ipsum
+                      sit amet sollicitudin ultrices. Nullam facilisis fringilla
+                      velit id pulvinar. In nec nunc tellus. Phasellus nulla
+                      quam, dapibus et dapibus non, imperdiet in sapien. Nulla
+                      quis pretium mi.
+                    </div>
+                  ))}
+                </SimpleScrollArea>
 
                 <SheetPrimitive.Footer>
                   <SheetPrimitive.Close>
@@ -413,8 +429,21 @@ function InnerApp() {
                 title="Notifications"
                 description="You are all caught up. Good job!"
               />
-
-              <div>Here's the Sheet content</div>
+              <SimpleSheet.Body className="space-y-4">
+                {[...Array(10)].map((_, index) => (
+                  <div key={index}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nunc facilisis est nec varius condimentum. Vestibulum eu
+                    tortor ultricies, fringilla nulla a, ultrices metus. Mauris
+                    tincidunt felis magna, et finibus mi commodo eu. Fusce sit
+                    amet auctor diam. Mauris nec consequat leo, quis vehicula
+                    leo. Vivamus et dapibus purus. Ut vulputate ipsum sit amet
+                    sollicitudin ultrices. Nullam facilisis fringilla velit id
+                    pulvinar. In nec nunc tellus. Phasellus nulla quam, dapibus
+                    et dapibus non, imperdiet in sapien. Nulla quis pretium mi.
+                  </div>
+                ))}
+              </SimpleSheet.Body>
 
               <SimpleSheet.Footer>
                 <SimpleSheet.Close>

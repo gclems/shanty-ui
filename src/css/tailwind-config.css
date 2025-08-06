@@ -213,4 +213,7 @@ body {
   --color-popover-background: var(--popover-background);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover-border: var(--popover-border);
+
+  --color-scrollbar-background: var(--scrollbar-background);
+  --color-scrollbar-thumb: var(--scrollbar-thumb);
 }

@@ -180,4 +180,7 @@
   --popover-background: var(--grey-100);
   --popover-foreground: var(--grey-950);
   --popover-border: var(--grey-500);
+
+  --scrollbar-background: var(--grey-200);
+  --scrollbar-thumb: var(--grey-500);
 }
