@@ -10,7 +10,7 @@ import { Button } from "./button";
 const Password = ({
   className,
   spellCheck = false,
-  autoComplete = "current-password",
+  autoComplete = undefined,
   autoCapitalize = "off",
   ignore1Password = "true",
   ignoreLP = "true",
