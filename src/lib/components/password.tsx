@@ -10,14 +10,12 @@ import { Button } from "./button";
 const Password = ({
   className,
   spellCheck = false,
-  autoComplete = undefined,
+  autoComplete = "current-password",
   autoCapitalize = "off",
-  ignore1Password = "true",
-  ignoreLP = "true",
-  ignoreProtonPass = "true",
-  ignoreBitwarden = "true",
+  ignorePasswordManagers = false,
   ...props
 }: Omit<ComponentProps<typeof InputPrimitive>, "type"> & {
+  ignorePasswordManagers?: boolean;
   ignore1Password?: string;
   ignoreLP?: string;
   ignoreProtonPass?: string;
@@ -37,10 +35,10 @@ const Password = ({
         spellCheck={spellCheck}
         autoComplete={autoComplete}
         autoCapitalize={autoCapitalize}
-        data-1p-ignore={ignore1Password}
-        data-lpignore={ignoreLP}
-        data-protonpass-ignore={ignoreProtonPass}
-        data-bwignore={ignoreBitwarden}
+        data-1p-ignore={ignorePasswordManagers ? "true" : "false"}
+        data-lpignore={ignorePasswordManagers ? "true" : "false"}
+        data-protonpass-ignore={ignorePasswordManagers ? "true" : "false"}
+        data-bwignore={ignorePasswordManagers ? "true" : "false"}
         {...props}
       />
       <Button
