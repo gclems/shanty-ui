@@ -58,6 +58,8 @@ export { SidebarPrimitive } from "@/lib/components/sidebar/primitives";
 
 export { Table } from "@/lib/components/table";
 
+export { Textarea } from "@/lib/components/textarea";
+
 export { ToastPrimitive } from "@/lib/components/toasts/primitives";
 export { SimpleToast } from "@/lib/components/toasts/simple-toast";
 

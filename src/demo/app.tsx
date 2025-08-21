@@ -29,6 +29,7 @@ import {
   SimpleSheet,
   SimpleTooltip,
   Table,
+  Textarea,
   useToastManager,
 } from "../index";
 
@@ -472,6 +473,12 @@ function InnerApp() {
             name="password"
             placeholder="Type something..."
           />
+        </Field>
+        <Field className="m-4 p-4">
+          <Label htmlFor="test" required>
+            Test textarea
+          </Label>
+          <Textarea id="test" name="test" placeholder="Type something..." />
         </Field>
 
         <Field className="m-4 p-4">
