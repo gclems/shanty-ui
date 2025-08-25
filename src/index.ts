@@ -63,6 +63,12 @@ export { Textarea } from "@/lib/components/textarea";
 export { ToastPrimitive } from "@/lib/components/toasts/primitives";
 export { SimpleToast } from "@/lib/components/toasts/simple-toast";
 
+export { TogglePrimitive } from "@/lib/components/toggles/toggle-primitive";
+export { SimpleToggle } from "@/lib/components/toggles/simple-toggle";
+
+export { ToggleGroupPrimitive } from "@/lib/components/toggle-groups/toggle-group-primitive";
+export { SimpleToggleGroup } from "@/lib/components/toggle-groups/simple-toggle-group";
+
 export { TooltipPrimitive } from "@/lib/components/tooltips/primitives";
 export { SimpleTooltip } from "@/lib/components/tooltips/simple-tooltip";
 
