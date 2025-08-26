@@ -23,10 +23,10 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           npm-auth-token: ${{ secrets.NPM_TOKEN }}
 
-      - name: Install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+      - uses: pnpm/action-setup@v4
+        name: Install PNPM
+        with:
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
