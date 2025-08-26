@@ -51,6 +51,8 @@ export { SimpleScrollArea } from "@/lib/components/scroll-area/simple-scroll-are
 export { SelectPrimitive } from "@/lib/components/select/primitives";
 export { SimpleSelect } from "@/lib/components/select/simple-select";
 
+export { Separator } from "@/lib/components/separator";
+
 export { SheetPrimitive } from "@/lib/components/sheets/primitives";
 export { SimpleSheet } from "@/lib/components/sheets/simple-sheet";
 
