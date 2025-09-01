@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import { UserIcon } from "lucide-react";
 
+import { SimpleContextMenu } from "@/lib/components/context-menus/simple-context-menu";
+
 import {
   AlertError,
   AlertInfo,
@@ -557,6 +559,24 @@ function InnerApp() {
         />
 
         <DatePicker />
+
+        <div className="">
+          <SimpleContextMenu.Root>
+            <SimpleContextMenu.Trigger
+              render={<Button>Right click !</Button>}
+            />
+            <SimpleContextMenu.Popup>
+              <SimpleContextMenu.Item>
+                <UserIcon /> Item 1
+              </SimpleContextMenu.Item>
+              <SimpleContextMenu.Item>Item 2</SimpleContextMenu.Item>
+              <SimpleContextMenu.Item>Item 3</SimpleContextMenu.Item>
+              <SimpleContextMenu.Separator />
+              <SimpleContextMenu.Item>Item 4</SimpleContextMenu.Item>
+              <SimpleContextMenu.Item>Item 5</SimpleContextMenu.Item>
+            </SimpleContextMenu.Popup>
+          </SimpleContextMenu.Root>
+        </div>
       </main>
     </>
   );

@@ -21,6 +21,9 @@ export { Card } from "@/lib/components/card";
 
 export { Checkbox } from "@/lib/components/checkbox";
 
+export { ContextMenuPrimitive } from "@/lib/components/context-menus/primitives";
+export { SimpleContextMenu } from "@/lib/components/context-menus/simple-context-menu";
+
 export { DatePicker } from "@/lib/components/date-picker";
 
 export { DialogPrimitive } from "@/lib/components/dialogs/primitives";
