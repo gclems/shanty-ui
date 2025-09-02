@@ -35,6 +35,9 @@ export { Input } from "@/lib/components/input";
 
 export { Label } from "@/lib/components/label";
 
+export { MenuPrimitive } from "@/lib/components/menus/primitives";
+export { SimpleMenu } from "@/lib/components/menus/simple-menu";
+
 export { NumberFieldPrimitive } from "@/lib/components/number-fields/primitives";
 
 export { Password } from "@/lib/components/password";
