@@ -2,6 +2,7 @@
 import { UserIcon } from "lucide-react";
 
 import { SimpleContextMenu } from "@/lib/components/context-menus/simple-context-menu";
+import { SimpleMenu } from "@/lib/components/menus/simple-menu";
 
 import {
   AlertError,
@@ -576,6 +577,22 @@ function InnerApp() {
               <SimpleContextMenu.Item>Item 5</SimpleContextMenu.Item>
             </SimpleContextMenu.Popup>
           </SimpleContextMenu.Root>
+        </div>
+
+        <div className="">
+          <SimpleMenu.Root>
+            <SimpleMenu.Trigger render={<Button>Click !</Button>} />
+            <SimpleMenu.Popup>
+              <SimpleMenu.Item>
+                <UserIcon /> Item 1
+              </SimpleMenu.Item>
+              <SimpleMenu.Item>Item 2</SimpleMenu.Item>
+              <SimpleMenu.Item>Item 3</SimpleMenu.Item>
+              <SimpleMenu.Separator />
+              <SimpleMenu.Item>Item 4</SimpleMenu.Item>
+              <SimpleMenu.Item>Item 5</SimpleMenu.Item>
+            </SimpleMenu.Popup>
+          </SimpleMenu.Root>
         </div>
       </main>
     </>
