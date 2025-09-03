@@ -49,6 +49,9 @@ export { Providers } from "@/lib/components/providers";
 
 export { RadioGroup } from "@/lib/components/radio-group";
 
+export { RadioPrimitive } from "@/lib/components/radio/primitives";
+export { SimpleRadio } from "@/lib/components/radio/simple-radio";
+
 export { RadioTab } from "@/lib/components/radio-tab";
 
 export { ScrollArea } from "@/lib/components/scroll-area/primitives";
