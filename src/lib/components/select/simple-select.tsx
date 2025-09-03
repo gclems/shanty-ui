@@ -29,7 +29,7 @@ const SimpleSelect = ({
   }, [items, placeholder]);
 
   return (
-    <SelectPrimitive.Root {...props} items={options}>
+    <SelectPrimitive.Root {...props}>
       <SelectPrimitive.Trigger className="border-input-border text-input-foreground bg-input-background focus-visible:outline-input-ring flex h-10 min-w-36 select-none items-center justify-between gap-3 rounded-sm border pl-3.5 pr-3 text-base focus-visible:outline-2 focus-visible:-outline-offset-1">
         <SelectPrimitive.Value />
         <SelectPrimitive.Icon className="flex">

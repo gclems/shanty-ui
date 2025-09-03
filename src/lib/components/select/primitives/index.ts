@@ -1,1 +1,1 @@
-export { Select as SelectPrimitive } from "@base-ui-components/react";
+export { Select as SelectPrimitive } from "@base-ui-components/react/select";
