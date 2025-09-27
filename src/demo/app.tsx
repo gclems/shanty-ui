@@ -44,7 +44,7 @@ function InnerApp() {
   return (
     <>
       <Sidebar />
-      <main className="p-4">
+      <main className="root p-4">
         <SidebarPrimitive.Trigger />
         <div className="flex gap-4">
           <SimpleAvatar

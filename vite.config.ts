@@ -45,18 +45,13 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: "src/index.ts",
+        "unstyled-primitives": "src/unstyled-primitives.ts",
       },
       output: {
         preserveModules: true,
         preserveModulesRoot: "src",
         entryFileNames: "[name].js",
       },
-      // external: [
-      //   ...Object.keys(pkg.dependencies || {}),
-      //   ...Object.keys(pkg.devDependencies || {}),
-      //   ...Object.keys(pkg.peerDependencies || {}),
-      //   "react/jsx-runtime",
-      // ],
       external: (id) => {
         return (
           /^react/.test(id) ||
