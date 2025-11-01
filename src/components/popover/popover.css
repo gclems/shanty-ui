@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@layer components {
+  .popover-popup {
+    @apply px-6 py-4;
+    @apply origin-(--transform-origin) transition-[transform,scale,opacity];
+    @apply bg-(--modal) text-(--modal-foreground) shadow-sm;
+    @apply data-ending-style:scale-90 data-ending-style:opacity-0;
+    @apply data-starting-style:scale-90 data-starting-style:opacity-0;
+  }
+
+  .popover-popup-arrow {
+    @apply data-[side=bottom]:-top-2;
+    @apply data-[side=left]:right-[-13px] data-[side=left]:rotate-90;
+    @apply data-[side=right]:left-[-13px] data-[side=right]:-rotate-90;
+    @apply data-[side=top]:-bottom-2 data-[side=top]:rotate-180;
+  }
+}

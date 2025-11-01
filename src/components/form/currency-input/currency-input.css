@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@layer components {
+  .currency-input {
+    @apply relative w-full;
+  }
+
+  .currency-input-input[data-has-overlay="true"] {
+    @apply text-transparent caret-black;
+  }
+
+  .currency-input-overlay {
+    @apply pointer-events-none;
+    @apply absolute inset-0;
+    @apply flex items-center px-3.5;
+    @apply text-base;
+  }
+
+  .currency-input-overlay-major {
+    @apply text-(--input-foreground);
+  }
+  .currency-input-overlay-minor {
+    @apply text-(--input-placeholder);
+  }
+}

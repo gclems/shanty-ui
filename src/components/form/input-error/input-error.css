@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .input-error {
+    @apply text-sm text-(--destructive);
+  }
+}

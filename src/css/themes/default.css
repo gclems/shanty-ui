@@ -1,192 +1,46 @@
-@import "./default-colors.css";
-
 :root {
-  --background: var(--grey-50);
-  --foreground: var(--grey-950);
+  --radius-base: 8px;
+
+  --radius-sm: calc(var(--radius-base) - 4px);
+  --radius-md: calc(var(--radius-base) - 2px);
+  --radius-lg: var(--radius-base);
+  --radius-xl: calc(var(--radius-base) + 4px);
+  --radius-2xl: calc(var(--radius-base) + 8px);
+  --radius-3xl: calc(var(--radius-base) + 12px);
+  --radius-4xl: calc(var(--radius-base) + 16px);
+
+  --background: oklch(0.9576 0.0016 278.71);
+  --foreground: oklch(0.2341 0.0186 107.75);
+
+  --input: oklch(91.973% 0.00413 285.946);
+  --input-foreground: oklch(0.2341 0.0186 107.75);
+  --input-placeholder: oklch(55.648% 0.0126 274.738);
+  --input-border: oklch(0.4349 0.0296 276.66);
+
+  --modal: oklch(0.9576 0.0016 278.71);
+  --modal-foreground: oklch(0.2341 0.0186 107.75);
+
+  --muted: oklch(0.8693 0.0052 278.64);
+  --muted-foreground: oklch(0.5071 0.0511 108.09);
+
+  --primary: oklch(0.3945 0.1576 353.84);
+  --primary-foreground: oklch(0.9088 0.0354 343.55);
+
+  --secondary: oklch(0.2837 0.1409 293.61);
+  --secondary-foreground: oklch(0.9064 0.0265 304.07);
+
+  --neutral: oklch(0.6956 0 353.84);
+  --neutral-foreground: oklch(0.1985 0.0123 353.84);
+
+  --success: oklch(0.7015 0.1554 146.65);
+  --success-foreground: oklch(0.3897 0.1209 146.65);
 
   --info: oklch(0.57 0.148 230.69);
-  --info-foreground: oklch(0.25 0.0419 230.69);
+  --info-foreground: oklch(1 0 0);
 
-  --success: oklch(0.58 0.1751 145.99);
-  --success-foreground: oklch(1 0 0);
-
-  --warning: oklch(0.7 0.1603 60.22);
-  --warning-foreground: oklch(0.27 0.0715 60.22);
+  --warning: oklch(69.27% 0.14904 62.397);
+  --warning-foreground: oklch(1 0 0);
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-
-  /** Nomenclature:
-    * [component][sub-component?][variant?][state?][property]
-    */
-
-  --accordion-trigger-background: var(--grey-100);
-  --accordion-trigger-foreground: var(--grey-950);
-  --accordion-trigger-hover-background: var(--grey-200);
-  --accordion-trigger-hover-foreground: var(--grey-950);
-  --accordion-panel-background: var(--grey-50);
-  --accordion-panel-foreground: var(--grey-950);
-  --accordion-item-border: var(--grey-200);
-  --accordion-trigger-ring: var(--peach-500);
-
-  --alert-info-background: var(--sea-blue-100);
-  --alert-info-foreground: var(--sea-blue-950);
-  --alert-info-border: var(--sea-blue-300);
-
-  --alert-warning-background: var(--sand-200);
-  --alert-warning-foreground: var(--sand-950);
-  --alert-warning-border: var(--sand-300);
-
-  --alert-error-background: var(--dark-salmon-200);
-  --alert-error-foreground: var(--dark-salmon-950);
-  --alert-error-border: var(--dark-salmon-300);
-
-  --badge-primary-background: var(--peach-200);
-  --badge-primary-foreground: var(--peach-950);
-  --badge-primary-border: var(--peach-300);
-
-  --badge-secondary-background: var(--sea-blue-300);
-  --badge-secondary-foreground: var(--sea-grey-950);
-  --badge-secondary-border: var(--sea-blue-500);
-
-  --badge-neutral-background: var(--grey-100);
-  --badge-neutral-foreground: var(--grey-950);
-  --badge-neutral-border: var(--grey-300);
-
-  --badge-info-background: var(--sea-blue-100);
-  --badge-info-foreground: var(--sea-blue-950);
-  --badge-info-border: var(--sea-blue-300);
-
-  --badge-success-background: var(--hospital-green-400);
-  --badge-success-foreground: var(--hospital-green-950);
-  --badge-success-border: var(--hospital-green-700);
-
-  --badge-warning-background: var(--sand-200);
-  --badge-warning-foreground: var(--sand-950);
-  --badge-warning-border: var(--sand-300);
-
-  --badge-error-background: var(--dark-salmon-200);
-  --badge-error-foreground: var(--dark-salmon-950);
-  --badge-error-border: var(--dark-salmon-300);
-
-  --button-primary-background: var(--peach-500);
-  --button-primary-foreground: var(--grey-950);
-  --button-primary-border: var(--peach-500);
-  --button-primary-hover-background: var(--peach-400);
-  --button-primary-hover-foreground: var(--grey-950);
-  --button-primary-hover-border: var(--peach-400);
-  --button-primary-active-background: var(--peach-600);
-  --button-primary-active-foreground: var(--grey-950);
-  --button-primary-active-border: var(--peach-600);
-  --button-primary-ring: var(--peach-500);
-
-  --button-secondary-background: var(--sea-blue-500);
-  --button-secondary-foreground: var(--grey-50);
-  --button-secondary-border: var(--sea-blue-500);
-  --button-secondary-hover-background: var(--sea-blue-400);
-  --button-secondary-hover-foreground: var(--grey-50);
-  --button-secondary-hover-border: var(--sea-blue-400);
-  --button-secondary-active-background: var(--sea-blue-600);
-  --button-secondary-active-foreground: var(--grey-50);
-  --button-secondary-active-border: var(--sea-blue-600);
-  --button-secondary-ring: var(--sea-blue-500);
-
-  --button-ghost-background: transparent;
-  --button-ghost-foreground: var(--grey-950);
-  --button-ghost-border: transparent;
-  --button-ghost-hover-background: var(--grey-200);
-  --button-ghost-hover-foreground: var(--grey-950);
-  --button-ghost-hover-border: transparent;
-  --button-ghost-active-background: var(--grey-300);
-  --button-ghost-active-foreground: var(--grey-950);
-  --button-ghost-active-border: transparent;
-  --button-ghost-ring: var(--grey-200);
-
-  --button-link-foreground: var(--grey-950);
-  --button-link-hover-foreground: var(--peach-600);
-  --button-link-active-foreground: var(--peach-700);
-  --button-link-ring: var(--grey-200);
-
-  --button-destructive-background: var(--dark-salmon-600);
-  --button-destructive-foreground: var(--grey-50);
-  --button-destructive-border: var(--dark-salmon-600);
-  --button-destructive-hover-background: var(--dark-salmon-500);
-  --button-destructive-hover-foreground: var(--grey-50);
-  --button-destructive-hover-border: var(--dark-salmon-500);
-  --button-destructive-active-background: var(--dark-salmon-700);
-  --button-destructive-active-foreground: var(--grey-50);
-  --button-destructive-active-border: var(--dark-salmon-700);
-  --button-destructive-ring: var(--dark-salmon-500);
-
-  --dialog-backdrop: oklch(0 0 0);
-  --dialog-background: var(--grey-50);
-  --dialog-foreground: var(--grey-950);
-  --dialog-border: var(--grey-500);
-  --dialog-description-foreground: var(--grey-600);
-
-  --card-background: var(--grey-50);
-  --card-foreground: var(--grey-950);
-  --card-border: var(--grey-200);
-
-  --input-background: var(--grey-50);
-  --input-foreground: var(--grey-950);
-  --input-placeholder: var(--grey-500);
-  --input-border: var(--grey-500);
-  --input-ring: var(--peach-500);
-
-  --input-accent-background: var(--grey-100);
-  --input-accent-foreground: var(--grey-950);
-
-  --checkbox-background: var(--grey-50);
-  --checkbox-border: var(--grey-500);
-  --checkbox-hover-background: var(--peach-50);
-  --checkbox-checked-background: var(--peach-500);
-  --checkbox-checked-foreground: var(--grey-50);
-  --checkbox-checked-border: var(--peach-500);
-
-  --context-menu-background: var(--grey-100);
-  --context-menu-item-background: var(--grey-100);
-  --context-menu-item-foreground: var(--grey-950);
-  --context-menu-item-hover-background: var(--grey-200);
-  --context-menu-item-hover-foreground: var(--grey-950);
-
-  --label-foreground: var(--grey-950);
-  --label-required: var(--dark-salmon-500);
-
-  --tooltip-background: var(--grey-950);
-  --tooltip-foreground: var(--grey-50);
-
-  --sidebar-background: var(--grey-100);
-  --sidebar-border: var(--grey-400);
-
-  --sidebar-item-background: var(--grey-100);
-  --sidebar-item-foregroundground: var(--grey-950);
-  --sidebar-item-hover-background: var(--grey-200);
-  --sidebar-item-hover-foreground: var(--grey-950);
-  --sidebar-item-active-background: var(--peach-500);
-  --sidebar-item-active-foreground: var(--grey-50);
-
-  --sidebar-item-selected-background: var(--peach-300);
-  --sidebar-item-selected-foreground: var(--grey-950);
-
-  --table-background: var(--grey-100);
-  --table-foreground: var(--grey-950);
-  --table-border: var(--grey-500);
-  --table-header-background: var(--grey-200);
-  --table-header-foreground: var(--grey-950);
-  --table-row-hover-background: var(--grey-200);
-  --table-row-hover-foreground: var(--grey-950);
-  --table-footer-background: var(--grey-200);
-  --table-footer-foreground: var(--grey-950);
-
-  --toast-background: var(--grey-100);
-  --toast-foreground: var(--grey-950);
-  --toast-border: var(--grey-500);
-
-  --popover-background: var(--grey-100);
-  --popover-foreground: var(--grey-950);
-  --popover-border: var(--grey-500);
-
-  --scrollbar-background: var(--grey-200);
-  --scrollbar-thumb: var(--grey-500);
 }

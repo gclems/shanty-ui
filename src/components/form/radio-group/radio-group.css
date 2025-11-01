@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .radio-group {
+    @apply flex flex-col items-start gap-1 text-current;
+  }
+}

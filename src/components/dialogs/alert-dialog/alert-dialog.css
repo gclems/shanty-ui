@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@layer components {
+  .alert-dialog-popup {
+    @apply fixed top-1/2 left-1/2;
+    @apply -mt-8 -translate-x-1/2 -translate-y-1/2;
+    @apply rounded-(--radius-lg) bg-(--modal) text-(--modal-foreground);
+    @apply shadow-2xl;
+    @apply py-6;
+    @apply transition-all duration-150;
+    @apply data-ending-style:scale-90 data-ending-style:opacity-0;
+    @apply data-starting-style:scale-90 data-starting-style:opacity-0;
+    @apply motion-reduce:transition-none;
+  }
+
+  .alert-dialog-popup[data-size="sm"] {
+    @apply w-[min(20rem,calc(100vw-4rem))];
+  }
+
+  .alert-dialog-popup[data-size="md"] {
+    @apply w-[min(31.25rem,calc(100vw-4rem))];
+  }
+
+  .alert-dialog-popup[data-size="lg"] {
+    @apply w-[min(50rem,calc(100vw-4rem))];
+  }
+
+  .alert-dialog-popup[data-size="xl"] {
+    @apply w-[min(71.25rem,calc(100vw-4rem))];
+  }
+
+  .alert-dialog-title {
+    @apply -mt-1.5 px-6 text-lg font-medium;
+  }
+
+  .alert-dialog-body {
+    @apply px-6 text-sm;
+  }
+
+  .alert-dialog-footer {
+    @apply mt-4 flex justify-end gap-4 px-6;
+  }
+}

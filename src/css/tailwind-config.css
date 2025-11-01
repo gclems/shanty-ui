@@ -1,10 +1,45 @@
 body {
+  position: relative;
   @apply bg-background text-foreground;
 }
 
 @theme inline {
+  /**
+  * RADIUS
+  **/
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-3xl: var(--radius-3xl);
+  --radius-4xl: var(--radius-4xl);
+
+  /** 
+  * COLORS 
+  **/
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-muted-background: var(--muted-background);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-modal: var(--modal);
+  --color-modal-foreground: var(--modal-foreground);
+
+  --color-input: var(--input);
+  --color-input-foreground: var(--input-foreground);
+  --color-input-placeholder: var(--input-placeholder);
+  --color-input-border: var(--input-border);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-neutral: var(--neutral);
+  --color-neutral-foreground: var(--neutral-foreground);
 
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
@@ -17,213 +52,4 @@ body {
 
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-
-  --color-accordion-trigger-background: var(--accordion-trigger-background);
-  --color-accordion-trigger-foreground: var(--accordion-trigger-foreground);
-  --color-accordion-trigger-hover-background: var(
-    --accordion-trigger-hover-background
-  );
-  --color-accordion-trigger-hover-foreground: var(
-    --accordion-trigger-hover-foreground
-  );
-  --color-accordion-panel-background: var(--accordion-panel-background);
-  --color-accordion-panel-foreground: var(--accordion-panel-foreground);
-  --color-accordion-item-border: var(--accordion-item-border);
-  --color-accordion-trigger-ring: var(--accordion-trigger-ring);
-
-  --color-alert-info-background: var(--alert-info-background);
-  --color-alert-info-foreground: var(--alert-info-foreground);
-  --color-alert-info-border: var(--alert-info-border);
-
-  --color-alert-warning-background: var(--alert-warning-background);
-  --color-alert-warning-foreground: var(--alert-warning-foreground);
-  --color-alert-warning-border: var(--alert-warning-border);
-
-  --color-alert-error-background: var(--alert-error-background);
-  --color-alert-error-foreground: var(--alert-error-foreground);
-  --color-alert-error-border: var(--alert-error-border);
-
-  --color-badge-primary-background: var(--badge-primary-background);
-  --color-badge-primary-foreground: var(--badge-primary-foreground);
-  --color-badge-primary-border: var(--badge-primary-border);
-
-  --color-badge-secondary-background: var(--badge-secondary-background);
-  --color-badge-secondary-foreground: var(--badge-secondary-foreground);
-  --color-badge-secondary-border: var(--badge-secondary-border);
-
-  --color-badge-neutral-background: var(--badge-neutral-background);
-  --color-badge-neutral-foreground: var(--badge-neutral-foreground);
-  --color-badge-neutral-border: var(--badge-neutral-border);
-
-  --color-badge-info-background: var(--badge-info-background);
-  --color-badge-info-foreground: var(--badge-info-foreground);
-  --color-badge-info-border: var(--badge-info-border);
-
-  --color-badge-success-background: var(--badge-success-background);
-  --color-badge-success-foreground: var(--badge-success-foreground);
-  --color-badge-success-border: var(--badge-success-border);
-
-  --color-badge-warning-background: var(--badge-warning-background);
-  --color-badge-warning-foreground: var(--badge-warning-foreground);
-  --color-badge-warning-border: var(--badge-warning-border);
-
-  --color-badge-error-background: var(--badge-error-background);
-  --color-badge-error-foreground: var(--badge-error-foreground);
-  --color-badge-error-border: var(--badge-error-border);
-
-  --color-button-primary-background: var(--button-primary-background);
-  --color-button-primary-foreground: var(--button-primary-foreground);
-  --color-button-primary-border: var(--button-primary-border);
-  --color-button-primary-hover-background: var(
-    --button-primary-hover-background
-  );
-  --color-button-primary-hover-foreground: var(
-    --button-primary-hover-foreground
-  );
-  --color-button-primary-hover-border: var(--button-primary-hover-border);
-  --color-button-primary-active-background: var(
-    --button-primary-active-background
-  );
-  --color-button-primary-active-foreground: var(
-    --button-primary-active-foreground
-  );
-  --color-button-primary-active-border: var(--button-primary-active-border);
-  --color-button-primary-ring: var(--button-primary-ring);
-
-  --color-button-secondary-background: var(--button-secondary-background);
-  --color-button-secondary-foreground: var(--button-secondary-foreground);
-  --color-button-secondary-border: var(--button-secondary-border);
-  --color-button-secondary-hover-background: var(
-    --button-secondary-hover-background
-  );
-  --color-button-secondary-hover-foreground: var(
-    --button-secondary-hover-foreground
-  );
-  --color-button-secondary-hover-border: var(--button-secondary-hover-border);
-  --color-button-secondary-active-background: var(
-    --button-secondary-active-background
-  );
-  --color-button-secondary-active-foreground: var(
-    --button-secondary-active-foreground
-  );
-  --color-button-secondary-active-border: var(--button-secondary-active-border);
-  --color-button-secondary-ring: var(--button-secondary-ring);
-
-  --color-button-ghost-background: var(--button-ghost-background);
-  --color-button-ghost-foreground: var(--button-ghost-foreground);
-  --color-button-ghost-border: var(--button-ghost-border);
-  --color-button-ghost-hover-background: var(--button-ghost-hover-background);
-  --color-button-ghost-hover-foreground: var(--button-ghost-hover-foreground);
-  --color-button-ghost-hover-border: var(--button-ghost-hover-border);
-  --color-button-ghost-active-background: var(--button-ghost-active-background);
-  --color-button-ghost-active-foreground: var(--button-ghost-active-foreground);
-  --color-button-ghost-active-border: var(--button-ghost-active-border);
-  --color-button-ghost-ring: var(--button-ghost-ring);
-
-  --color-button-link-foreground: var(--button-link-foreground);
-  --color-button-link-hover-foreground: var(--button-link-hover-foreground);
-  --color-button-link-active-foreground: var(--button-link-active-foreground);
-  --color-button-link-ring: var(--button-link-ring);
-
-  --color-button-destructive-background: var(--button-destructive-background);
-  --color-button-destructive-foreground: var(--button-destructive-foreground);
-  --color-button-destructive-border: var(--button-destructive-border);
-  --color-button-destructive-hover-background: var(
-    --button-destructive-hover-background
-  );
-  --color-button-destructive-hover-foreground: var(
-    --button-destructive-hover-foreground
-  );
-  --color-button-destructive-hover-border: var(
-    --button-destructive-hover-border
-  );
-  --color-button-destructive-active-background: var(
-    --button-destructive-active-background
-  );
-  --color-button-destructive-active-foreground: var(
-    --button-destructive-active-foreground
-  );
-  --color-button-destructive-active-border: var(
-    --button-destructive-active-border
-  );
-  --color-button-destructive-ring: var(--button-destructive-ring);
-
-  --color-dialog-backdrop: var(--dialog-backdrop);
-  --color-dialog-background: var(--dialog-background);
-  --color-dialog-foreground: var(--dialog-foreground);
-  --color-dialog-border: var(--dialog-border);
-  --color-dialog-description-foreground: var(--dialog-description-foreground);
-
-  --color-card-background: var(--card-background);
-  --color-card-foreground: var(--card-foreground);
-  --color-card-border: var(--card-border);
-
-  --color-input-background: var(--input-background);
-  --color-input-foreground: var(--input-foreground);
-  --color-input-placeholder: var(--input-placeholder);
-  --color-input-border: var(--input-border);
-  --color-input-ring: var(--input-ring);
-
-  --color-input-accent-background: var(--input-accent-background);
-  --color-input-accent-foreground: var(--input-accent-foreground);
-
-  --color-checkbox-background: var(--checkbox-background);
-  --color-checkbox-border: var(--checkbox-border);
-  --color-checkbox-hover-background: var(--checkbox-hover-background);
-  --color-checkbox-checked-background: var(--checkbox-checked-background);
-  --color-checkbox-checked-foreground: var(--checkbox-checked-foreground);
-  --color-checkbox-checked-border: var(--checkbox-checked-border);
-
-  --color-context-menu-background: var(--context-menu-background);
-  --color-context-menu-item-background: var(--context-menu-item-background);
-  --color-context-menu-item-foreground: var(--context-menu-item-foreground);
-  --color-context-menu-item-hover-background: var(
-    --context-menu-item-hover-background
-  );
-  --color-context-menu-item-hover-foreground: var(
-    --context-menu-item-hover-foreground
-  );
-
-  --color-tooltip-background: var(--tooltip-background);
-  --color-tooltip-foreground: var(--tooltip-foreground);
-
-  --color-label-foreground: var(--label-foreground);
-  --color-label-required: var(--label-required);
-
-  --color-sidebar-background: var(--sidebar-background);
-  --color-sidebar-border: var(--sidebar-border);
-
-  --color-sidebar-item-background: var(--sidebar-item-background);
-  --color-sidebar-item-foreground: var(--sidebar-item-foreground);
-  --color-sidebar-item-hover-background: var(--sidebar-item-hover-background);
-  --color-sidebar-item-hover-foreground: var(--sidebar-item-hover-foreground);
-  --color-sidebar-item-active-background: var(--sidebar-item-active-background);
-  --color-sidebar-item-active-foreground: var(--sidebar-item-active-foreground);
-  --color-sidebar-item-selected-background: var(
-    --sidebar-item-selected-background
-  );
-  --color-sidebar-item-selected-foreground: var(
-    --sidebar-item-selected-foreground
-  );
-
-  --color-table-background: var(--table-background);
-  --color-table-foreground: var(--table-foreground);
-  --color-table-border: var(--table-border);
-  --color-table-header-background: var(--table-header-background);
-  --color-table-header-foreground: var(--table-header-foreground);
-  --color-table-row-hover-background: var(--table-row-hover-background);
-  --color-table-row-hover-foreground: var(--table-row-hover-foreground);
-  --color-table-footer-background: var(--table-footer-background);
-  --color-table-footer-foreground: var(--table-footer-foreground);
-
-  --color-toast-background: var(--toast-background);
-  --color-toast-foreground: var(--toast-foreground);
-  --color-toast-border: var(--toast-border);
-
-  --color-popover-background: var(--popover-background);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover-border: var(--popover-border);
-
-  --color-scrollbar-background: var(--scrollbar-background);
-  --color-scrollbar-thumb: var(--scrollbar-thumb);
 }
