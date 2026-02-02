@@ -1,5 +1,5 @@
 name: ✈️ Publish on NPMJS
-run-name: ✈️ Publish ${{ inputs.version }}
+run-name: ✈️ Publish ${{ inputs.version }} ${{ inputs.tag }}
 
 on:
   workflow_dispatch:

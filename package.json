@@ -15,9 +15,9 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.js",
-      "require": "./dist/components/index.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
     },
     "./base": "./dist/base-ui.js",
     "./tools": "./dist/tools/index.js",
