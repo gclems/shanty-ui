@@ -1,5 +1,9 @@
 {
   "name": "shanty-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gclems/shanty-ui.git"
+  },
   "private": false,
   "version": "0.0.0",
   "type": "module",

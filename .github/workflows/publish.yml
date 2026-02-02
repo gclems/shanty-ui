@@ -5,8 +5,15 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version (e.g., 1.0.0)"
+        description: "Version (e.g., 2.0.0)"
         required: true
+      tag:
+        description: "Pre-release tag (e.g., alpha.1)"
+        required: false
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   release:
@@ -16,12 +23,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js and enable pnpm
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: "https://registry.npmjs.org"
-          npm-auth-token: ${{ secrets.NPM_TOKEN }}
 
       - uses: pnpm/action-setup@v4
         name: Install PNPM
@@ -30,6 +36,8 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+        env:
+          PNPM_SKIP_BUILD_APPROVAL: 1
 
       - name: Build project
         run: |
@@ -39,10 +47,21 @@ jobs:
 
       - name: Set version
         run: |
-          echo "Setting version to ${{ inputs.version }}"
-          pnpm version ${{ inputs.version }} --no-git-tag-version
+          echo "Setting version to ${{ inputs.version }} ${{ inputs.tag || 'latest' }}"
+          if [ -n "${{ inputs.tag }}" ]; then
+            pnpm version ${{ inputs.version }} --no-git-tag-version --prerelease --preid ${{ inputs.tag }}
+          else
+            pnpm version ${{ inputs.version }} --no-git-tag-version
+          fi
+
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
 
       - name: Publish to npmjs
-        run: pnpm publish --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -n "${{ inputs.tag }}" ]; then
+           pnpm publish --access public --no-git-checks --tag ${{ inputs.tag }}
+          else
+            pnpm publish --access public --no-git-checks
+          fi
