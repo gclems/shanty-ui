@@ -27,3 +27,4 @@ export * from "./components/tabs/tabs";
 export * from "./components/toast/toast";
 export * from "./tools/date-fns";
 export * from "./tools/strings";
+export * from "./tools/tailwind-variants";
