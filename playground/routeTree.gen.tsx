@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ToastRouteImport } from './routes/toast'
 import { Route as TabsRouteImport } from './routes/tabs'
+import { Route as SidebarRouteImport } from './routes/sidebar'
 import { Route as SeparatorRouteImport } from './routes/separator'
 import { Route as ScrollAreaRouteImport } from './routes/scroll-area'
 import { Route as PopoverRouteImport } from './routes/popover'
@@ -29,6 +30,11 @@ const ToastRoute = ToastRouteImport.update({
 const TabsRoute = TabsRouteImport.update({
   id: '/tabs',
   path: '/tabs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SidebarRoute = SidebarRouteImport.update({
+  id: '/sidebar',
+  path: '/sidebar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SeparatorRoute = SeparatorRouteImport.update({
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/popover': typeof PopoverRoute
   '/scroll-area': typeof ScrollAreaRoute
   '/separator': typeof SeparatorRoute
+  '/sidebar': typeof SidebarRoute
   '/tabs': typeof TabsRoute
   '/toast': typeof ToastRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/popover': typeof PopoverRoute
   '/scroll-area': typeof ScrollAreaRoute
   '/separator': typeof SeparatorRoute
+  '/sidebar': typeof SidebarRoute
   '/tabs': typeof TabsRoute
   '/toast': typeof ToastRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/popover': typeof PopoverRoute
   '/scroll-area': typeof ScrollAreaRoute
   '/separator': typeof SeparatorRoute
+  '/sidebar': typeof SidebarRoute
   '/tabs': typeof TabsRoute
   '/toast': typeof ToastRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/popover'
     | '/scroll-area'
     | '/separator'
+    | '/sidebar'
     | '/tabs'
     | '/toast'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/popover'
     | '/scroll-area'
     | '/separator'
+    | '/sidebar'
     | '/tabs'
     | '/toast'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/popover'
     | '/scroll-area'
     | '/separator'
+    | '/sidebar'
     | '/tabs'
     | '/toast'
   fileRoutesById: FileRoutesById
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   PopoverRoute: typeof PopoverRoute
   ScrollAreaRoute: typeof ScrollAreaRoute
   SeparatorRoute: typeof SeparatorRoute
+  SidebarRoute: typeof SidebarRoute
   TabsRoute: typeof TabsRoute
   ToastRoute: typeof ToastRoute
 }
@@ -187,6 +200,13 @@ declare module '@tanstack/react-router' {
       path: '/tabs'
       fullPath: '/tabs'
       preLoaderRoute: typeof TabsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sidebar': {
+      id: '/sidebar'
+      path: '/sidebar'
+      fullPath: '/sidebar'
+      preLoaderRoute: typeof SidebarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/separator': {
@@ -265,6 +285,7 @@ const rootRouteChildren: RootRouteChildren = {
   PopoverRoute: PopoverRoute,
   ScrollAreaRoute: ScrollAreaRoute,
   SeparatorRoute: SeparatorRoute,
+  SidebarRoute: SidebarRoute,
   TabsRoute: TabsRoute,
   ToastRoute: ToastRoute,
 }

@@ -1,14 +1,7 @@
 @import "tailwindcss";
 
 @layer components {
-  .sui-root {
+  [data-slot="shanty-root"] {
     isolation: isolate;
-  }
-
-  .toast-viewport {
-    @apply fixed top-auto right-[1rem] bottom-[1rem];
-    @apply z-10;
-    @apply mx-auto flex;
-    @apply w-[250px] sm:right-[2rem] sm:bottom-[2rem] sm:w-[300px];
   }
 }

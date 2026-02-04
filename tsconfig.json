@@ -10,12 +10,12 @@
       "@pg/*": ["playground/*"],
       "@/*": ["src/*"]
     },
-    
+
     /* Types */
     "declaration": true,
     "declarationMap": false,
     "emitDeclarationOnly": true,
     "declarationDir": "dist",
-    "outDir": "dist",
+    "outDir": "dist"
   }
 }

@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer components {
+  [data-slot="sidebar-wrapper"] {
+    --sidebar-width: 16rem;
+    --sidebar-width-mobile: 18rem;
+    --sidebar-width-icon: 3rem;
+
+    @apply flex min-h-svh w-full;
+    @apply has-data-[variant=inset]:bg-(--sidebar);
+  }
+
+  [data-sidebar="sidebar"] {
+    @apply bg-(--sidebar) text-(--sidebar-foreground);
+  }
+
+  [data-sidebar="sidebar"][data-collapsible="none"] {
+    @apply flex flex-col h-full w-(--sidebar-width);
+  }
+
+  [data-sidebar="sidebar"]:not([data-collapsible="none"]) {
+    @apply text-(--sidebar-foreground) hidden md:block;
+  }
+
+  [data-slot="sidebar-gap"] {
+    @apply relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear;
+    @apply group-data-[collapsible=offcanvas]:w-0;
+    @apply group-data-[side=right]:rotate-180;
+    @apply group-data-[collapsible=icon]:w-(--sidebar-width-icon);
+  }
+
+  [data-slot="sidebar-gap"][data-variant="floating"],
+  [data-slot="sidebar-gap"][data-variant="inset"] {
+    @apply group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))];
+  }
+
+  [data-slot="sidebar-container"] {
+    @apply fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear data-[side=left]:left-0 data-[side=left]:group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)] data-[side=right]:right-0 data-[side=right]:group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)] md:flex;
+    @apply group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l;
+  }
+
+  [data-slot="sidebar-container"][data-variant="floating"],
+  [data-slot="sidebar-container"][data-variant="inset"] {
+    @apply p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)];
+  }
+
+  [data-slot="sidebar-inner"] {
+    @apply bg-(--sidebar) group-data-[variant=floating]:ring-(--sidebar-border) flex size-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1;
+  }
+}

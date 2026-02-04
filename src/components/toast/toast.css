@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @layer components {
-  .toast {
+  [data-slot="toast"] {
     @apply absolute right-0 bottom-0 left-auto;
     @apply z-[calc(1000-var(--toast-index))];
     @apply mr-0 h-(--height) w-full;
@@ -26,39 +26,47 @@
     @apply bg-(--modal) text-(--modal-foreground);
   }
 
-  .toast[data-type="info"] {
+  [data-slot="toast"][data-type="info"] {
     @apply bg-(--info) text-(--info-foreground);
   }
 
-  .toast[data-type="success"] {
+  [data-slot="toast"][data-type="success"] {
     @apply bg-(--success) text-(--success-foreground);
   }
 
-  .toast[data-type="warning"] {
+  [data-slot="toast"][data-type="warning"] {
     @apply bg-(--warning) text-(--warning-foreground);
   }
 
-  .toast[data-type="destructive"] {
+  [data-slot="toast"][data-type="destructive"] {
     @apply bg-(--destructive) text-(--destructive-foreground);
   }
 
-  .toast-content {
+  [data-slot="toast-viewport"] {
+    @apply fixed top-auto right-[1rem] bottom-[1rem];
+    @apply z-10;
+    @apply mx-auto flex;
+    @apply w-[250px] sm:right-[2rem] sm:bottom-[2rem] sm:w-[300px];
+  }
+
+  [data-slot="toast-content"] {
     @apply overflow-hidden transition-opacity duration-250;
     @apply data-behind:pointer-events-none;
     @apply data-behind:opacity-0 data-expanded:opacity-100;
     @apply data-expanded:pointer-events-auto;
   }
 
-  .toast-title {
+  [data-slot="toast-title"] {
     @apply text-[0.975rem] leading-5 font-medium;
   }
 
-  .toast-description {
+  [data-slot="toast-description"] {
     @apply text-[0.925rem] leading-5;
   }
 
-  .toast-close {
+  [data-slot="toast-close"] {
     @apply absolute top-2 right-2 flex h-5 w-5 items-center justify-center;
     @apply rounded border-none;
+    @apply [&_svg]:h-4 [&_svg]:w-4;
   }
 }

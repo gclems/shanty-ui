@@ -1,4 +1,5 @@
 import { Separator as BaseSeparator } from "@base-ui/react/separator";
+
 import { cn } from "tailwind-variants";
 
 import "./separator.css";

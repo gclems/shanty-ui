@@ -27,6 +27,9 @@ body {
   --color-modal: var(--modal);
   --color-modal-foreground: var(--modal-foreground);
 
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
   --color-input: var(--input);
   --color-input-foreground: var(--input-foreground);
   --color-input-placeholder: var(--input-placeholder);
