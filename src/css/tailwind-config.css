@@ -21,8 +21,11 @@ body {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --color-muted-background: var(--muted-background);
+  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 
   --color-modal: var(--modal);
   --color-modal-foreground: var(--modal-foreground);

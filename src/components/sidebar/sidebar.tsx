@@ -6,7 +6,7 @@ import { PanelLeftIcon } from "lucide-react";
 import { useIsMobile } from "@/tools/use-is-mobile";
 import { cn } from "tailwind-variants";
 import { Button } from "../button/button";
-import { Separator } from "../separator/separator";
+import { Separator as SuiSeparator } from "../separator/separator";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -180,7 +180,7 @@ function Root({
 
   return (
     <div
-      className="group peer sidebar"
+      className="group peer"
       data-state={state}
       data-collapsible={state === "collapsed" ? collapsible : ""}
       data-variant={variant}
@@ -188,11 +188,7 @@ function Root({
       data-slot="sidebar"
     >
       {/* This is what handles the sidebar gap on desktop */}
-      <div
-        data-slot="sidebar-gap"
-        data-variant={variant}
-        className={cn("sidebar-gap")}
-      />
+      <div data-slot="sidebar-gap" data-variant={variant} />
       <div
         data-slot="sidebar-container"
         data-variant={variant}
@@ -207,11 +203,7 @@ function Root({
   );
 }
 
-function Trigger({
-  className,
-  onClick,
-  ...props
-}: React.ComponentProps<typeof Button>) {
+function Trigger({ onClick, ...props }: React.ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar();
 
   return (
@@ -221,7 +213,6 @@ function Trigger({
       variant="ghost"
       size="sm"
       square
-      className={cn(className)}
       onClick={(event) => {
         onClick?.(event);
         toggleSidebar();
@@ -259,9 +250,9 @@ function Footer({ className, ...props }: React.ComponentProps<"div">) {
 function Separator({
   className,
   ...props
-}: React.ComponentProps<typeof Separator>) {
+}: React.ComponentProps<typeof SuiSeparator>) {
   return (
-    <Separator
+    <SuiSeparator
       data-slot="sidebar-separator"
       data-sidebar="separator"
       className={cn("bg-sidebar-border mx-2 w-auto", className)}

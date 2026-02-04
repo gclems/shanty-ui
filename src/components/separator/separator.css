@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @layer components {
-  .separator {
+  [data-slot="separator"] {
     @apply bg-(--muted);
   }
 
-  .separator[data-orientation="horizontal"] {
+  [data-slot="separator"][data-orientation="horizontal"] {
     @apply h-px w-full;
   }
 
-  .separator[data-orientation="vertical"] {
+  [data-slot="separator"][data-orientation="vertical"] {
     @apply h-full w-px;
   }
 }

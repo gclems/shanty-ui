@@ -1,5 +1,3 @@
-import { cn } from "tailwind-variants";
-
 import { Toast } from "./toast/toast";
 
 import "./shanty-root.css";

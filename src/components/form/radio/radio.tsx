@@ -12,9 +12,12 @@ function Radio({
   className?: string;
 }) {
   return (
-    <label className={cn(className, "group/radio radio-label")}>
-      <BaseRadio.Root className="radio" {...props}>
-        <BaseRadio.Indicator className="radio-indicator" />
+    <label
+      data-slot="radio-label"
+      className={cn(className, "group/radio")}
+    >
+      <BaseRadio.Root data-slot="radio" {...props}>
+        <BaseRadio.Indicator data-slot="radio-indicator" />
       </BaseRadio.Root>
       {label}
     </label>

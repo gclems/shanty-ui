@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @layer components {
-  .label {
+  [data-slot="label"] {
     @apply font-semibold;
   }
 
-  .label-required {
+  [data-slot="label-required"] {
     @apply text-(--destructive);
   }
 }

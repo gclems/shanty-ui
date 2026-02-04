@@ -8,8 +8,6 @@ import {
   ChevronsUpDownIcon,
   XIcon,
 } from "lucide-react";
-import { cn } from "tailwind-variants";
-
 import "./select.css";
 
 interface SelectItem {
@@ -71,7 +69,6 @@ function Select({ searchable = false, options, id, ...props }: SelectProps) {
 
 function ComboboxRoot({
   id,
-  className,
   placeholder,
   emptyMessage,
   children,
@@ -79,22 +76,23 @@ function ComboboxRoot({
 }: BaseComboboxProps) {
   return (
     <>
-      <BaseCombobox.Root {...props}>
-        <div className={cn(className, "select-input-wrapper")}>
+      <BaseCombobox.Root data-slot="combobox" {...props}>
+        <div data-slot="select-input-wrapper">
           <BaseCombobox.Input
             id={id}
             placeholder={placeholder}
-            className="select-trigger"
+            data-slot="select-trigger"
           />
-          <div className="select-icon-wrapper">
+          <div data-slot="select-icon-wrapper">
             <BaseCombobox.Clear
-              className="select-clear combobox-clear"
+              data-slot="select-clear"
+              className="combobox-clear"
               aria-label="Clear selection"
             >
               <XIcon />
             </BaseCombobox.Clear>
             <BaseCombobox.Trigger
-              className="select-icon"
+              data-slot="select-icon"
               aria-label="Open popup"
             >
               <ChevronDownIcon />
@@ -103,12 +101,12 @@ function ComboboxRoot({
         </div>
 
         <BaseCombobox.Portal>
-          <BaseCombobox.Positioner className="select-positioner" sideOffset={8}>
-            <BaseCombobox.Popup className="select-popup group">
-              <BaseCombobox.Empty className="select-empty">
+          <BaseCombobox.Positioner data-slot="select-positioner" sideOffset={8}>
+            <BaseCombobox.Popup data-slot="select-popup" className="group">
+              <BaseCombobox.Empty data-slot="select-empty">
                 {emptyMessage}
               </BaseCombobox.Empty>
-              <BaseCombobox.List className="select-list">
+              <BaseCombobox.List data-slot="select-list">
                 {children}
               </BaseCombobox.List>
             </BaseCombobox.Popup>
@@ -121,27 +119,26 @@ function ComboboxRoot({
 
 function SelectRoot({
   id,
-  className,
   placeholder,
   children,
   ...props
 }: BaseSelectProps) {
   return (
-    <BaseSelect.Root id={id} {...props}>
-      <BaseSelect.Trigger className={cn(className, "select-trigger")}>
-        <BaseSelect.Value className="select-value" placeholder={placeholder} />
-        <BaseSelect.Icon className="select-icon">
+    <BaseSelect.Root id={id} data-slot="select" {...props}>
+      <BaseSelect.Trigger data-slot="select-trigger">
+        <BaseSelect.Value data-slot="select-value" placeholder={placeholder} />
+        <BaseSelect.Icon data-slot="select-icon">
           <ChevronsUpDownIcon />
         </BaseSelect.Icon>
       </BaseSelect.Trigger>
       <BaseSelect.Portal>
-        <BaseSelect.Positioner className="select-positioner" sideOffset={8}>
-          <BaseSelect.Popup className="select-popup group">
-            <BaseSelect.ScrollUpArrow className="select-arrow-up" />
-            <BaseSelect.List className="select-list">
+        <BaseSelect.Positioner data-slot="select-positioner" sideOffset={8}>
+          <BaseSelect.Popup data-slot="select-popup" className="group">
+            <BaseSelect.ScrollUpArrow data-slot="select-arrow-up" />
+            <BaseSelect.List data-slot="select-list">
               {children}
             </BaseSelect.List>
-            <BaseSelect.ScrollDownArrow className="select-arrow-down" />
+            <BaseSelect.ScrollDownArrow data-slot="select-arrow-down" />
           </BaseSelect.Popup>
         </BaseSelect.Positioner>
       </BaseSelect.Portal>
@@ -151,11 +148,11 @@ function SelectRoot({
 
 function SelectItem({ label, value }: SelectItem) {
   return (
-    <BaseSelect.Item value={value} className="select-item">
-      <BaseSelect.ItemIndicator className="select-item-indicator">
+    <BaseSelect.Item value={value} data-slot="select-item">
+      <BaseSelect.ItemIndicator data-slot="select-item-indicator">
         <CheckIcon />
       </BaseSelect.ItemIndicator>
-      <BaseSelect.ItemText className="select-item-text">
+      <BaseSelect.ItemText data-slot="select-item-text">
         {label}
       </BaseSelect.ItemText>
     </BaseSelect.Item>
@@ -164,11 +161,11 @@ function SelectItem({ label, value }: SelectItem) {
 
 function ComboboxItem({ item }: { item: SelectItem }) {
   return (
-    <BaseCombobox.Item value={item} className="select-item">
-      <BaseCombobox.ItemIndicator className="select-item-indicator">
+    <BaseCombobox.Item value={item} data-slot="select-item">
+      <BaseCombobox.ItemIndicator data-slot="select-item-indicator">
         <CheckIcon />
       </BaseCombobox.ItemIndicator>
-      <div className="select-item-text">{item.label}</div>
+      <div data-slot="select-item-text">{item.label}</div>
     </BaseCombobox.Item>
   );
 }

@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @layer components {
-  .checkbox-label {
+  [data-slot="checkbox-label"] {
     @apply flex w-fit items-center gap-x-1 pr-2;
   }
 
-  .checkbox {
+  [data-slot="checkbox"] {
     @apply inline-flex size-5 items-center justify-center;
     @apply outline-2 outline-transparent;
     @apply focus-visible:outline-(--primary);
@@ -16,7 +16,7 @@
     @apply motion-reduce:transition-none;
   }
 
-  .checkbox-indicator {
+  [data-slot="checkbox-indicator"] {
     @apply flex text-(--primary-foreground) data-unchecked:hidden;
     @apply transition-all duration-150 ease-[cubic-bezier(0.45,1.005,0,1.005)];
     @apply data-ending-style:size-0 data-ending-style:ease-[cubic-bezier(0.375,0.015,0.545,0.455)];

@@ -1,6 +1,4 @@
 import { mergeProps, useRender } from "@base-ui/react";
-import { cn } from "tailwind-variants";
-
 import "./input-description.css";
 
 interface InputDescriptionProps extends useRender.ComponentProps<"p"> {
@@ -9,7 +7,6 @@ interface InputDescriptionProps extends useRender.ComponentProps<"p"> {
 
 function InputDescription({
   render,
-  className,
   ...props
 }: InputDescriptionProps) {
   const element = useRender({
@@ -17,7 +14,7 @@ function InputDescription({
     render,
     props: mergeProps<"p">(
       {
-        className: cn(className, "input-description"),
+        "data-slot": "input-description",
       },
       props,
     ),

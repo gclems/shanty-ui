@@ -10,11 +10,17 @@ import { Backdrop } from "../backdrop/backdrop";
 import "./sheet.css";
 
 function Root(props: BaseDialog.Root.Props) {
-  return <BaseDialog.Root {...props} />;
+  return <BaseDialog.Root data-slot="sheet" {...props} />;
 }
 
 function Trigger(props: BaseDialog.Trigger.Props) {
-  return <BaseDialog.Trigger render={<Button />} {...props} />;
+  return (
+    <BaseDialog.Trigger
+      data-slot="sheet-trigger"
+      render={<Button />}
+      {...props}
+    />
+  );
 }
 
 function Popup({
@@ -29,18 +35,18 @@ function Popup({
   return (
     <BaseDialog.Portal>
       <Backdrop />
-      <BaseDialog.Viewport className="sheet-viewport">
+      <BaseDialog.Viewport data-slot="sheet-viewport">
         <ScrollArea
-          vertical
           style={{ position: undefined }}
-          className="sheet-scroll-area-viewport"
+          data-slot="sheet-scroll-area-viewport"
         >
           <BaseDialog.Popup
             ref={popupRef}
             initialFocus={popupRef}
             data-size={size}
             {...props}
-            className="sheet-popup group/sheet"
+            data-slot="sheet-popup"
+            className="group/sheet"
           >
             {children}
           </BaseDialog.Popup>

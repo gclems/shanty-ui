@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @layer components {
-  .radio-label {
+  [data-slot="radio-label"] {
     @apply flex w-fit items-center gap-x-1 pr-2;
   }
 
-  .radio {
+  [data-slot="radio"] {
     @apply inline-flex size-5 items-center justify-center;
     @apply rounded-full;
     @apply outline-2 outline-transparent;
@@ -17,7 +17,7 @@
     @apply motion-reduce:transition-none;
   }
 
-  .radio-indicator {
+  [data-slot="radio-indicator"] {
     @apply size-2.5 rounded-full;
     @apply flex bg-(--primary-foreground) data-unchecked:hidden;
     @apply transition-all duration-150 ease-[cubic-bezier(0.45,1.005,0,1.005)];

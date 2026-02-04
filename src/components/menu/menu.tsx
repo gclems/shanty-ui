@@ -1,24 +1,22 @@
 import { Menu as BaseMenu } from "@base-ui/react/menu";
-import { cn } from "tailwind-variants";
-
 import { Button } from "../button/button";
 
 import "./menu.css";
 
-function Root({ ...props }: BaseMenu.Root.Props) {
-  return <BaseMenu.Root {...props} />;
+function Root(props: BaseMenu.Root.Props) {
+  return <BaseMenu.Root data-slot="menu" {...props} />;
 }
 
 function Trigger({ ...props }: BaseMenu.Trigger.Props) {
-  return <BaseMenu.Trigger render={<Button />} {...props} />;
+  return <BaseMenu.Trigger data-slot="menu-trigger" render={<Button />} {...props} />;
 }
 
-function Popup({ className, children, ...props }: BaseMenu.Popup.Props) {
+function Popup({ children, ...props }: BaseMenu.Popup.Props) {
   return (
     <BaseMenu.Portal>
-      <BaseMenu.Positioner className="menu-positioner" sideOffset={8}>
-        <BaseMenu.Popup className={cn(className, "menu-popup")} {...props}>
-          <BaseMenu.Arrow className="menu-arrow">
+      <BaseMenu.Positioner data-slot="menu-positioner" sideOffset={8}>
+        <BaseMenu.Popup data-slot="menu-popup" {...props}>
+          <BaseMenu.Arrow data-slot="menu-arrow">
             <ArrowSvg />
           </BaseMenu.Arrow>
           {children}
@@ -44,17 +42,12 @@ function ArrowSvg(props: React.ComponentProps<"svg">) {
   );
 }
 
-function Item({ className, ...props }: BaseMenu.Item.Props) {
-  return <BaseMenu.Item className={cn(className, "menu-item")} {...props} />;
+function Item(props: BaseMenu.Item.Props) {
+  return <BaseMenu.Item data-slot="menu-item" {...props} />;
 }
 
-function Separator({ className, ...props }: BaseMenu.Separator.Props) {
-  return (
-    <BaseMenu.Separator
-      className={cn(className, "menu-separator")}
-      {...props}
-    />
-  );
+function Separator(props: BaseMenu.Separator.Props) {
+  return <BaseMenu.Separator data-slot="menu-separator" {...props} />;
 }
 
 const Menu = Object.assign(Root, {

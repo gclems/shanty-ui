@@ -16,9 +16,12 @@ function Checkbox({
   className?: string;
 }) {
   return (
-    <label className={cn(className, "group/checkbox checkbox-label")}>
-      <BaseCheckbox.Root {...rootProps} className="checkbox">
-        <BaseCheckbox.Indicator className="checkbox-indicator">
+    <label
+      data-slot="checkbox-label"
+      className={cn(className, "group/checkbox")}
+    >
+      <BaseCheckbox.Root data-slot="checkbox" {...rootProps}>
+        <BaseCheckbox.Indicator data-slot="checkbox-indicator">
           <CheckIcon />
         </BaseCheckbox.Indicator>
       </BaseCheckbox.Root>

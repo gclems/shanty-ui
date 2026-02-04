@@ -6,8 +6,6 @@ import {
   useState,
 } from "react";
 
-import { cn } from "tailwind-variants";
-
 import { Input } from "../input/input";
 
 import "./currency-input.css";
@@ -69,7 +67,6 @@ function CurrencyInput({
   value,
   defaultValue,
   onChange,
-  className,
   onBeforeInput,
   name,
   ...props
@@ -127,7 +124,7 @@ function CurrencyInput({
   };
 
   return (
-    <div className="currency-input">
+    <div data-slot="currency-input">
       <Input
         {...props}
         type="text"
@@ -136,16 +133,16 @@ function CurrencyInput({
         onChange={handleChange}
         onBeforeInput={handleBeforeInput}
         data-has-overlay={showOverlay ? "true" : undefined}
-        className={cn(className, "currency-input-input")}
+        data-slot="currency-input-input"
       />
       {name ? <input type="hidden" name={name} value={currentDigits} /> : null}
       {showOverlay && (
-        <span aria-hidden="true" className="currency-input-overlay">
-          <span className="currency-input-overlay-major">
+        <span aria-hidden="true" data-slot="currency-input-overlay">
+          <span data-slot="currency-input-overlay-major">
             {majorText}
             {DECIMAL_SEPARATOR}
           </span>
-          <span className="currency-input-overlay-minor">{minorText}</span>
+          <span data-slot="currency-input-overlay-minor">{minorText}</span>
         </span>
       )}
     </div>

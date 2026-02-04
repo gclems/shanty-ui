@@ -1,7 +1,5 @@
 import { Toast as BaseToast } from "@base-ui/react/toast";
 import { XIcon } from "lucide-react";
-import { cn } from "tailwind-variants";
-
 import "./toast.css";
 
 function Root({ toast, ...props }: BaseToast.Root.Props) {

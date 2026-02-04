@@ -1,40 +1,40 @@
 @import "tailwindcss";
 
 @layer components {
-  .scroll-area {
+  [data-slot="scroll-area"] {
     @apply overflow-hidden;
   }
 
-  .scroll-area-viewport {
+  [data-slot="scroll-area-viewport"] {
     @apply h-full overscroll-contain;
   }
 
-  .scroll-area-content[data-vertical="true"] {
+  [data-slot="scroll-area-content"][data-vertical="true"] {
     @apply pr-4;
   }
 
-  .scroll-area-content[data-horizontal="true"] {
+  [data-slot="scroll-area-content"][data-horizontal="true"] {
     @apply pb-4;
   }
 
-  .scroll-bar {
+  [data-slot="scroll-bar"] {
     @apply pointer-events-none;
     @apply relative flex;
     @apply rounded;
-    @apply bg-(--color-accent-background);
+    @apply bg-(--accent);
     @apply before:absolute before:content-[''] data-hovering:pointer-events-auto data-hovering:opacity-100 data-hovering:delay-0;
     @apply data-scrolling:pointer-events-auto data-scrolling:opacity-100 data-scrolling:duration-0;
   }
 
-  .scroll-bar[data-orientation="vertical"] {
+  [data-slot="scroll-bar"][data-orientation="vertical"] {
     @apply m-2 w-1 before:left-1/2 before:h-full before:w-5 before:-translate-x-1/2;
   }
 
-  .scroll-bar[data-orientation="horizontal"] {
+  [data-slot="scroll-bar"][data-orientation="horizontal"] {
     @apply m-2 h-1 before:right-0 before:-bottom-2 before:left-0 before:h-5 before:w-full;
   }
 
-  .scroll-bar-thumb {
-    @apply w-full rounded bg-(--color-accent-foreground);
+  [data-slot="scroll-bar-thumb"] {
+    @apply w-full rounded bg-(--accent-foreground);
   }
 }

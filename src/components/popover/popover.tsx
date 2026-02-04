@@ -1,34 +1,33 @@
 import { Popover as BasePopover } from "@base-ui/react";
-import { cn } from "tailwind-variants";
-
 import { Button } from "@/index";
 
 import "./popover.css";
 
-function Root({ ...props }: BasePopover.Root.Props) {
-  return <BasePopover.Root {...props} />;
+function Root(props: BasePopover.Root.Props) {
+  return <BasePopover.Root data-slot="popover" {...props} />;
 }
 
 function Trigger(props: BasePopover.Trigger.Props) {
-  return <BasePopover.Trigger render={<Button />} {...props} />;
+  return (
+    <BasePopover.Trigger data-slot="popover-trigger" render={<Button />} {...props} />
+  );
 }
 
 function Popup({
   children,
   size = "md",
-  className,
   ...props
 }: BasePopover.Portal.Props & {
   size?: "sm" | "md" | "lg" | "xl";
 }) {
   return (
     <BasePopover.Portal {...props}>
-      <BasePopover.Positioner sideOffset={8}>
+      <BasePopover.Positioner data-slot="popover-positioner" sideOffset={8}>
         <BasePopover.Popup
-          className={cn(className, "popover-popup")}
+          data-slot="popover-popup"
           data-size={size}
         >
-          <BasePopover.Arrow className="popover-popup-arrow">
+          <BasePopover.Arrow data-slot="popover-popup-arrow">
             <ArrowSvg />
           </BasePopover.Arrow>
           {children}

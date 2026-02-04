@@ -1,6 +1,4 @@
 import { mergeProps, useRender } from "@base-ui/react";
-import { cn } from "tailwind-variants";
-
 import "./label.css";
 
 interface LabelProps extends useRender.ComponentProps<"label"> {
@@ -9,7 +7,6 @@ interface LabelProps extends useRender.ComponentProps<"label"> {
 
 function Label({
   render,
-  className,
   required = false,
   children,
   ...props
@@ -19,11 +16,11 @@ function Label({
     render,
     props: mergeProps<"label">(
       {
-        className: cn(className, "label"),
+        "data-slot": "label",
         children: (
           <>
             {children}
-            <span className="label-required">{required && " *"}</span>
+            <span data-slot="label-required">{required && " *"}</span>
           </>
         ),
       },

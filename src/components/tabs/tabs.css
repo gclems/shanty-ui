@@ -1,43 +1,43 @@
 @import "tailwindcss";
 
 @layer components {
-  .tabs {
+  [data-slot="tabs"] {
     @apply rounded-md;
   }
 
-  .tabs[data-orientation="vertical"] {
+  [data-slot="tabs"][data-orientation="vertical"] {
     @apply flex;
   }
 
-  .tabs-list {
+  [data-slot="tabs-list"] {
     @apply relative z-0;
   }
 
-  .tabs-list[data-orientation="horizontal"] {
+  [data-slot="tabs-list"][data-orientation="horizontal"] {
     @apply flex gap-1 border-b border-(--muted);
   }
 
-  .tabs-list[data-orientation="vertical"] {
+  [data-slot="tabs-list"][data-orientation="vertical"] {
     @apply flex flex-col gap-1 border-r border-(--muted);
   }
 
-  .tabs-indicator {
+  [data-slot="tabs-indicator"] {
     @apply h-8 w-[var(--active-tab-width)];
     @apply bg-(--primary) transition-all duration-200 ease-in-out;
     @apply motion-reduce:transition-none;
   }
 
-  .tabs-indicator[data-orientation="horizontal"] {
+  [data-slot="tabs-indicator"][data-orientation="horizontal"] {
     @apply absolute top-1/2 left-0 z-[-1];
     @apply translate-x-[var(--active-tab-left)] -translate-y-1/2;
   }
 
-  .tabs-indicator[data-orientation="vertical"] {
+  [data-slot="tabs-indicator"][data-orientation="vertical"] {
     @apply absolute top-0 left-1/2 z-[-1];
     @apply -translate-x-1/2 translate-y-[var(--active-tab-top)];
   }
 
-  .tabs-tab {
+  [data-slot="tabs-tab"] {
     @apply flex items-center justify-center;
     @apply h-8;
     @apply border-0 px-2;
@@ -55,7 +55,7 @@
     @apply motion-reduce:transition-none;
   }
 
-  .tabs-panel {
+  [data-slot="tabs-panel"] {
     @apply w-full p-4;
   }
 }

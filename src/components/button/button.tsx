@@ -1,12 +1,9 @@
 import { ComponentProps } from "react";
 
 import { Button as BaseButton } from "@base-ui/react/button";
-import { cn } from "tailwind-variants";
-
 import "./button.css";
 
 function Button({
-  className,
   variant = "contained",
   color = "neutral",
   square = false,
@@ -33,7 +30,7 @@ function Button({
     <BaseButton
       {...props}
       render={render ?? <button type={type} />}
-      className={cn("button", className)}
+      data-slot="button"
       data-variant={variant}
       data-color={color}
       data-size={size}

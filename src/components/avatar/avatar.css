@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @layer components {
-  .avatar {
+  [data-slot="avatar"] {
     @apply inline-flex items-center justify-center;
     @apply size-12 overflow-hidden rounded-full;
     @apply align-middle select-none;
   }
 
-  .avatar-image {
+  [data-slot="avatar-image"] {
     @apply size-full object-cover;
   }
 
-  .avatar-fallback {
+  [data-slot="avatar-fallback"] {
     @apply flex size-full items-center justify-center text-base;
   }
 }

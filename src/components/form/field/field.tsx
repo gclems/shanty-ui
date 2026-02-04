@@ -1,6 +1,4 @@
 import { Field as BaseField } from "@base-ui/react";
-import { cn } from "tailwind-variants";
-
 import { InputDescription } from "../../form/input-description/input-description";
 import { InputError } from "../../form/input-error/input-error";
 import { Label } from "../../form/label/label";
@@ -23,10 +21,7 @@ function Field({
   children?: React.ReactNode;
 }) {
   return (
-    <BaseField.Root
-      {...rootProps}
-      className={cn("field-root", rootProps?.className)}
-    >
+    <BaseField.Root data-slot="field-root" {...rootProps}>
       <Label render={<BaseField.Label />} required={required}>
         {label}
       </Label>

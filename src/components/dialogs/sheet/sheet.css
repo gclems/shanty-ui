@@ -1,14 +1,14 @@
 @import "tailwindcss";
 @layer components {
-  .sheet-viewport {
+  [data-slot="sheet-viewport"] {
     @apply fixed inset-0;
   }
 
-  .sheet-scroll-area-viewport {
+  [data-slot="sheet-scroll-area-viewport"] {
     @apply h-full overscroll-contain group-data-ending-style/sheet:pointer-events-none;
   }
 
-  .sheet-popup {
+  [data-slot="sheet-popup"] {
     @apply @container/sheet relative;
     @apply my-18 mr-4 ml-auto p-8;
     @apply rounded-(--radius-lg) bg-(--modal) text-(--modal-foreground);
@@ -19,19 +19,19 @@
     @apply motion-reduce:transition-none;
   }
 
-  .sheet-popup[data-size="sm"] {
+  [data-slot="sheet-popup"][data-size="sm"] {
     @apply w-[min(20rem,calc(100vw-4rem))];
   }
 
-  .sheet-popup[data-size="md"] {
+  [data-slot="sheet-popup"][data-size="md"] {
     @apply w-[min(31.25rem,calc(100vw-4rem))];
   }
 
-  .sheet-popup[data-size="lg"] {
+  [data-slot="sheet-popup"][data-size="lg"] {
     @apply w-[min(50rem,calc(100vw-4rem))];
   }
 
-  .sheet-popup[data-size="xl"] {
+  [data-slot="sheet-popup"][data-size="xl"] {
     @apply w-[min(71.25rem,calc(100vw-4rem))];
   }
 }

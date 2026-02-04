@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @layer components {
-  .input {
+  [data-slot="input"] {
     @apply h-10 w-full max-w-64;
     @apply pl-3.5;
     @apply rounded-sm;

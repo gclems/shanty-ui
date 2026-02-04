@@ -1,8 +1,6 @@
 import { ComponentProps, useRef } from "react";
 
 import { AlertDialog as BaseAlertDialog } from "@base-ui/react/alert-dialog";
-import { cn } from "tailwind-variants";
-
 import { Button } from "@/components/button/button";
 
 import { Backdrop } from "../backdrop/backdrop";
@@ -10,11 +8,17 @@ import { Backdrop } from "../backdrop/backdrop";
 import "./alert-dialog.css";
 
 function Root(props: BaseAlertDialog.Root.Props) {
-  return <BaseAlertDialog.Root {...props} />;
+  return <BaseAlertDialog.Root data-slot="alert-dialog" {...props} />;
 }
 
 function Trigger(props: BaseAlertDialog.Trigger.Props) {
-  return <BaseAlertDialog.Trigger render={<Button />} {...props} />;
+  return (
+    <BaseAlertDialog.Trigger
+      data-slot="alert-dialog-trigger"
+      render={<Button />}
+      {...props}
+    />
+  );
 }
 
 function Popup({
@@ -34,7 +38,8 @@ function Popup({
         initialFocus={popupRef}
         data-size={size}
         {...props}
-        className="alert-dialog-popup group/alert-dialog"
+        data-slot="alert-dialog-popup"
+        className="group/alert-dialog"
       >
         {children}
       </BaseAlertDialog.Popup>
@@ -42,21 +47,12 @@ function Popup({
   );
 }
 
-function Title({ className, ...props }: BaseAlertDialog.Title.Props) {
-  return (
-    <BaseAlertDialog.Title
-      className={cn(className, "alert-dialog-title")}
-      {...props}
-    />
-  );
+function Title(props: BaseAlertDialog.Title.Props) {
+  return <BaseAlertDialog.Title data-slot="alert-dialog-title" {...props} />;
 }
 
-function Body({ children, className, ...props }: ComponentProps<"div">) {
-  return (
-    <div className={cn(className, "alert-dialog-body")} {...props}>
-      {children}
-    </div>
-  );
+function Body(props: ComponentProps<"div">) {
+  return <div data-slot="alert-dialog-body" {...props} />;
 }
 
 function CloseButton({
@@ -66,8 +62,8 @@ function CloseButton({
   return <BaseAlertDialog.Close render={render} {...props} />;
 }
 
-function Footer({ className, ...props }: ComponentProps<"div">) {
-  return <div className={cn(className, "alert-dialog-footer")} {...props} />;
+function Footer(props: ComponentProps<"div">) {
+  return <div data-slot="alert-dialog-footer" {...props} />;
 }
 
 const AlertDialog = Object.assign(Root, {

@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @layer components {
-  .select-input-wrapper {
+  [data-slot="select-input-wrapper"] {
     @apply relative;
     @apply [&>input]:pr-8;
     @apply has-[.combobox-clear]:[&>input]:pr-[calc(0.5rem+1.5rem*2)];
   }
 
-  .select-trigger {
+  [data-slot="select-trigger"] {
     @apply flex items-center justify-between gap-3;
     @apply h-10 w-full min-w-36;
     @apply pr-3 pl-3.5;
@@ -21,32 +21,32 @@
     @apply data-popup-open:outline-(--primary);
   }
 
-  .select-value {
+  [data-slot="select-value"] {
     @apply text-(--input-foreground);
     @apply data-placeholder:text-(--input-placeholder);
   }
 
-  .select-icon-wrapper {
+  [data-slot="select-icon-wrapper"] {
     @apply absolute right-2 bottom-0 h-10 text-(--input-foreground);
     @apply flex items-center justify-center;
   }
 
-  .select-clear {
+  [data-slot="select-clear"] {
     @apply flex h-10 w-6 items-center justify-center;
     @apply rounded bg-[transparent] p-0;
     @apply [&_svg]:size-4;
   }
 
-  .select-icon {
+  [data-slot="select-icon"] {
     @apply flex;
     @apply [&_svg]:size-4;
   }
 
-  .select-positioner {
+  [data-slot="select-positioner"] {
     @apply z-10 outline-none select-none;
   }
 
-  .select-popup {
+  [data-slot="select-popup"] {
     @apply min-w-(--anchor-width) origin-(--transform-origin);
     @apply rounded-md shadow-lg;
     @apply border border-(--primary);
@@ -58,23 +58,23 @@
     @apply data-[side=none]:data-starting-style:scale-100 data-[side=none]:data-starting-style:opacity-100 data-[side=none]:data-starting-style:transition-none;
   }
 
-  .select-arrow-up {
+  [data-slot="select-arrow-up"] {
     @apply top-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-(--modal) text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-top-full;
   }
 
-  .select-list {
+  [data-slot="select-list"] {
     @apply relative max-h-(--available-height) scroll-py-6 overflow-y-auto py-1;
   }
 
-  .select-arrow-down {
+  [data-slot="select-arrow-down"] {
     @apply bottom-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-(--modal) text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-bottom-full;
   }
 
-  .select-empty {
+  [data-slot="select-empty"] {
     @apply p-4 text-[0.925rem] leading-4 text-(--muted) empty:m-0 empty:p-0;
   }
 
-  .select-item {
+  [data-slot="select-item"] {
     @apply grid grid-cols-[0.75rem_1fr] gap-2;
     @apply cursor-default;
     @apply items-center;
@@ -88,11 +88,11 @@
     @apply pointer-coarse:py-2.5 pointer-coarse:text-[0.925rem];
   }
 
-  .select-item-indicator {
+  [data-slot="select-item-indicator"] {
     @apply col-start-1 [&_svg]:size-3;
   }
 
-  .select-item-text {
+  [data-slot="select-item-text"] {
     @apply col-start-2;
   }
 }

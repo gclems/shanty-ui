@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 @layer components {
-  .currency-input {
+  [data-slot="currency-input"] {
     @apply relative w-full;
   }
 
-  .currency-input-input[data-has-overlay="true"] {
+  [data-slot="currency-input-input"][data-has-overlay="true"] {
     @apply text-transparent caret-black;
   }
 
-  .currency-input-overlay {
+  [data-slot="currency-input-overlay"] {
     @apply pointer-events-none;
     @apply absolute inset-0;
     @apply flex items-center px-3.5;
     @apply text-base;
   }
 
-  .currency-input-overlay-major {
+  [data-slot="currency-input-overlay-major"] {
     @apply text-(--input-foreground);
   }
-  .currency-input-overlay-minor {
+  [data-slot="currency-input-overlay-minor"] {
     @apply text-(--input-placeholder);
   }
 }

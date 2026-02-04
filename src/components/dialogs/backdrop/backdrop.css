@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @layer components {
-  .dialog-backdrop {
+  [data-slot="dialog-backdrop"] {
     @apply fixed inset-0 min-h-dvh;
     @apply bg-(--color-black)/30;
     @apply backdrop-blur-[0.5px] supports-[-webkit-backdrop-filter:initial]:backdrop-blur-[0.5px];
