@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
 
 @layer components {
   [data-slot="field-root"] {

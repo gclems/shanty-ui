@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@reference "../../css/shanty-ui.css";
 
 @layer components {
   [data-slot="toast"] {
@@ -23,30 +24,30 @@
     @apply data-ending-style:data-[swipe-direction=up]:transform-[translateY(calc(var(--toast-swipe-movement-y)-150%))];
     @apply data-expanded:data-ending-style:data-[swipe-direction=up]:transform-[translateY(calc(var(--toast-swipe-movement-y)-150%))];
     @apply [&[data-ending-style]:not([data-limited]):not([data-swipe-direction])]:transform-[translateY(150%)];
-    @apply bg-(--modal) text-(--modal-foreground);
+    @apply bg-surface text-foreground;
   }
 
   [data-slot="toast"][data-type="info"] {
-    @apply bg-(--info) text-(--info-foreground);
+    @apply bg-info text-info-foreground;
   }
 
   [data-slot="toast"][data-type="success"] {
-    @apply bg-(--success) text-(--success-foreground);
+    @apply bg-success text-success-foreground;
   }
 
   [data-slot="toast"][data-type="warning"] {
-    @apply bg-(--warning) text-(--warning-foreground);
+    @apply bg-warning text-warning-foreground;
   }
 
   [data-slot="toast"][data-type="destructive"] {
-    @apply bg-(--destructive) text-(--destructive-foreground);
+    @apply bg-destructive text-destructive-foreground;
   }
 
   [data-slot="toast-viewport"] {
-    @apply fixed top-auto right-[1rem] bottom-[1rem];
+    @apply fixed top-auto right-4 bottom-4;
     @apply z-10;
     @apply mx-auto flex;
-    @apply w-[250px] sm:right-[2rem] sm:bottom-[2rem] sm:w-[300px];
+    @apply w-62.5 sm:right-8 sm:bottom-8 sm:w-75;
   }
 
   [data-slot="toast-content"] {

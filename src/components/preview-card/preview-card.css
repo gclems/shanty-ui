@@ -2,7 +2,7 @@
 @reference "../../css/shanty-ui.css";
 
 @layer components {
-	[data-slot="popover-popup"] {
+	[data-slot="preview-card-popup"] {
 		@apply px-6 py-4;
 		@apply origin-(--transform-origin) transition-[transform,scale,opacity];
 		@apply bg-surface text-foreground shadow-sm;
@@ -10,7 +10,7 @@
 		@apply data-starting-style:scale-90 data-starting-style:opacity-0;
 	}
 
-	[data-slot="popover-popup-arrow"] {
+	[data-slot="preview-card-arrow"] {
 		@apply data-[side=bottom]:-top-2;
 		@apply data-[side=left]:-right-3.25 data-[side=left]:rotate-90;
 		@apply data-[side=right]:-left-3.25 data-[side=right]:-rotate-90;

@@ -1,6 +1,5 @@
-import { ComponentProps } from "react";
-
 import { Button as BaseButton } from "@base-ui/react/button";
+import type { ComponentProps } from "react";
 import "./button.css";
 
 function Button({
@@ -23,7 +22,7 @@ function Button({
     | "destructive"
     | string;
   square?: boolean;
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg";
   type?: ComponentProps<"button">["type"];
 }) {
   return (

@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+	[data-slot="table-container"] {
+		@apply relative w-full overflow-x-auto;
+	}
+
+	[data-slot="table"] {
+		@apply bg-surface text-foreground;
+		@apply w-full caption-bottom;
+	}
+
+	[data-slot="table-header"] {
+		@apply [&_tr]:border-b;
+	}
+
+	[data-slot="table-body"] {
+		@apply [&_tr:last-child]:border-0;
+	}
+
+	[data-slot="table-footer"] {
+		@apply border-t bg-muted/50 font-medium [&>tr]:last:border-b-0;
+	}
+
+	[data-slot="table-row"] {
+		@apply border-b transition-colors;
+		@apply hover:bg-accent hover:text-accent-foreground has-aria-expanded:bg-muted/50;
+		@apply data-[state=selected]:bg-muted;
+	}
+
+	[data-slot="table-head"] {
+		@apply h-10 px-2;
+		@apply text-left align-middle;
+		@apply font-medium whitespace-nowrap text-foreground;
+		@apply [&:has([role=checkbox])]:pr-0;
+	}
+
+	[data-slot="table-cell"] {
+		@apply p-2 align-middle whitespace-nowrap;
+		@apply [&:has([role=checkbox])]:pr-0;
+	}
+
+	[data-slot="table-caption"] {
+		@apply mt-4 text-sm text-muted-foreground;
+	}
+}

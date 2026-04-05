@@ -1,17 +1,17 @@
-import { Popover as BasePopover } from "@base-ui/react";
+import { PreviewCard as BasePreviewCard } from "@base-ui/react";
 
 import { Button } from "@/index";
 
-import "./popover.css";
+import "./preview-card.css";
 
-function Root(props: BasePopover.Root.Props) {
-	return <BasePopover.Root data-slot="popover" {...props} />;
+function Root(props: BasePreviewCard.Root.Props) {
+	return <BasePreviewCard.Root data-slot="preview-card" {...props} />;
 }
 
-function Trigger(props: BasePopover.Trigger.Props) {
+function Trigger(props: BasePreviewCard.Trigger.Props) {
 	return (
-		<BasePopover.Trigger
-			data-slot="popover-trigger"
+		<BasePreviewCard.Trigger
+			data-slot="preview-card-trigger"
 			render={<Button />}
 			{...props}
 		/>
@@ -22,20 +22,23 @@ function Popup({
 	children,
 	size = "md",
 	...props
-}: BasePopover.Portal.Props & {
+}: BasePreviewCard.Portal.Props & {
 	size?: "sm" | "md" | "lg" | "xl";
 }) {
 	return (
-		<BasePopover.Portal {...props}>
-			<BasePopover.Positioner data-slot="popover-positioner" sideOffset={8}>
-				<BasePopover.Popup data-slot="popover-popup" data-size={size}>
-					<BasePopover.Arrow data-slot="popover-popup-arrow">
+		<BasePreviewCard.Portal {...props}>
+			<BasePreviewCard.Positioner
+				data-slot="preview-card-positioner"
+				sideOffset={8}
+			>
+				<BasePreviewCard.Popup data-slot="preview-card-popup" data-size={size}>
+					<BasePreviewCard.Arrow data-slot="preview-card-popup-arrow">
 						<ArrowSvg />
-					</BasePopover.Arrow>
+					</BasePreviewCard.Arrow>
 					{children}
-				</BasePopover.Popup>
-			</BasePopover.Positioner>
-		</BasePopover.Portal>
+				</BasePreviewCard.Popup>
+			</BasePreviewCard.Positioner>
+		</BasePreviewCard.Portal>
 	);
 }
 
@@ -47,7 +50,7 @@ function ArrowSvg(props: React.ComponentProps<"svg">) {
 			viewBox="0 0 20 10"
 			fill="none"
 			role="img"
-			aria-label="Popover Arrow"
+			aria-label="PreviewCard Arrow"
 			{...props}
 		>
 			<path
@@ -63,10 +66,10 @@ function ArrowSvg(props: React.ComponentProps<"svg">) {
 	);
 }
 
-const Popover = Object.assign(Root, {
+const PreviewCard = Object.assign(Root, {
 	Popup,
 	Trigger,
-	createHandle: BasePopover.createHandle,
+	createHandle: BasePreviewCard.createHandle,
 });
 
-export { Popover };
+export { PreviewCard };

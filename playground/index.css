@@ -1,5 +1,6 @@
-@import "tailwindcss" source(none);
+@import "../src/css/shanty-ui.css";
+@import "../src/css/themes/default.css";
+
+@import "tailwindcss";
 @source "../playground";
 @source "../src";
-
-@import "../src/css/shanty-ui.css";

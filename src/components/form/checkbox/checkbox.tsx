@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 
 import { Checkbox as BaseCheckbox } from "@base-ui/react/checkbox";
 import { CheckIcon } from "lucide-react";

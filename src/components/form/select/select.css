@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
 
 @layer components {
   [data-slot="select-input-wrapper"] {
@@ -12,22 +13,22 @@
     @apply h-10 w-full min-w-36;
     @apply pr-3 pl-3.5;
     @apply rounded-sm;
-    @apply border border-(--input-border);
-    @apply bg-(--input);
-    @apply text-base text-(--input-foreground);
+    @apply border border-input-border;
+    @apply bg-input;
+    @apply text-base text-input-foreground;
     @apply select-none;
     @apply outline-[transparent] focus:outline-2 focus:-outline-offset-1;
-    @apply focus:outline-(--primary);
-    @apply data-popup-open:outline-(--primary);
+    @apply focus:outline-primary;
+    @apply data-popup-open:outline-primary;
   }
 
   [data-slot="select-value"] {
-    @apply text-(--input-foreground);
-    @apply data-placeholder:text-(--input-placeholder);
+    @apply text-input-foreground;
+    @apply data-placeholder:text-input-placeholder;
   }
 
   [data-slot="select-icon-wrapper"] {
-    @apply absolute right-2 bottom-0 h-10 text-(--input-foreground);
+    @apply absolute right-2 bottom-0 h-10 text-input-foreground;
     @apply flex items-center justify-center;
   }
 
@@ -50,7 +51,7 @@
     @apply min-w-(--anchor-width) origin-(--transform-origin);
     @apply rounded-md shadow-lg;
     @apply border border-(--primary);
-    @apply bg-(--modal) bg-clip-padding text-(--modal-foreground);
+    @apply bg-surface bg-clip-padding text-foreground;
     @apply transition-[transform,scale,opacity];
     @apply data-ending-style:scale-90 data-ending-style:opacity-0;
     @apply data-[side=none]:min-w-[calc(var(--anchor-width)+1rem)] data-[side=none]:data-ending-style:transition-none;
@@ -59,7 +60,7 @@
   }
 
   [data-slot="select-arrow-up"] {
-    @apply top-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-(--modal) text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-top-full;
+    @apply top-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-surface text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-top-full;
   }
 
   [data-slot="select-list"] {
@@ -67,7 +68,7 @@
   }
 
   [data-slot="select-arrow-down"] {
-    @apply bottom-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-(--modal) text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-bottom-full;
+    @apply bottom-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-surface text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-bottom-full;
   }
 
   [data-slot="select-empty"] {

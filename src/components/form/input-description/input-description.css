@@ -1,7 +1,8 @@
 @import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
 
 @layer components {
   [data-slot="input-description"] {
-    @apply text-sm text-(--muted-foreground);
+    @apply text-sm text-muted-foreground;
   }
 }

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
 
 @layer components {
   [data-slot="checkbox-label"] {
@@ -8,16 +9,16 @@
   [data-slot="checkbox"] {
     @apply inline-flex size-5 items-center justify-center;
     @apply outline-2 outline-transparent;
-    @apply focus-visible:outline-(--primary);
-    @apply data-checked:bg-(--primary);
-    @apply group-hover/checkbox:outline-(--primary)/50;
-    @apply data-unchecked:border data-unchecked:border-(--input-border) data-unchecked:bg-(--input);
+    @apply focus-visible:outline-primary;
+    @apply data-checked:bg-primary;
+    @apply group-hover/checkbox:outline-primary/50;
+    @apply data-unchecked:border data-unchecked:border-input-border data-unchecked:bg-input;
     @apply transition duration-300;
     @apply motion-reduce:transition-none;
   }
 
   [data-slot="checkbox-indicator"] {
-    @apply flex text-(--primary-foreground) data-unchecked:hidden;
+    @apply flex text-primary-foreground data-unchecked:hidden;
     @apply transition-all duration-150 ease-[cubic-bezier(0.45,1.005,0,1.005)];
     @apply data-ending-style:size-0 data-ending-style:ease-[cubic-bezier(0.375,0.015,0.545,0.455)];
     @apply data-starting-style:opacity-100;

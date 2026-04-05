@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@reference "../../css/shanty-ui.css";
 
 @layer components {
   [data-slot="menu-positioner"] {
@@ -7,7 +8,7 @@
 
   [data-slot="menu-popup"] {
     @apply origin-(--transform-origin);
-    @apply rounded-(--radius-lg) bg-(--modal) text-(--modal-foreground);
+    @apply rounded-lg bg-surface text-foreground;
     @apply py-1 shadow-2xl;
     @apply outline-0;
     @apply transition-[transform,scale,opacity] motion-reduce:transition-none;
@@ -16,7 +17,7 @@
   }
 
   [data-slot="menu-arrow"] {
-    @apply data-[side=bottom]:-top-2 data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:-bottom-2 data-[side=top]:rotate-180;
+    @apply data-[side=bottom]:-top-2 data-[side=left]:-right-3.25 data-[side=left]:rotate-90 data-[side=right]:-left-3.25 data-[side=right]:-rotate-90 data-[side=top]:-bottom-2 data-[side=top]:rotate-180;
   }
 
   [data-slot="menu-item"] {
@@ -25,10 +26,10 @@
     @apply py-2 pr-8 pl-4;
     @apply text-sm leading-4;
     @apply outline-none select-none;
-    @apply data-highlighted:relative data-highlighted:z-0 data-highlighted:text-(--primary-foreground) data-highlighted:before:z-[-1] data-highlighted:before:rounded-(--radius-xm) data-highlighted:before:bg-(--primary) data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1 data-[highlighted]:before:inset-y-0;
+    @apply data-highlighted:relative data-highlighted:z-0 data-highlighted:text-accent-foreground data-highlighted:before:z-[-1]  data-highlighted:before:bg-accent data-highlighted:before:absolute data-highlighted:before:inset-x-1 data-highlighted:before:inset-y-0;
   }
 
   [data-slot="menu-separator"] {
-    @apply mx-2 my-1.5 h-px bg-(--muted);
+    @apply mx-2 my-1.5 h-px bg-muted;
   }
 }

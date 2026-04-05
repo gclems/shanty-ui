@@ -1,10 +1,14 @@
 import { Toast } from "./toast/toast";
 
+import { Tooltip } from "@base-ui/react";
 import "./shanty-root.css";
 import { Sidebar } from "./sidebar/sidebar";
 
 function ShantyRoot({
   children,
+  toast,
+  tooltip,
+  sidebar,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
   toast?: boolean;
@@ -13,9 +17,9 @@ function ShantyRoot({
 }) {
   const compose = (child: React.ReactNode) => {
     let content = child;
-    // if (props.tooltip) content = <TooltipProvider>{content}</TooltipProvider>;
-    if (props.toast) content = <Toast.Provider>{content}</Toast.Provider>;
-    if (props.sidebar) content = <Sidebar.Provider>{content}</Sidebar.Provider>;
+    if (tooltip) content = <Tooltip.Provider>{content}</Tooltip.Provider>;
+    if (toast) content = <Toast.Provider>{content}</Toast.Provider>;
+    if (sidebar) content = <Sidebar.Provider>{content}</Sidebar.Provider>;
     return content;
   };
 

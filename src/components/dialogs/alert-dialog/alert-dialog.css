@@ -1,15 +1,18 @@
 @import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
 @layer components {
   [data-slot="alert-dialog-popup"] {
     @apply fixed top-1/2 left-1/2;
     @apply -mt-8 -translate-x-1/2 -translate-y-1/2;
-    @apply rounded-(--radius-lg) bg-(--modal) text-(--modal-foreground);
+    @apply rounded-lg bg-surface text-foreground;
     @apply shadow-2xl;
     @apply py-6;
     @apply transition-all duration-150;
     @apply data-ending-style:scale-90 data-ending-style:opacity-0;
     @apply data-starting-style:scale-90 data-starting-style:opacity-0;
     @apply motion-reduce:transition-none;
+    @apply flex flex-col gap-4;
   }
 
   [data-slot="alert-dialog-popup"][data-size="sm"] {
@@ -29,7 +32,7 @@
   }
 
   [data-slot="alert-dialog-title"] {
-    @apply -mt-1.5 px-6 text-lg font-medium;
+    @apply px-6 text-lg font-medium;
   }
 
   [data-slot="alert-dialog-body"] {
@@ -37,6 +40,6 @@
   }
 
   [data-slot="alert-dialog-footer"] {
-    @apply mt-4 flex justify-end gap-4 px-6;
+    @apply flex justify-between gap-4 px-6;
   }
 }

@@ -1,17 +1,18 @@
 @import "tailwindcss";
+@reference "../../css/shanty-ui.css";
 
 @layer components {
   [data-slot="sidebar-wrapper"] {
-    --sidebar-width: 16rem;
+    --sidebar-width: 14rem;
     --sidebar-width-mobile: 18rem;
     --sidebar-width-icon: 3rem;
 
     @apply flex min-h-svh w-full;
-    @apply has-data-[variant=inset]:bg-(--sidebar);
+    @apply has-data-[variant=inset]:bg-background;
   }
 
   [data-sidebar="sidebar"] {
-    @apply bg-(--sidebar) text-(--sidebar-foreground);
+    @apply bg-background text-foreground;
   }
 
   [data-sidebar="sidebar"][data-collapsible="none"] {
@@ -19,7 +20,7 @@
   }
 
   [data-sidebar="sidebar"]:not([data-collapsible="none"]) {
-    @apply text-(--sidebar-foreground) hidden md:block;
+    @apply text-foreground hidden md:block;
   }
 
   [data-slot="sidebar-gap"] {
@@ -45,6 +46,14 @@
   }
 
   [data-slot="sidebar-inner"] {
-    @apply bg-(--sidebar) group-data-[variant=floating]:ring-(--sidebar-border) flex size-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1;
+    @apply bg-background group-data-[variant=floating]:ring-border flex size-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1;
+  }
+
+  [data-slot="sidebar-header"] {
+    @apply flex flex-col gap-2 p-2;
+  }
+
+  [data-slot="sidebar-footer"] {
+    @apply flex flex-col gap-2 p-2;
   }
 }

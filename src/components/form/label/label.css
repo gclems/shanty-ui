@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
 
 @layer components {
   [data-slot="label"] {
@@ -6,6 +7,6 @@
   }
 
   [data-slot="label-required"] {
-    @apply text-(--destructive);
+    @apply text-destructive;
   }
 }

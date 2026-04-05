@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+	[data-slot="drawer-viewport"] {
+		@apply fixed inset-0 flex items-stretch justify-end;
+	}
+
+	[data-slot="drawer-popup"] {
+		@apply p-6 gap-6 flex flex-col;
+		@apply bg-surface text-foreground;
+
+		@apply transition-transform duration-450 ease-[cubic-bezier(0.32,0.72,0,1)];
+	}
+
+	[data-slot="drawer-popup"][data-side="left"] {
+		@apply inset-y-0 left-0 h-full;
+		@apply data-ending-style:-translate-x-full;
+		@apply data-starting-style:-translate-x-full;
+	}
+	[data-slot="drawer-popup"][data-side="right"] {
+		@apply inset-y-0 right-0 h-full;
+		@apply data-ending-style:translate-x-full;
+		@apply data-starting-style:translate-x-full;
+	}
+
+	[data-slot="drawer-popup"][data-size="sm"] {
+		@apply w-[min(20rem,calc(100vw-4rem))];
+	}
+
+	[data-slot="drawer-popup"][data-size="md"] {
+		@apply w-[min(31.25rem,calc(100vw-4rem))];
+	}
+
+	[data-slot="drawer-popup"][data-size="lg"] {
+		@apply w-[min(50rem,calc(100vw-4rem))];
+	}
+
+	[data-slot="drawer-popup"][data-size="xl"] {
+		@apply w-[min(71.25rem,calc(100vw-4rem))];
+	}
+
+	[data-sub-slot="drawer-top-close-button"] {
+		@apply absolute top-2 right-2;
+	}
+
+	[data-slot="drawer-header"] {
+		@apply space-y-2;
+	}
+
+	[data-slot="drawer-title"] {
+		@apply text-lg font-medium;
+	}
+
+	[data-slot="drawer-description"] {
+		@apply text-base text-muted-foreground;
+	}
+
+	[data-sub-slot="drawer-body-scroll"] {
+		@apply -mx-6;
+	}
+
+	[data-slot="drawer-body"] {
+		@apply text-sm;
+		@apply px-6;
+	}
+
+	[data-slot="drawer-footer"] {
+		@apply flex justify-between gap-4;
+	}
+}

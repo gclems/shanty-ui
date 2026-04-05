@@ -2,7 +2,6 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import ReactDOM from "react-dom/client";
 
 import { ShantyRoot } from "@/index";
-import "@/css/themes/default.css";
 
 import { routeTree } from "./routeTree.gen";
 
@@ -25,7 +24,7 @@ const rootElement = document.getElementById("app");
 if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
-    <ShantyRoot toast tooltip>
+    <ShantyRoot toast tooltip sidebar>
       <RouterProvider router={router} />
     </ShantyRoot>,
   );
