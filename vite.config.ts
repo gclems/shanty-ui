@@ -14,6 +14,10 @@ const externalDeps = new Set([
 ]);
 
 const isExternal = (id: string) => {
+	if (id.endsWith(".css")) {
+		return true;
+	}
+
 	if (id.startsWith(".") || path.isAbsolute(id)) {
 		return false;
 	}
@@ -92,7 +96,7 @@ export default defineConfig({
 			},
 			external: isExternal,
 			treeshake: {
-				moduleSideEffects: false,
+				moduleSideEffects: (id) => id.endsWith(".css"),
 			},
 		},
 	},
