@@ -51,6 +51,15 @@ export default defineConfig({
 					src: "src/css",
 					dest: "",
 				},
+				{
+					src: "src/components/**/*.css",
+					dest: "components",
+					rename: (_name, _ext, fullPath) => {
+						const marker = "/src/components/";
+						const idx = fullPath.lastIndexOf(marker);
+						return fullPath.slice(idx + marker.length);
+					},
+				},
 			],
 		}),
 	],
