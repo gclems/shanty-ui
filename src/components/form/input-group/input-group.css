@@ -3,7 +3,7 @@
 
 @layer components {
 	[data-slot="input-group"] {
-		@apply h-10 w-full max-w-64;
+		@apply h-10 w-full;
 		@apply flex items-center gap-2;
 		@apply px-3.5;
 		@apply rounded-sm;
