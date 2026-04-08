@@ -1,4 +1,5 @@
 import { Field as BaseField } from "@base-ui/react";
+
 import { InputDescription } from "../../form/input-description/input-description";
 import { InputError } from "../../form/input-error/input-error";
 import { Label } from "../../form/label/label";
@@ -6,39 +7,45 @@ import { Label } from "../../form/label/label";
 import "./field.css";
 
 function Field({
-  rootProps,
-  label,
-  required,
-  error,
-  description,
-  children,
+	label,
+	required,
+	error,
+	description,
+	orientation = "vertical",
+	children,
 }: {
-  rootProps?: BaseField.Root.Props;
-  label?: React.ReactNode;
-  required?: boolean;
-  error?: React.ReactNode;
-  description?: React.ReactNode;
-  children?: React.ReactNode;
+	label?: React.ReactNode;
+	required?: boolean;
+	error?: React.ReactNode;
+	description?: React.ReactNode;
+	children?: React.ReactNode;
+	orientation?: "vertical" | "horizontal";
 }) {
-  return (
-    <BaseField.Root data-slot="field-root" {...rootProps}>
-      <Label render={<BaseField.Label />} required={required}>
-        {label}
-      </Label>
+	return (
+		<BaseField.Root data-slot="field-root" data-orientation={orientation}>
+			<div data-slot="field-label">
+				<Label render={<BaseField.Label />} required={required}>
+					{label}
+				</Label>
 
-      {!!description && (
-        <InputDescription render={<BaseField.Description />}>
-          {description}
-        </InputDescription>
-      )}
+				{!!description && (
+					<InputDescription render={<BaseField.Description />}>
+						{description}
+					</InputDescription>
+				)}
+			</div>
 
-      {children}
+			<div data-slot="field-input">
+				{children}
 
-      {!!error && (
-        <InputError render={<BaseField.Error match />}>{error}</InputError>
-      )}
-    </BaseField.Root>
-  );
+				{!!error && (
+					<InputError render={<BaseField.Error match />} data-slot="field-error">
+						{error}
+					</InputError>
+				)}
+			</div>
+		</BaseField.Root>
+	);
 }
 
 export { Field };

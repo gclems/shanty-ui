@@ -23,8 +23,29 @@ function RouteComponent() {
 				<Input placeholder="Type something..." />
 			</Item>
 			<Item title="Field">
-				<Field description="This is a description" label="Field label" required>
+				<Field
+					description="This is a description"
+					label="Field label"
+					error="oh non"
+					required
+				>
 					<Input placeholder="Type something" />
+				</Field>
+			</Item>
+
+			<Item title="horizontal field">
+				<Field
+					label="Horizontal field"
+					description="This is a description"
+					orientation="horizontal"
+					required
+					error="This field is in error"
+				>
+					<Input
+						name="horizontal"
+						ignorePasswordManagers
+						placeholder="Type something"
+					/>
 				</Field>
 			</Item>
 			<Item title="Password">

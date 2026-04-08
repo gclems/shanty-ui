@@ -2,7 +2,26 @@
 @reference "../../../css/shanty-ui.css";
 
 @layer components {
-  [data-slot="field-root"] {
-    @apply space-y-1;
-  }
+	[data-slot="field-root"] {
+		@apply w-full;
+	}
+
+	[data-slot="field-root"][data-orientation="horizontal"] {
+		@apply flex items-center gap-x-1.5;
+	}
+
+	[data-slot="field-root"][data-orientation="horizontal"]
+		[data-slot="field-label"],
+	[data-slot="field-root"][data-orientation="horizontal"]
+		[data-slot="field-input"] {
+		@apply flex flex-col gap-y-1;
+	}
+
+	[data-slot="field-root"][data-orientation="vertical"] {
+		@apply flex flex-col gap-y-1;
+	}
+
+	[data-slot="field-error"] {
+		@apply text-destructive text-sm;
+	}
 }
