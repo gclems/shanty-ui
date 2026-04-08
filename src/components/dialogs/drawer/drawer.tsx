@@ -65,12 +65,13 @@ function Popup({
 function Header({
 	title,
 	description,
-}: {
+	...props
+}: ComponentProps<"div"> & {
 	title?: ReactNode;
 	description?: ReactNode;
 }) {
 	return (
-		<div>
+		<div {...props}>
 			{!!title && (
 				<BaseDrawer.Title data-slot="drawer-title">{title}</BaseDrawer.Title>
 			)}

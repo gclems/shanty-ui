@@ -1,20 +1,28 @@
-import * as React from "react";
+import {
+	type CSSProperties,
+	type ComponentProps,
+	createContext,
+	useCallback,
+	useContext,
+	useEffect,
+	useMemo,
+	useState,
+} from "react";
 
-import { mergeProps } from "@base-ui/react/merge-props";
-import { useRender } from "@base-ui/react/use-render";
 import { PanelLeftIcon } from "lucide-react";
-import { cn } from "tailwind-variants";
 
-import { useIsMobile } from "@/tools/use-is-mobile";
+import { Button, Drawer, cn, useIsMobile } from "@/index";
 
-import { Button } from "../button/button";
-import { Separator as SuiSeparator } from "../separator/separator";
+import "./sidebar.css";
+
+import { mergeProps, useRender } from "@base-ui/react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
+const SIDEBAR_WIDTH = "16rem";
+const SIDEBAR_WIDTH_MOBILE = "18rem";
+const SIDEBAR_WIDTH_ICON = "3rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
-
-import "./sidebar.css";
 
 type SidebarContextProps = {
 	state: "expanded" | "collapsed";
@@ -24,15 +32,14 @@ type SidebarContextProps = {
 	setOpenMobile: (open: boolean) => void;
 	isMobile: boolean;
 	toggleSidebar: () => void;
-	activeMenuKeys?: string[];
 };
 
-const SidebarContext = React.createContext<SidebarContextProps | null>(null);
+const SidebarContext = createContext<SidebarContextProps | null>(null);
 
 function useSidebar() {
-	const context = React.useContext(SidebarContext);
+	const context = useContext(SidebarContext);
 	if (!context) {
-		throw new Error("useSidebar must be used within a Sidebar.Provider.");
+		throw new Error("useSidebar must be used within a SidebarProvider.");
 	}
 
 	return context;
@@ -42,21 +49,22 @@ function Provider({
 	defaultOpen = true,
 	open: openProp,
 	onOpenChange: setOpenProp,
+	className,
+	style,
 	children,
 	...props
-}: React.ComponentProps<"div"> & {
+}: ComponentProps<"div"> & {
 	defaultOpen?: boolean;
 	open?: boolean;
 	onOpenChange?: (open: boolean) => void;
 }) {
 	const isMobile = useIsMobile();
-	const [openMobile, setOpenMobile] = React.useState(false);
-
+	const [openMobile, setOpenMobile] = useState(false);
 	// This is the internal state of the sidebar.
 	// We use openProp and setOpenProp for control from outside the component.
-	const [_open, _setOpen] = React.useState(defaultOpen);
+	const [_open, _setOpen] = useState(defaultOpen);
 	const open = openProp ?? _open;
-	const setOpen = React.useCallback(
+	const setOpen = useCallback(
 		(value: boolean | ((value: boolean) => boolean)) => {
 			const openState = typeof value === "function" ? value(open) : value;
 			if (setOpenProp) {
@@ -64,21 +72,18 @@ function Provider({
 			} else {
 				_setOpen(openState);
 			}
-
 			// This sets the cookie to keep the sidebar state.
-			// biome-ignore lint/suspicious/noDocumentCookie: shadcn's code
+			// biome-ignore lint/suspicious/noDocumentCookie: Shadcn's example uses cookies to persist the sidebar state, so we need to ignore this lint warning.
 			document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
 		},
 		[setOpenProp, open],
 	);
-
 	// Helper to toggle the sidebar.
-	const toggleSidebar = React.useCallback(() => {
+	const toggleSidebar = useCallback(() => {
 		return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
 	}, [isMobile, setOpen]);
-
 	// Adds a keyboard shortcut to toggle the sidebar.
-	React.useEffect(() => {
+	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (
 				event.key === SIDEBAR_KEYBOARD_SHORTCUT &&
@@ -88,16 +93,13 @@ function Provider({
 				toggleSidebar();
 			}
 		};
-
 		window.addEventListener("keydown", handleKeyDown);
 		return () => window.removeEventListener("keydown", handleKeyDown);
 	}, [toggleSidebar]);
-
 	// We add a state so that we can do data-state="expanded" or "collapsed".
 	// This makes it easier to style the sidebar with Tailwind classes.
 	const state = open ? "expanded" : "collapsed";
-
-	const contextValue = React.useMemo<SidebarContextProps>(
+	const contextValue = useMemo<SidebarContextProps>(
 		() => ({
 			state,
 			open,
@@ -112,7 +114,21 @@ function Provider({
 
 	return (
 		<SidebarContext.Provider value={contextValue}>
-			<div data-slot="sidebar-wrapper" {...props}>
+			<div
+				data-slot="sidebar-wrapper"
+				style={
+					{
+						"--sidebar-width": SIDEBAR_WIDTH,
+						"--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
+						...style,
+					} as CSSProperties
+				}
+				className={cn(
+					"group/sidebar-wrapper flex min-h-svh w-full has-data-[variant=inset]:bg-surface",
+					className,
+				)}
+				{...props}
+			>
 				{children}
 			</div>
 		</SidebarContext.Provider>
@@ -123,52 +139,60 @@ function Root({
 	side = "left",
 	variant = "sidebar",
 	collapsible = "offcanvas",
+	className,
 	children,
+	dir,
 	...props
-}: React.ComponentProps<"div"> & {
+}: ComponentProps<"div"> & {
 	side?: "left" | "right";
 	variant?: "sidebar" | "floating" | "inset";
 	collapsible?: "offcanvas" | "icon" | "none";
 }) {
-	const { state } = useSidebar();
-
+	const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 	if (collapsible === "none") {
 		return (
-			<div data-slot="sidebar" data-collapsible="none" {...props}>
+			<div
+				data-slot="sidebar"
+				className={cn(
+					"flex h-full w-(--sidebar-width) flex-col bg-surface text-foreground",
+					className,
+				)}
+				{...props}
+			>
 				{children}
 			</div>
 		);
 	}
-
-	// if (isMobile) {
-	//   return (
-	//     <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-	//       <SheetContent
-	//         dir={dir}
-	//         data-sidebar="sidebar"
-	//         data-slot="sidebar"
-	//         data-mobile="true"
-	//         className="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
-	//         style={
-	//           {
-	//             "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-	//           } as React.CSSProperties
-	//         }
-	//         side={side}
-	//       >
-	//         <SheetHeader className="sr-only">
-	//           <SheetTitle>Sidebar</SheetTitle>
-	//           <SheetDescription>Displays the mobile sidebar.</SheetDescription>
-	//         </SheetHeader>
-	//         <div className="flex h-full w-full flex-col">{children}</div>
-	//       </SheetContent>
-	//     </Sheet>
-	//   );
-	// }
+	if (isMobile) {
+		return (
+			<Drawer open={openMobile} onOpenChange={setOpenMobile} {...props}>
+				<Drawer.Popup
+					dir={dir}
+					data-sidebar="sidebar"
+					data-slot="sidebar"
+					data-mobile="true"
+					className="w-(--sidebar-width) bg-surface p-0 text-foreground [&>button]:hidden"
+					style={
+						{
+							"--sidebar-width": SIDEBAR_WIDTH_MOBILE,
+						} as CSSProperties
+					}
+					side={side}
+				>
+					<Drawer.Header
+						title="Sidebar"
+						description="Displays the mobile sidebar."
+						className="sr-only"
+					/>
+					<div className="flex h-full w-full flex-col">{children}</div>
+				</Drawer.Popup>
+			</Drawer>
+		);
+	}
 
 	return (
 		<div
-			className="group peer"
+			className="group peer hidden text-foreground md:block"
 			data-state={state}
 			data-collapsible={state === "collapsed" ? collapsible : ""}
 			data-variant={variant}
@@ -176,14 +200,36 @@ function Root({
 			data-slot="sidebar"
 		>
 			{/* This is what handles the sidebar gap on desktop */}
-			<div data-slot="sidebar-gap" data-variant={variant} />
+			<div
+				data-slot="sidebar-gap"
+				className={cn(
+					"relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear",
+					"group-data-[collapsible=offcanvas]:w-0",
+					"group-data-[side=right]:rotate-180",
+					variant === "floating" || variant === "inset"
+						? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]"
+						: "group-data-[collapsible=icon]:w-(--sidebar-width-icon)",
+				)}
+			/>
 			<div
 				data-slot="sidebar-container"
-				data-variant={variant}
 				data-side={side}
+				className={cn(
+					"border-border",
+					"fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear data-[side=left]:left-0 data-[side=left]:group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)] data-[side=right]:right-0 data-[side=right]:group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)] md:flex",
+					// Adjust the padding for floating and inset variants.
+					variant === "floating" || variant === "inset"
+						? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
+						: "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
+					className,
+				)}
 				{...props}
 			>
-				<div data-sidebar="sidebar" data-slot="sidebar-inner">
+				<div
+					data-sidebar="sidebar"
+					data-slot="sidebar-inner"
+					className="flex size-full flex-col bg-surface group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border"
+				>
 					{children}
 				</div>
 			</div>
@@ -191,16 +237,20 @@ function Root({
 	);
 }
 
-function Trigger({ onClick, ...props }: React.ComponentProps<typeof Button>) {
+function Trigger({
+	className,
+	onClick,
+	...props
+}: ComponentProps<typeof Button>) {
 	const { toggleSidebar } = useSidebar();
-
 	return (
 		<Button
 			data-sidebar="trigger"
-			data-slot="sidebar-trigger"
+			data-sub-slot="sidebar-trigger"
 			variant="ghost"
 			size="sm"
 			square
+			className={cn(className)}
 			onClick={(event) => {
 				onClick?.(event);
 				toggleSidebar();
@@ -213,29 +263,7 @@ function Trigger({ onClick, ...props }: React.ComponentProps<typeof Button>) {
 	);
 }
 
-function Header({ ...props }: React.ComponentProps<"div">) {
-	return <div data-slot="sidebar-header" data-sidebar="header" {...props} />;
-}
-
-function Footer({ ...props }: React.ComponentProps<"div">) {
-	return <div data-slot="sidebar-footer" data-sidebar="footer" {...props} />;
-}
-
-function Separator({
-	className,
-	...props
-}: React.ComponentProps<typeof SuiSeparator>) {
-	return (
-		<SuiSeparator
-			data-slot="sidebar-separator"
-			data-sidebar="separator"
-			className={cn("bg-sidebar-border mx-2 w-auto", className)}
-			{...props}
-		/>
-	);
-}
-
-function Content({ className, ...props }: React.ComponentProps<"div">) {
+function Content({ className, ...props }: ComponentProps<"ul">) {
 	return (
 		<div
 			data-slot="sidebar-content"
@@ -244,131 +272,51 @@ function Content({ className, ...props }: React.ComponentProps<"div">) {
 				"no-scrollbar flex min-h-0 flex-1 flex-col gap-0 overflow-auto group-data-[collapsible=icon]:overflow-hidden",
 				className,
 			)}
-			{...props}
-		/>
+		>
+			<ul
+				data-slot="sidebar-menu"
+				data-sidebar="menu"
+				className={cn("flex w-full min-w-0 flex-col gap-0", className)}
+				{...props}
+			/>
+		</div>
 	);
 }
 
-function Group({ className, ...props }: React.ComponentProps<"div">) {
-	return (
-		<div
-			data-slot="sidebar-group"
-			data-sidebar="group"
-			className={cn("relative flex w-full min-w-0 flex-col p-2", className)}
-			{...props}
-		/>
-	);
-}
-
-function Menu({ className, ...props }: React.ComponentProps<"ul">) {
-	return (
-		<ul
-			data-slot="sidebar-menu"
-			data-sidebar="menu"
-			className={cn("flex w-full min-w-0 flex-col gap-0", className)}
-			{...props}
-		/>
-	);
-}
-
-function MenuItem({ className, ...props }: React.ComponentProps<"li">) {
-	return (
-		<li
-			data-slot="sidebar-menu-item"
-			data-sidebar="menu-item"
-			className={cn("group/menu-item relative", className)}
-			{...props}
-		/>
-	);
-}
-
-function MenuSub({ className, ...props }: React.ComponentProps<"ul">) {
-	return (
-		<ul
-			data-slot="sidebar-menu-sub"
-			data-sidebar="menu-sub"
-			className={cn(
-				"border-sidebar-border mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l px-2.5 py-0.5 group-data-[collapsible=icon]:hidden",
-				className,
-			)}
-			{...props}
-		/>
-	);
-}
-
-function MenuSubItem({ className, ...props }: React.ComponentProps<"li">) {
-	return (
-		<li
-			data-slot="sidebar-menu-sub-item"
-			data-sidebar="menu-sub-item"
-			className={cn("group/menu-sub-item relative", className)}
-			{...props}
-		/>
-	);
-}
-
-function MenuSubButton({
-	render,
-	size = "md",
+function Item({
 	isActive = false,
 	className,
+	render,
 	...props
-}: useRender.ComponentProps<"a"> &
-	React.ComponentProps<"a"> & {
-		size?: "sm" | "md";
-		isActive?: boolean;
-	}) {
-	return useRender({
-		defaultTagName: "a",
-		props: mergeProps<"a">(
+}: useRender.ComponentProps<"button"> & { isActive?: boolean }) {
+	const element = useRender({
+		defaultTagName: "button",
+		render,
+		props: mergeProps<"button">(
 			{
-				className: cn(
-					"ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground [&>svg]:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 text-sidebar-foreground outline-hidden group-data-[collapsible=icon]:hidden focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[size=md]:text-sm data-[size=sm]:text-xs [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
-					className,
-				),
-			},
+				"data-slot": "sidebar-item-button",
+				"data-active": isActive,
+			} as React.ComponentPropsWithRef<"button">,
 			props,
 		),
-		render,
-		state: {
-			slot: "sidebar-menu-sub-button",
-			sidebar: "menu-sub-button",
-			size,
-			active: isActive,
-		},
 	});
-}
 
-/**
- * Target:
- * Sidebar
- * SidebarHeader
- * SidebarBody
- * SidebarFooter
- *
- * SidebarGroup (label prop)
- * SidebarItem
- *
- * SidebarTrigger
- *
- * useSidebar + SidebarProvider (maybe in ShantyRoot)
- */
+	return (
+		<li
+			data-slot="sidebar-item"
+			className={cn("group/menu-item relative", className)}
+		>
+			{element}
+		</li>
+	);
+}
 
 const Sidebar = Object.assign(Root, {
 	Root,
 	Provider,
-	Header,
-	Content,
-	Group,
-	Footer,
-	Menu,
-	MenuItem,
-	MenuSub,
-	MenuSubButton,
-	MenuSubItem,
-	Separator,
 	Trigger,
-	useSidebar,
+	Content,
+	Item,
 });
 
-export { Sidebar };
+export { Sidebar, useSidebar };

@@ -2,7 +2,7 @@
 @reference "../../css/shanty-ui.css";
 
 @layer components {
-  [data-slot="sidebar-wrapper"] {
+	/* [data-slot="sidebar-wrapper"] {
     --sidebar-width: 14rem;
     --sidebar-width-mobile: 18rem;
     --sidebar-width-icon: 3rem;
@@ -55,5 +55,23 @@
 
   [data-slot="sidebar-footer"] {
     @apply flex flex-col gap-2 p-2;
-  }
+  } */
+
+	[data-slot="sidebar-item"] {
+		@apply my-0.5;
+	}
+
+	[data-slot="sidebar-item-button"] {
+		@apply w-full px-3 py-1 text-left block;
+		@apply bg-background text-foreground;
+		@apply pl-6 pr-2;
+	}
+
+	[data-slot="sidebar-item-button"][data-active="true"] {
+		@apply bg-primary text-primary-foreground;
+	}
+
+	[data-slot="sidebar-item-button"][data-active="false"] {
+		@apply hover:bg-accent hover:text-accent-foreground;
+	}
 }
