@@ -33,7 +33,6 @@ function Password({
 				data-np-ignore={ignorePasswordManagers ? "true" : undefined}
 			/>
 			<InputGroup.Button
-				align="end"
 				onMouseDown={() => setShowPassword(true)}
 				onMouseUp={() => setShowPassword(false)}
 				onMouseLeave={() => setShowPassword(false)}
