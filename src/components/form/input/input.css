@@ -2,15 +2,15 @@
 @reference "../../../css/shanty-ui.css";
 
 @layer components {
-  [data-slot="input"] {
-    @apply h-10 w-full max-w-64;
-    @apply pl-3.5;
-    @apply rounded-sm;
-    @apply bg-input;
-    @apply border border-input-border;
-    @apply text-base text-input-foreground;
-    @apply placeholder:text-input-placeholder;
-    @apply focus:outline-2 focus:-outline-offset-1 focus:outline-primary;
-    @apply data-invalid:border-destructive data-invalid:text-destructive;
-  }
+	[data-slot="input"] {
+		@apply h-10 w-full max-w-64;
+		@apply px-3.5;
+		@apply rounded-sm;
+		@apply bg-input;
+		@apply border border-input-border;
+		@apply text-base text-input-foreground;
+		@apply placeholder:text-input-placeholder;
+		@apply focus:outline-2 focus:-outline-offset-1 focus:outline-primary;
+		@apply data-invalid:border-destructive data-invalid:text-destructive;
+	}
 }

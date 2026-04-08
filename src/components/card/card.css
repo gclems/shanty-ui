@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+	[data-slot="card"] {
+		@apply flex flex-col p-6 gap-6 overflow-hidden;
+		@apply rounded-xl;
+		@apply bg-surface text-foreground;
+		@apply ring-1 ring-foreground/10;
+	}
+
+	[data-slot="card-header"] {
+		@apply space-y-2;
+	}
+
+	[data-slot="card-title"] {
+		@apply text-lg font-medium;
+	}
+
+	[data-slot="card-description"] {
+		@apply text-base text-muted-foreground;
+	}
+
+	[data-slot="card-body"] {
+		@apply text-sm;
+		@apply px-6;
+	}
+
+	[data-slot="card-footer"] {
+		@apply flex justify-between gap-4;
+	}
+}
