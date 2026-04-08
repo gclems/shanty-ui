@@ -4,7 +4,7 @@
 
 @layer components {
 	[data-slot="card"] {
-		@apply flex flex-col p-6 gap-6 overflow-hidden;
+		@apply flex flex-col p-4 gap-4 overflow-hidden;
 		@apply rounded-xl;
 		@apply bg-surface text-foreground;
 		@apply ring-1 ring-foreground/10;
@@ -22,12 +22,9 @@
 		@apply text-base text-muted-foreground;
 	}
 
-	[data-slot="card-body"] {
-		@apply text-sm;
-		@apply px-6;
+	/* [data-slot="card-body"] {
 	}
 
 	[data-slot="card-footer"] {
-		@apply flex justify-between gap-4;
-	}
+	} */
 }
