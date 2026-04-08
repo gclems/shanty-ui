@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@reference "../../../css/shanty-ui.css";
+
+@reference "../../css/shanty-ui.css";
 
 @layer components {
 	[data-slot="card"] {
