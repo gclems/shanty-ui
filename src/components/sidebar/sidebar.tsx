@@ -1,5 +1,4 @@
 import {
-	type CSSProperties,
 	type ComponentProps,
 	createContext,
 	useCallback,
@@ -14,14 +13,10 @@ import { PanelLeftIcon } from "lucide-react";
 import { cn } from "tailwind-variants";
 
 import { Button, Drawer, useIsMobile } from "@/index";
-
 import "./sidebar.css";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
-const SIDEBAR_WIDTH = "16rem";
-const SIDEBAR_WIDTH_MOBILE = "18rem";
-const SIDEBAR_WIDTH_ICON = "3rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
 type SidebarContextProps = {
@@ -114,21 +109,7 @@ function Provider({
 
 	return (
 		<SidebarContext.Provider value={contextValue}>
-			<div
-				data-slot="sidebar-wrapper"
-				style={
-					{
-						"--sidebar-width": SIDEBAR_WIDTH,
-						"--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
-						...style,
-					} as CSSProperties
-				}
-				className={cn(
-					"group/sidebar-wrapper flex min-h-svh w-full has-data-[variant=inset]:bg-surface",
-					className,
-				)}
-				{...props}
-			>
+			<div data-slot="sidebar-wrapper" className={cn(className)} {...props}>
 				{children}
 			</div>
 		</SidebarContext.Provider>
@@ -146,45 +127,25 @@ function Root({
 }: ComponentProps<"div"> & {
 	side?: "left" | "right";
 	variant?: "sidebar" | "floating" | "inset";
-	collapsible?: "offcanvas" | "icon" | "none";
+	collapsible?: "offcanvas" | "icon";
 }) {
 	const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
-	if (collapsible === "none") {
-		return (
-			<div
-				data-slot="sidebar"
-				className={cn(
-					"flex h-full w-(--sidebar-width) flex-col bg-surface text-foreground",
-					className,
-				)}
-				{...props}
-			>
-				{children}
-			</div>
-		);
-	}
+
 	if (isMobile) {
 		return (
 			<Drawer open={openMobile} onOpenChange={setOpenMobile} {...props}>
 				<Drawer.Popup
 					dir={dir}
 					data-sidebar="sidebar"
-					data-slot="sidebar"
+					data-sub-slot="sidebar-drawer"
 					data-mobile="true"
-					className="w-(--sidebar-width) bg-surface p-0 text-foreground [&>button]:hidden"
-					style={
-						{
-							"--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-						} as CSSProperties
-					}
 					side={side}
 				>
 					<Drawer.Header
 						title="Sidebar"
 						description="Displays the mobile sidebar."
-						className="sr-only"
 					/>
-					<div className="flex h-full w-full flex-col">{children}</div>
+					<Drawer.Body>{children}</Drawer.Body>
 				</Drawer.Popup>
 			</Drawer>
 		);
@@ -192,7 +153,6 @@ function Root({
 
 	return (
 		<div
-			className="group peer hidden text-foreground md:block"
 			data-state={state}
 			data-collapsible={state === "collapsed" ? collapsible : ""}
 			data-variant={variant}
@@ -200,39 +160,34 @@ function Root({
 			data-slot="sidebar"
 		>
 			{/* This is what handles the sidebar gap on desktop */}
-			<div
-				data-slot="sidebar-gap"
-				className={cn(
-					"relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear",
-					"group-data-[collapsible=offcanvas]:w-0",
-					"group-data-[side=right]:rotate-180",
-					variant === "floating" || variant === "inset"
-						? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]"
-						: "group-data-[collapsible=icon]:w-(--sidebar-width-icon)",
-				)}
-			/>
+			<div data-slot="sidebar-gap" data-variant={variant} />
 			<div
 				data-slot="sidebar-container"
 				data-side={side}
-				className={cn(
-					"border-border",
-					"fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear data-[side=left]:left-0 data-[side=left]:group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)] data-[side=right]:right-0 data-[side=right]:group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)] md:flex",
-					// Adjust the padding for floating and inset variants.
-					variant === "floating" || variant === "inset"
-						? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
-						: "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
-					className,
-				)}
+				className={cn(className)}
 				{...props}
 			>
-				<div
-					data-sidebar="sidebar"
-					data-slot="sidebar-inner"
-					className="flex size-full flex-col bg-surface group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border"
-				>
+				<div data-sidebar="sidebar" data-slot="sidebar-inner">
 					{children}
 				</div>
 			</div>
+		</div>
+	);
+}
+
+function Content({ className, ...props }: ComponentProps<"ul">) {
+	return (
+		<div
+			data-slot="sidebar-content"
+			data-sidebar="content"
+			className={cn(className)}
+		>
+			<ul
+				data-slot="sidebar-menu"
+				data-sidebar="menu"
+				className={cn(className)}
+				{...props}
+			/>
 		</div>
 	);
 }
@@ -247,39 +202,20 @@ function Trigger({
 		<Button
 			data-sidebar="trigger"
 			data-sub-slot="sidebar-trigger"
-			variant="ghost"
+			variant="light"
 			size="sm"
 			square
 			className={cn(className)}
+			tabIndex={-1}
 			onClick={(event) => {
 				onClick?.(event);
 				toggleSidebar();
 			}}
 			{...props}
 		>
-			<PanelLeftIcon className="cn-rtl-flip" />
-			<span className="sr-only">Toggle Sidebar</span>
+			<PanelLeftIcon />
+			<span data-slot="sidebar-trigger-label">Toggle Sidebar</span>
 		</Button>
-	);
-}
-
-function Content({ className, ...props }: ComponentProps<"ul">) {
-	return (
-		<div
-			data-slot="sidebar-content"
-			data-sidebar="content"
-			className={cn(
-				"no-scrollbar flex min-h-0 flex-1 flex-col gap-0 overflow-auto group-data-[collapsible=icon]:overflow-hidden",
-				className,
-			)}
-		>
-			<ul
-				data-slot="sidebar-menu"
-				data-sidebar="menu"
-				className={cn("flex w-full min-w-0 flex-col gap-0", className)}
-				{...props}
-			/>
-		</div>
 	);
 }
 
@@ -304,7 +240,7 @@ function Item({
 	return (
 		<li
 			data-slot="sidebar-item"
-			className={cn("group/menu-item relative", className)}
+			className={cn("group/menu-item relative text-sm", className)}
 		>
 			{element}
 		</li>

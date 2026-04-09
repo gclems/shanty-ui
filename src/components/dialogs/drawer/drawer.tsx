@@ -71,7 +71,7 @@ function Header({
 	description?: ReactNode;
 }) {
 	return (
-		<div {...props}>
+		<div data-slot="drawer-header" {...props}>
 			{!!title && (
 				<BaseDrawer.Title data-slot="drawer-title">{title}</BaseDrawer.Title>
 			)}

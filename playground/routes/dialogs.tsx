@@ -125,8 +125,8 @@ function RouteComponent() {
 				<thead>
 					<tr>
 						<th>Size</th>
-						<th>Normal</th>
-						<th>Loooong</th>
+						<th>Normal (left side)</th>
+						<th>Loooong (right side)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -136,7 +136,7 @@ function RouteComponent() {
 							<td>
 								<Drawer>
 									<Drawer.Trigger>Open {size}</Drawer.Trigger>
-									<Drawer.Popup size={size}>
+									<Drawer.Popup size={size} side="left">
 										<Drawer.Header
 											title="Drawer title"
 											description="This is the dialog description"
