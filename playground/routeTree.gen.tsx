@@ -20,7 +20,6 @@ import { Route as MenuRouteImport } from './routes/menu'
 import { Route as FormRouteImport } from './routes/form'
 import { Route as DialogsRouteImport } from './routes/dialogs'
 import { Route as CardRouteImport } from './routes/card'
-import { Route as CalendarRouteImport } from './routes/calendar'
 import { Route as ButtonRouteImport } from './routes/button'
 import { Route as AvatarRouteImport } from './routes/avatar'
 import { Route as IndexRouteImport } from './routes/index'
@@ -80,11 +79,6 @@ const CardRoute = CardRouteImport.update({
   path: '/card',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CalendarRoute = CalendarRouteImport.update({
-  id: '/calendar',
-  path: '/calendar',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ButtonRoute = ButtonRouteImport.update({
   id: '/button',
   path: '/button',
@@ -105,7 +99,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
   '/button': typeof ButtonRoute
-  '/calendar': typeof CalendarRoute
   '/card': typeof CardRoute
   '/dialogs': typeof DialogsRoute
   '/form': typeof FormRoute
@@ -122,7 +115,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
   '/button': typeof ButtonRoute
-  '/calendar': typeof CalendarRoute
   '/card': typeof CardRoute
   '/dialogs': typeof DialogsRoute
   '/form': typeof FormRoute
@@ -140,7 +132,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
   '/button': typeof ButtonRoute
-  '/calendar': typeof CalendarRoute
   '/card': typeof CardRoute
   '/dialogs': typeof DialogsRoute
   '/form': typeof FormRoute
@@ -159,7 +150,6 @@ export interface FileRouteTypes {
     | '/'
     | '/avatar'
     | '/button'
-    | '/calendar'
     | '/card'
     | '/dialogs'
     | '/form'
@@ -176,7 +166,6 @@ export interface FileRouteTypes {
     | '/'
     | '/avatar'
     | '/button'
-    | '/calendar'
     | '/card'
     | '/dialogs'
     | '/form'
@@ -193,7 +182,6 @@ export interface FileRouteTypes {
     | '/'
     | '/avatar'
     | '/button'
-    | '/calendar'
     | '/card'
     | '/dialogs'
     | '/form'
@@ -211,7 +199,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AvatarRoute: typeof AvatarRoute
   ButtonRoute: typeof ButtonRoute
-  CalendarRoute: typeof CalendarRoute
   CardRoute: typeof CardRoute
   DialogsRoute: typeof DialogsRoute
   FormRoute: typeof FormRoute
@@ -304,13 +291,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/calendar': {
-      id: '/calendar'
-      path: '/calendar'
-      fullPath: '/calendar'
-      preLoaderRoute: typeof CalendarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/button': {
       id: '/button'
       path: '/button'
@@ -339,7 +319,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AvatarRoute: AvatarRoute,
   ButtonRoute: ButtonRoute,
-  CalendarRoute: CalendarRoute,
   CardRoute: CardRoute,
   DialogsRoute: DialogsRoute,
   FormRoute: FormRoute,
