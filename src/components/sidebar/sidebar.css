@@ -44,8 +44,8 @@
 		@apply w-0;
 	}
 
-	[data-collapsible="icon"] [data-slot="sidebar-gap"][data-variant="floating"],
-	[data-collapsible="icon"] [data-slot="sidebar-gap"][data-variant="inset"] {
+	[data-collapsible="icon"][data-variant="floating"] [data-slot="sidebar-gap"],
+	[data-collapsible="icon"][data-variant="inset"] [data-slot="sidebar-gap"] {
 		@apply w-[calc(var(--sidebar-width-icon)+(--spacing(4)))];
 	}
 
@@ -54,6 +54,10 @@
 		@apply fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear;
 		@apply md:flex;
 	}
+
+	/* [data-variant="floating"] [data-slot="sidebar-container"] {
+		@apply rounded-lg;
+	} */
 
 	[data-slot="sidebar-container"][data-side="left"] {
 		@apply left-0;
@@ -77,25 +81,25 @@
 		@apply w-(--sidebar-width-icon);
 	}
 
-	[data-side="left"] [data-slot="sidebar-container"] {
+	[data-side="left"]:not([data-variant="floating"])
+		[data-slot="sidebar-container"] {
 		@apply border-r;
 	}
 
-	[data-side="right"] [data-slot="sidebar-container"] {
+	[data-side="right"]:not([data-variant="floating"])
+		[data-slot="sidebar-container"] {
 		@apply border-l;
 	}
 
-	[data-slot="sidebar-container"] [data-variant="floating"],
-	[data-slot="sidebar-container"] [data-variant="inset"] {
-		@apply p-2;
+	[data-variant="floating"] [data-slot="sidebar-container"],
+	[data-variant="inset"] [data-slot="sidebar-container"] {
+		@apply p-2 m-2;
 	}
 
-	[data-collapsible="icon"]
-		[data-slot="sidebar-container"]
-		[data-variant="floating"],
-	[data-collapsible="icon"]
-		[data-slot="sidebar-container"]
-		[data-variant="inset"] {
+	[data-collapsible="icon"][data-variant="floating"]
+		[data-slot="sidebar-container"],
+	[data-collapsible="icon"][data-variant="floating"]
+		[data-slot="sidebar-container"] {
 		@apply w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)];
 	}
 
@@ -128,9 +132,21 @@
 	}
 
 	[data-slot="sidebar-item-button"] {
-		@apply w-full px-3 py-1 text-left block;
+		@apply w-full px-3 py-1 text-left;
 		@apply bg-background text-foreground;
 		@apply pl-6 pr-2;
+
+		@apply flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left;
+		@apply outline-hidden transition-[width,height,padding];
+		@apply hover:bg-accent hover:text-accent-foreground;
+		@apply focus-visible:ring-2 active:bg-accent active:text-accent-foreground;
+		@apply disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none;
+		@apply aria-disabled:opacity-50;
+		@apply [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate;
+	}
+
+	[data-collapsible="icon"] [data-slot="sidebar-item-button"] {
+		@apply size-8! p-2!;
 	}
 
 	[data-slot="sidebar-item-button"][data-active="true"] {

@@ -45,7 +45,6 @@ function Provider({
 	open: openProp,
 	onOpenChange: setOpenProp,
 	className,
-	style,
 	children,
 	...props
 }: ComponentProps<"div"> & {
@@ -238,10 +237,7 @@ function Item({
 	});
 
 	return (
-		<li
-			data-slot="sidebar-item"
-			className={cn("group/menu-item relative text-sm", className)}
-		>
+		<li data-slot="sidebar-item" className={cn(className)}>
 			{element}
 		</li>
 	);

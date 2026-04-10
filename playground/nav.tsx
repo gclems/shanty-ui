@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 
 import { Link, useRouter } from "@tanstack/react-router";
+import { UserIcon } from "lucide-react";
 
 import { Sidebar } from "@/index";
 
@@ -16,11 +17,12 @@ function Nav() {
 	}, [routesByPath]);
 
 	return (
-		<Sidebar>
+		<Sidebar variant="floating" collapsible="icon">
 			<Sidebar.Content>
 				<Sidebar.Item isActive>Fake</Sidebar.Item>
 				{links.map((link) => (
 					<Sidebar.Item key={link.path} render={<Link to={link.path} />}>
+						<UserIcon />
 						{link.title}
 					</Sidebar.Item>
 				))}
