@@ -12,29 +12,33 @@ type SelectItem = {
 
 function Root({
 	items,
-	value,
 	onValueChange,
 	placeholder,
 	className,
 	itemTemplate = renderItem,
 	...props
-}: Omit<BaseSelect.Root.Props<SelectItem>, "onValueChange" | "items"> & {
+}: Omit<
+	BaseSelect.Root.Props<SelectItem>,
+	"onValueChange" | "items" | "value" | "defaultValue"
+> & {
 	items: SelectItem[];
 	onValueChange?: (value: string | null, item: SelectItem | null) => void;
+	value?: SelectItem | null;
+	defaultValue?: SelectItem | null;
 	className?: string;
 	placeholder?: string;
 	itemTemplate?: (item: SelectItem) => React.ReactNode;
 }) {
-	const handleValueChange = (item: SelectItem | null) => {
-		onValueChange?.(item?.value ?? null, item);
-	};
-
 	return (
 		<BaseSelect.Root
 			{...props}
 			items={items}
-			value={value}
-			onValueChange={handleValueChange}
+			onValueChange={(v) => {
+				// temporary fix: v is actually string | null instead of SelectItem | null, need to find the item in the items array
+				const item =
+					items.find((item) => item.value === (v as string | null)) || null;
+				onValueChange?.(item?.value ?? null, item);
+			}}
 		>
 			<BaseSelect.Trigger data-slot="select-trigger" className={cn(className)}>
 				<BaseSelect.Value data-slot="select-value" placeholder={placeholder} />

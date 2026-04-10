@@ -98,6 +98,9 @@ function RouteComponent() {
 				<Select
 					name="fruits"
 					placeholder="Fruit"
+					onValueChange={(value, item) => {
+						console.log("select change", value, item);
+					}}
 					items={[
 						{ label: "None", value: "" },
 						{ label: "Apple", value: "apple" },
