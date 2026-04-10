@@ -6,6 +6,7 @@ import {
 	CheckboxGroup,
 	CurrencyInput,
 	Field,
+	Fieldset,
 	Input,
 	Radio,
 	RadioGroup,
@@ -22,32 +23,36 @@ function RouteComponent() {
 			<Item title="Input (independant)">
 				<Input placeholder="Type something..." />
 			</Item>
-			<Item title="Field">
-				<Field
-					description="This is a description"
-					label="Field label"
-					error="oh non"
-					required
-				>
-					<Input placeholder="Type something" />
-				</Field>
-			</Item>
 
-			<Item title="horizontal field">
-				<Field
-					label="Horizontal field"
-					description="This is a description"
-					orientation="horizontal"
-					required
-					error="This field is in error"
-				>
-					<Input
-						name="horizontal"
-						ignorePasswordManagers
-						placeholder="Type something"
-					/>
-				</Field>
-			</Item>
+			<Fieldset legend="Fields">
+				<Item title="Field">
+					<Field
+						description="This is a description"
+						label="Field label"
+						error="oh non"
+						required
+					>
+						<Input placeholder="Type something" />
+					</Field>
+				</Item>
+
+				<Item title="horizontal field">
+					<Field
+						label="Horizontal field"
+						description="This is a description"
+						orientation="horizontal"
+						required
+						error="This field is in error"
+					>
+						<Input
+							name="horizontal"
+							ignorePasswordManagers
+							placeholder="Type something"
+						/>
+					</Field>
+				</Item>
+			</Fieldset>
+
 			<Item title="Password">
 				<Password placeholder="Type something..." ignorePasswordManagers />
 			</Item>
@@ -58,18 +63,19 @@ function RouteComponent() {
 				</Field>
 			</Item>
 
-			<Item title="Checkbox">
-				<Checkbox label="Accept terms and conditions" />
-			</Item>
+			<Fieldset legend="Checkboxes">
+				<Item title="Checkbox">
+					<Checkbox label="Accept terms and conditions" />
+				</Item>
 
-			<Item title="Checkbox Group">
-				<CheckboxGroup>
-					<Checkbox value="fuji-apple" label="Fuji Apple" />
-					<Checkbox value="granny-smith" label="Granny Smith" />
-					<Checkbox value="honeycrisp" label="Honeycrisp" />
-				</CheckboxGroup>
-			</Item>
-
+				<Item title="Checkbox Group">
+					<CheckboxGroup>
+						<Checkbox value="fuji-apple" label="Fuji Apple" />
+						<Checkbox value="granny-smith" label="Granny Smith" />
+						<Checkbox value="honeycrisp" label="Honeycrisp" />
+					</CheckboxGroup>
+				</Item>
+			</Fieldset>
 			<Item title="Radio Group">
 				<RadioGroup>
 					<Radio value="fuji-apple" label="Fuji Apple" />

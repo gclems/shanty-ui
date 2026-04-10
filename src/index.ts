@@ -10,6 +10,7 @@ export * from "./components/dialogs/alert-dialog/alert-dialog";
 export * from "./components/dialogs/backdrop/backdrop";
 export * from "./components/dialogs/dialog/dialog";
 export * from "./components/dialogs/drawer/drawer";
+export * from "./components/fieldset/fieldset";
 export * from "./components/form/checkbox/checkbox";
 export * from "./components/form/checkbox-group/checkbox-group";
 export * from "./components/form/currency-input/currency-input";
