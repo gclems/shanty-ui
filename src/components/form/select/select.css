@@ -2,98 +2,83 @@
 @reference "../../../css/shanty-ui.css";
 
 @layer components {
-  [data-slot="select-input-wrapper"] {
-    @apply relative;
-    @apply [&>input]:pr-8;
-    @apply has-[.combobox-clear]:[&>input]:pr-[calc(0.5rem+1.5rem*2)];
-  }
+	[data-slot="select-input-wrapper"] {
+		@apply relative;
+		@apply [&>input]:pr-8;
+		@apply has-[.combobox-clear]:[&>input]:pr-[calc(0.5rem+1.5rem*2)];
+	}
 
-  [data-slot="select-trigger"] {
-    @apply flex items-center justify-between gap-3;
-    @apply h-10 w-full min-w-36;
-    @apply pr-3 pl-3.5;
-    @apply rounded-sm;
-    @apply border border-input-border;
-    @apply bg-input;
-    @apply text-base text-input-foreground;
-    @apply select-none;
-    @apply outline-[transparent] focus:outline-2 focus:-outline-offset-1;
-    @apply focus:outline-primary;
-    @apply data-popup-open:outline-primary;
-  }
+	[data-slot="select-trigger"] {
+		@apply flex items-center justify-between gap-3;
+		@apply h-10 w-full min-w-36;
+		@apply pr-3 pl-3.5;
+		@apply rounded-sm;
+		@apply border border-input-border;
+		@apply bg-input;
+		@apply text-base text-input-foreground;
+		@apply select-none;
+		@apply outline-transparent focus:outline-2 focus:-outline-offset-1;
+		@apply focus:outline-primary;
+		@apply data-popup-open:outline-primary;
+	}
 
-  [data-slot="select-value"] {
-    @apply text-input-foreground;
-    @apply data-placeholder:text-input-placeholder;
-  }
+	[data-slot="select-value"] {
+		@apply text-input-foreground;
+		@apply data-placeholder:text-input-placeholder;
+	}
 
-  [data-slot="select-icon-wrapper"] {
-    @apply absolute right-2 bottom-0 h-10 text-input-foreground;
-    @apply flex items-center justify-center;
-  }
+	[data-slot="select-icon"] {
+		@apply flex;
+		@apply [&_svg]:size-4;
+	}
 
-  [data-slot="select-clear"] {
-    @apply flex h-10 w-6 items-center justify-center;
-    @apply rounded bg-[transparent] p-0;
-    @apply [&_svg]:size-4;
-  }
+	[data-slot="select-positioner"] {
+		@apply z-10 outline-none select-none;
+	}
 
-  [data-slot="select-icon"] {
-    @apply flex;
-    @apply [&_svg]:size-4;
-  }
+	[data-slot="select-popup"] {
+		@apply min-w-(--anchor-width) origin-(--transform-origin);
+		@apply rounded-md shadow-lg;
+		@apply border border-primary;
+		@apply bg-surface bg-clip-padding text-foreground;
+		@apply transition-[transform,scale,opacity];
+		@apply data-ending-style:scale-90 data-ending-style:opacity-0;
+		@apply data-[side=none]:min-w-[calc(var(--anchor-width)+1rem)] data-[side=none]:data-ending-style:transition-none;
+		@apply data-starting-style:scale-90 data-starting-style:opacity-0;
+		@apply data-[side=none]:data-starting-style:scale-100 data-[side=none]:data-starting-style:opacity-100 data-[side=none]:data-starting-style:transition-none;
+	}
 
-  [data-slot="select-positioner"] {
-    @apply z-10 outline-none select-none;
-  }
+	[data-slot="select-scroll-up-arrow"] {
+		@apply top-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-surface text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-top-full;
+	}
 
-  [data-slot="select-popup"] {
-    @apply min-w-(--anchor-width) origin-(--transform-origin);
-    @apply rounded-md shadow-lg;
-    @apply border border-(--primary);
-    @apply bg-surface bg-clip-padding text-foreground;
-    @apply transition-[transform,scale,opacity];
-    @apply data-ending-style:scale-90 data-ending-style:opacity-0;
-    @apply data-[side=none]:min-w-[calc(var(--anchor-width)+1rem)] data-[side=none]:data-ending-style:transition-none;
-    @apply data-starting-style:scale-90 data-starting-style:opacity-0;
-    @apply data-[side=none]:data-starting-style:scale-100 data-[side=none]:data-starting-style:opacity-100 data-[side=none]:data-starting-style:transition-none;
-  }
+	[data-slot="select-list"] {
+		@apply relative max-h-(--available-height) scroll-py-6 overflow-y-auto py-1;
+	}
 
-  [data-slot="select-arrow-up"] {
-    @apply top-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-surface text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-top-full;
-  }
+	[data-slot="select-scroll-down-arrow"] {
+		@apply bottom-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-surface text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-bottom-full;
+	}
 
-  [data-slot="select-list"] {
-    @apply relative max-h-(--available-height) scroll-py-6 overflow-y-auto py-1;
-  }
+	[data-slot="select-item"] {
+		@apply grid grid-cols-[0.75rem_1fr] gap-2;
+		@apply cursor-default;
+		@apply items-center;
+		@apply py-2 pr-4 pl-2.5;
+		@apply text-sm leading-4;
+		@apply outline-none select-none;
+		@apply group-data-[side=none]:pr-12 group-data-[side=none]:text-base group-data-[side=none]:leading-4;
+		@apply data-highlighted:relative data-highlighted:z-0 data-highlighted:before:absolute;
+		@apply data-highlighted:text-primary-foreground data-highlighted:before:bg-primary;
+		@apply data-highlighted:before:inset-x-1 data-highlighted:before:inset-y-0 data-highlighted:before:z-[-1] data-highlighted:before:rounded-sm;
+		@apply pointer-coarse:py-2.5 pointer-coarse:text-[0.925rem];
+	}
 
-  [data-slot="select-arrow-down"] {
-    @apply bottom-0 z-1 flex h-4 w-full cursor-default items-center justify-center rounded-sm bg-surface text-center text-xs before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-bottom-full;
-  }
+	[data-slot="select-item-indicator"] {
+		@apply col-start-1 [&_svg]:size-3;
+	}
 
-  [data-slot="select-empty"] {
-    @apply p-4 text-[0.925rem] leading-4 text-(--muted) empty:m-0 empty:p-0;
-  }
-
-  [data-slot="select-item"] {
-    @apply grid grid-cols-[0.75rem_1fr] gap-2;
-    @apply cursor-default;
-    @apply items-center;
-    @apply py-2 pr-4 pl-2.5;
-    @apply text-sm leading-4;
-    @apply outline-none select-none;
-    @apply group-data-[side=none]:pr-12 group-data-[side=none]:text-base group-data-[side=none]:leading-4;
-    @apply data-highlighted:relative data-highlighted:z-0 data-highlighted:before:absolute;
-    @apply data-highlighted:text-(--primary-foreground) data-highlighted:before:bg-(--primary);
-    @apply data-highlighted:before:inset-x-1 data-highlighted:before:inset-y-0 data-highlighted:before:z-[-1] data-highlighted:before:rounded-sm;
-    @apply pointer-coarse:py-2.5 pointer-coarse:text-[0.925rem];
-  }
-
-  [data-slot="select-item-indicator"] {
-    @apply col-start-1 [&_svg]:size-3;
-  }
-
-  [data-slot="select-item-text"] {
-    @apply col-start-2;
-  }
+	[data-slot="select-item-text"] {
+		@apply col-start-2;
+	}
 }

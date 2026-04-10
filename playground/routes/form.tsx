@@ -79,20 +79,20 @@ function RouteComponent() {
 			</Item>
 
 			<Item title="Combobox">
-				<Select
-					searchable
+				{/* <Select
 					placeholder="Fruit"
-					options={[
+					items={[
 						{ label: "Apple", value: "apple" },
 						{ label: "Banana", value: "banana" },
 						{ label: "Cherry", value: "cherry" },
 					]}
-				/>
+				/> */}
 			</Item>
 			<Item title="Select">
 				<Select
 					placeholder="Fruit"
-					options={[
+					items={[
+						{ label: "None", value: "" },
 						{ label: "Apple", value: "apple" },
 						{ label: "Banana", value: "banana" },
 						{ label: "Cherry", value: "cherry" },

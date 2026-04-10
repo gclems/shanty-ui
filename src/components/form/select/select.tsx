@@ -1,130 +1,59 @@
-import { type ReactNode, useId } from "react";
-
-import { Combobox as BaseCombobox } from "@base-ui/react/combobox";
 import { Select as BaseSelect } from "@base-ui/react/select";
-import {
-	CheckIcon,
-	ChevronDownIcon,
-	ChevronsUpDownIcon,
-	XIcon,
-} from "lucide-react";
+import { CheckIcon, ChevronDown } from "lucide-react";
+import { cn } from "tailwind-variants";
+
 import "./select.css";
 
-interface SelectItem {
-	label: string;
+type SelectItem = {
 	value: string;
-}
+	label: string;
+	[key: string]: unknown;
+};
 
-type BaseSelectProps = {
-	searchable?: false;
-} & {
-	emptyMessage?: ReactNode;
-	placeholder?: string;
-	className?: string;
-	options: SelectItem[];
-} & BaseSelect.Root.Props<SelectItem>;
-
-type BaseComboboxProps = {
-	searchable: true;
-} & {
-	className?: string;
-	options: SelectItem[];
-	placeholder?: string;
-	emptyMessage?: ReactNode;
-} & BaseCombobox.Root.Props<SelectItem>;
-
-type SelectProps = BaseSelectProps | BaseComboboxProps;
-
-function Select({ searchable = false, options, id, ...props }: SelectProps) {
-	const generatedId = useId();
-
-	if (searchable) {
-		return (
-			<ComboboxRoot
-				{...(props as BaseComboboxProps)}
-				id={id ?? generatedId}
-				items={options}
-				itemToStringLabel={(item) => item.label}
-				itemToStringValue={(item) => item.value}
-			>
-				{options.map((option) => (
-					<ComboboxItem key={option.value} item={option} />
-				))}
-			</ComboboxRoot>
-		);
-	}
-
-	return (
-		<SelectRoot
-			{...(props as BaseSelectProps)}
-			id={id ?? generatedId}
-			items={options}
-		>
-			{options.map((option) => (
-				<SelectItem key={option.value} {...option} />
-			))}
-		</SelectRoot>
-	);
-}
-
-function ComboboxRoot({
-	id,
+function Root({
+	items,
+	value,
+	onValueChange,
 	placeholder,
-	emptyMessage,
-	children,
-	...props
-}: BaseComboboxProps) {
-	return (
-		<BaseCombobox.Root data-slot="combobox" {...props}>
-			<div data-slot="select-input-wrapper">
-				<BaseCombobox.Input
-					id={id}
-					placeholder={placeholder}
-					data-slot="select-trigger"
-				/>
-				<div data-slot="select-icon-wrapper">
-					<BaseCombobox.Clear
-						data-slot="select-clear"
-						className="combobox-clear"
-						aria-label="Clear selection"
-					>
-						<XIcon />
-					</BaseCombobox.Clear>
-					<BaseCombobox.Trigger data-slot="select-icon" aria-label="Open popup">
-						<ChevronDownIcon />
-					</BaseCombobox.Trigger>
-				</div>
-			</div>
+	className,
+	itemTemplate = renderItem,
+}: {
+	items: SelectItem[];
+	value?: string;
+	onValueChange?: (value: string | null, item: SelectItem | null) => void;
+	className?: string;
+	placeholder?: string;
+	itemTemplate?: (item: SelectItem) => React.ReactNode;
+}) {
+	const handleValueChange = (newValue: string | null) => {
+		const selectedItem = items.find((item) => item.value === newValue) || null;
+		onValueChange?.(newValue, selectedItem);
+	};
 
-			<BaseCombobox.Portal>
-				<BaseCombobox.Positioner data-slot="select-positioner" sideOffset={8}>
-					<BaseCombobox.Popup data-slot="select-popup" className="group">
-						<BaseCombobox.Empty data-slot="select-empty">
-							{emptyMessage}
-						</BaseCombobox.Empty>
-						<BaseCombobox.List data-slot="select-list">{children}</BaseCombobox.List>
-					</BaseCombobox.Popup>
-				</BaseCombobox.Positioner>
-			</BaseCombobox.Portal>
-		</BaseCombobox.Root>
-	);
-}
-
-function SelectRoot({ id, placeholder, children, ...props }: BaseSelectProps) {
 	return (
-		<BaseSelect.Root id={id} data-slot="select" {...props}>
-			<BaseSelect.Trigger data-slot="select-trigger">
+		<BaseSelect.Root
+			items={items}
+			value={value}
+			onValueChange={handleValueChange}
+		>
+			<BaseSelect.Trigger data-slot="select-trigger" className={cn(className)}>
 				<BaseSelect.Value data-slot="select-value" placeholder={placeholder} />
 				<BaseSelect.Icon data-slot="select-icon">
-					<ChevronsUpDownIcon />
+					<ChevronDown />
 				</BaseSelect.Icon>
 			</BaseSelect.Trigger>
 			<BaseSelect.Portal>
-				<BaseSelect.Positioner data-slot="select-positioner" sideOffset={8}>
-					<BaseSelect.Popup data-slot="select-popup" className="group">
-						<BaseSelect.ScrollUpArrow data-slot="select-arrow-up" />
-						<BaseSelect.List data-slot="select-list">{children}</BaseSelect.List>
-						<BaseSelect.ScrollDownArrow data-slot="select-arrow-down" />
+				<BaseSelect.Positioner
+					data-slot="select-positioner"
+					className="outline-hidden select-none z-10"
+					sideOffset={8}
+				>
+					<BaseSelect.Popup data-slot="select-popup">
+						<BaseSelect.ScrollUpArrow data-slot="select-scroll-up-arrow" />
+						<BaseSelect.List data-slot="select-list">
+							{items.map((item) => itemTemplate(item))}
+						</BaseSelect.List>
+						<BaseSelect.ScrollDownArrow data-slot="select-scroll-down-arrow" />
 					</BaseSelect.Popup>
 				</BaseSelect.Positioner>
 			</BaseSelect.Portal>
@@ -132,29 +61,30 @@ function SelectRoot({ id, placeholder, children, ...props }: BaseSelectProps) {
 	);
 }
 
-function SelectItem({ label, value }: SelectItem) {
+function Item(props: BaseSelect.Item.Props) {
+	return <BaseSelect.Item data-slot="select-item" {...props} />;
+}
+
+function ItemIndicator(props: BaseSelect.ItemIndicator.Props) {
 	return (
-		<BaseSelect.Item value={value} data-slot="select-item">
-			<BaseSelect.ItemIndicator data-slot="select-item-indicator">
-				<CheckIcon />
-			</BaseSelect.ItemIndicator>
-			<BaseSelect.ItemText data-slot="select-item-text">
-				{label}
-			</BaseSelect.ItemText>
-		</BaseSelect.Item>
+		<BaseSelect.ItemIndicator data-slot="select-item-indicator" {...props} />
 	);
 }
 
-function ComboboxItem({ item }: { item: SelectItem }) {
-	return (
-		<BaseCombobox.Item value={item} data-slot="select-item">
-			<BaseCombobox.ItemIndicator data-slot="select-item-indicator">
-				<CheckIcon />
-			</BaseCombobox.ItemIndicator>
-			<div data-slot="select-item-text">{item.label}</div>
-		</BaseCombobox.Item>
-	);
+function ItemText(props: BaseSelect.ItemText.Props) {
+	return <BaseSelect.ItemText data-slot="select-item-text" {...props} />;
 }
+
+const renderItem = (item: SelectItem) => (
+	<Item key={item.value} value={item.value}>
+		<ItemIndicator>
+			<CheckIcon data-slot="item-indicator-icon" />
+		</ItemIndicator>
+		<ItemText>{item.label}</ItemText>
+	</Item>
+);
+
+const Select = Object.assign(Root, { Root, Item, ItemIndicator, ItemText });
 
 export { Select };
 export type { SelectItem };
