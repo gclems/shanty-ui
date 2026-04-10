@@ -90,6 +90,7 @@ function RouteComponent() {
 			</Item>
 			<Item title="Select">
 				<Select
+					name="fruits"
 					placeholder="Fruit"
 					items={[
 						{ label: "None", value: "" },

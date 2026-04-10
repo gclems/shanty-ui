@@ -17,21 +17,21 @@ function Root({
 	placeholder,
 	className,
 	itemTemplate = renderItem,
-}: {
+	...props
+}: Omit<BaseSelect.Root.Props<SelectItem>, "onValueChange" | "items"> & {
 	items: SelectItem[];
-	value?: string;
 	onValueChange?: (value: string | null, item: SelectItem | null) => void;
 	className?: string;
 	placeholder?: string;
 	itemTemplate?: (item: SelectItem) => React.ReactNode;
 }) {
-	const handleValueChange = (newValue: string | null) => {
-		const selectedItem = items.find((item) => item.value === newValue) || null;
-		onValueChange?.(newValue, selectedItem);
+	const handleValueChange = (item: SelectItem | null) => {
+		onValueChange?.(item?.value || null, item);
 	};
 
 	return (
 		<BaseSelect.Root
+			{...props}
 			items={items}
 			value={value}
 			onValueChange={handleValueChange}
