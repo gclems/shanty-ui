@@ -8,8 +8,6 @@ function Button({
 	color = "neutral",
 	square = false,
 	size = "md",
-	type = "button",
-	render = undefined,
 	...props
 }: BaseButton.Props & {
 	variant?: "contained" | "outlined" | "light" | "ghost";
@@ -29,7 +27,6 @@ function Button({
 	return (
 		<BaseButton
 			{...props}
-			render={render ?? <button type={type} />}
 			data-slot="button"
 			data-variant={variant}
 			data-color={color}
