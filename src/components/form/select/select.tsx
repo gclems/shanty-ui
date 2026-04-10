@@ -26,7 +26,7 @@ function Root({
 	itemTemplate?: (item: SelectItem) => React.ReactNode;
 }) {
 	const handleValueChange = (item: SelectItem | null) => {
-		onValueChange?.(item?.value || null, item);
+		onValueChange?.(item?.value ?? null, item);
 	};
 
 	return (

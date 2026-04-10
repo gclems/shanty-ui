@@ -5,6 +5,7 @@
 export * from "./components/shanty-root";
 export * from "./components/avatar/avatar";
 export * from "./components/button/button";
+export * from "./components/calendar/calendar";
 export * from "./components/card/card";
 export * from "./components/dialogs/alert-dialog/alert-dialog";
 export * from "./components/dialogs/backdrop/backdrop";
