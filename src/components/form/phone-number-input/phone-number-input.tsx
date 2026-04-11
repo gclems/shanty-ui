@@ -16,7 +16,7 @@ function PhoneNumberInput({
 	defaultValue?: string;
 	placeholder?: string;
 	disabled?: boolean;
-	readOnly?: boolean;
+	required?: boolean;
 	"aria-invalid"?: boolean;
 	onChange?: (value: string) => void;
 	unmask?: boolean;
