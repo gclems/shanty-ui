@@ -16,7 +16,7 @@ function Header({
 	return (
 		<div data-slot="card-header">
 			{!!title && <h2 data-slot="card-title">{title}</h2>}
-			{!!description && <p data-slot="card-description">{description}</p>}
+			{!!description && <div data-slot="card-description">{description}</div>}
 		</div>
 	);
 }

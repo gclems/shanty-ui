@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Password } from "@/components/form/password/password";
+import { PhoneNumberInput } from "@/components/form/phone-number-input/phone-number-input";
 import {
 	Checkbox,
 	CheckboxGroup,
@@ -55,6 +56,10 @@ function RouteComponent() {
 
 			<Item title="Password">
 				<Password placeholder="Type something..." ignorePasswordManagers />
+			</Item>
+
+			<Item title="phone number">
+				<PhoneNumberInput />
 			</Item>
 
 			<Item title="Currency">

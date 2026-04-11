@@ -1,4 +1,13 @@
 const stringIsNullOrEmpty = (text: string | null | undefined) =>
-  !text || typeof text !== "string" || text.trim() === "";
+	!text || typeof text !== "string" || text.trim() === "";
 
-export { stringIsNullOrEmpty };
+const formatPhoneNumber = (phoneNumber: string) => {
+	return stringIsNullOrEmpty(phoneNumber) || phoneNumber.length === 1
+		? phoneNumber
+		: phoneNumber
+				.replace(/\s/g, "")
+				.replace(/(.{2})/g, "$1 ")
+				.trim();
+};
+
+export { formatPhoneNumber, stringIsNullOrEmpty };
