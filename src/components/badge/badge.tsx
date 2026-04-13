@@ -1,13 +1,12 @@
 import type { ComponentProps } from "react";
 import "./badge.css";
 
-function badge({
+function Badge({
 	color = "neutral",
 	...props
 }: ComponentProps<"div"> & {
 	color?:
 		| "neutral"
-		| "custom"
 		| "primary"
 		| "secondary"
 		| "success"
@@ -18,4 +17,4 @@ function badge({
 	return <div data-slot="badge" data-color={color} {...props} />;
 }
 
-export { badge };
+export { Badge };

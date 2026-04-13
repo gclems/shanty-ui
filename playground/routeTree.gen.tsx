@@ -21,6 +21,7 @@ import { Route as FormRouteImport } from './routes/form'
 import { Route as DialogsRouteImport } from './routes/dialogs'
 import { Route as CardRouteImport } from './routes/card'
 import { Route as ButtonRouteImport } from './routes/button'
+import { Route as BadgeRouteImport } from './routes/badge'
 import { Route as AvatarRouteImport } from './routes/avatar'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -84,6 +85,11 @@ const ButtonRoute = ButtonRouteImport.update({
   path: '/button',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BadgeRoute = BadgeRouteImport.update({
+  id: '/badge',
+  path: '/badge',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AvatarRoute = AvatarRouteImport.update({
   id: '/avatar',
   path: '/avatar',
@@ -98,6 +104,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
+  '/badge': typeof BadgeRoute
   '/button': typeof ButtonRoute
   '/card': typeof CardRoute
   '/dialogs': typeof DialogsRoute
@@ -114,6 +121,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
+  '/badge': typeof BadgeRoute
   '/button': typeof ButtonRoute
   '/card': typeof CardRoute
   '/dialogs': typeof DialogsRoute
@@ -131,6 +139,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
+  '/badge': typeof BadgeRoute
   '/button': typeof ButtonRoute
   '/card': typeof CardRoute
   '/dialogs': typeof DialogsRoute
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/avatar'
+    | '/badge'
     | '/button'
     | '/card'
     | '/dialogs'
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/avatar'
+    | '/badge'
     | '/button'
     | '/card'
     | '/dialogs'
@@ -181,6 +192,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/avatar'
+    | '/badge'
     | '/button'
     | '/card'
     | '/dialogs'
@@ -198,6 +210,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AvatarRoute: typeof AvatarRoute
+  BadgeRoute: typeof BadgeRoute
   ButtonRoute: typeof ButtonRoute
   CardRoute: typeof CardRoute
   DialogsRoute: typeof DialogsRoute
@@ -298,6 +311,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ButtonRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/badge': {
+      id: '/badge'
+      path: '/badge'
+      fullPath: '/badge'
+      preLoaderRoute: typeof BadgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/avatar': {
       id: '/avatar'
       path: '/avatar'
@@ -318,6 +338,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AvatarRoute: AvatarRoute,
+  BadgeRoute: BadgeRoute,
   ButtonRoute: ButtonRoute,
   CardRoute: CardRoute,
   DialogsRoute: DialogsRoute,
