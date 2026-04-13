@@ -11,7 +11,7 @@ function badge({
 		| "primary"
 		| "secondary"
 		| "success"
-		| "error"
+		| "destructive"
 		| "warning"
 		| "info";
 }) {

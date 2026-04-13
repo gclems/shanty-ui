@@ -19,8 +19,8 @@
 	[data-slot="badge"][data-color="success"] {
 		@apply bg-success text-success-foreground;
 	}
-	[data-slot="badge"][data-color="error"] {
-		@apply bg-error text-error-foreground;
+	[data-slot="badge"][data-color="destructive"] {
+		@apply bg-destructive text-destructive-foreground;
 	}
 	[data-slot="badge"][data-color="warning"] {
 		@apply bg-warning text-warning-foreground;
