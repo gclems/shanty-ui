@@ -12,6 +12,7 @@ function Field({
 	error,
 	description,
 	orientation = "vertical",
+	reverse = false,
 	children,
 	...labelProps
 }: ComponentProps<typeof Label> & {
@@ -20,9 +21,14 @@ function Field({
 	description?: React.ReactNode;
 	children?: React.ReactNode;
 	orientation?: "vertical" | "horizontal";
+	reverse?: boolean;
 }) {
 	return (
-		<BaseField.Root data-slot="field-root" data-orientation={orientation}>
+		<BaseField.Root
+			data-slot="field-root"
+			data-orientation={orientation}
+			data-reverse={reverse}
+		>
 			<div data-slot="field-label">
 				<Label render={<BaseField.Label />} {...labelProps}>
 					{label}

@@ -10,6 +10,10 @@
 		@apply flex items-center gap-x-1.5;
 	}
 
+	[data-slot="field-root"][data-orientation="horizontal"][data-reverse="true"] {
+		@apply flex-row-reverse;
+	}
+
 	[data-slot="field-root"][data-orientation="horizontal"]
 		[data-slot="field-label"],
 	[data-slot="field-root"][data-orientation="horizontal"]
@@ -19,6 +23,9 @@
 
 	[data-slot="field-root"][data-orientation="vertical"] {
 		@apply flex flex-col gap-y-1;
+	}
+	[data-slot="field-root"][data-orientation="vertical"][data-reverse="true"] {
+		@apply flex-col-reverse;
 	}
 
 	[data-slot="field-error"] {
