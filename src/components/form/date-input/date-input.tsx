@@ -8,7 +8,8 @@ import { CalendarIcon } from "lucide-react";
 import { Calendar, Popover } from "@/index";
 
 function convertToInputValue(date?: Date | null): string {
-	return date ? date.toISOString().split("T")[0] : "";
+	if (!date) return "";
+	return format(date, "yyyy-MM-dd");
 }
 
 function defaultFormatter(date: Date, locale: Locale): string {
@@ -34,6 +35,7 @@ function DateInput({
 	locale?: Locale;
 	placeholder?: string;
 }) {
+	const [open, setOpen] = useState(false);
 	const [inputValue, setInputValue] = useState<Date | null>(
 		defaultValue ?? value ?? null,
 	);
@@ -46,6 +48,7 @@ function DateInput({
 		const normalized = date ?? null;
 		setInputValue(normalized);
 		onValueChange?.(normalized);
+		setOpen(false);
 	};
 
 	return (
@@ -56,7 +59,7 @@ function DateInput({
 				value={convertToInputValue(inputValue)}
 				{...props}
 			/>
-			<Popover>
+			<Popover open={open} onOpenChange={setOpen}>
 				<Popover.Trigger
 					render={
 						<button type="button" data-slot="date-input-button">
