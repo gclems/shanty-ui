@@ -3,10 +3,28 @@ import { type ComponentProps, createElement, useEffect, useRef } from "react";
 import { type Locale, add, format, formatters, sub } from "date-fns";
 import { fr } from "date-fns/locale";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import { type DayButton, DayPicker, Nav } from "react-day-picker";
+import {
+	type DayButton,
+	DayPicker,
+	type DayPickerProps,
+	Nav,
+} from "react-day-picker";
 import { cn } from "tailwind-variants";
 
 import "./calendar.css";
+
+type DistributiveOmit<T, K extends PropertyKey> = T extends unknown
+	? Omit<T, K>
+	: never;
+
+type CalendarProps = DistributiveOmit<
+	DayPickerProps,
+	"captionLayout" | "classnames" | "components" | "formatters"
+> & {
+	dayTemplate?: (
+		props: ComponentProps<typeof DayButtonTemplate>,
+	) => React.JSX.Element;
+};
 
 function Calendar({
 	locale = fr,
@@ -19,11 +37,7 @@ function Calendar({
 	endMonth = add(new Date(), { years: 10 }),
 	dayTemplate = DayButtonTemplate,
 	...props
-}: Omit<ComponentProps<typeof DayPicker>, "captionLayout"> & {
-	dayTemplate?: (
-		props: ComponentProps<typeof DayButtonTemplate>,
-	) => React.JSX.Element;
-}) {
+}: CalendarProps) {
 	return (
 		<DayPicker
 			mode={mode}
@@ -76,7 +90,7 @@ function Calendar({
 				},
 				Months: (props) => <div data-slot="calendar-months" {...props} />,
 				Nav: (props) => <Nav data-slot="calendar-nav" {...props} />,
-				MonthCaption: ({ calendarMonth, displayIndex, ...props }) => (
+				MonthCaption: ({ calendarMonth, displayIndex: _, ...props }) => (
 					<div
 						data-slot="calendar-month-caption"
 						data-month={format(calendarMonth.date, "yyyy-MM")}
@@ -91,7 +105,7 @@ function Calendar({
 					return <ChevronLeftIcon data-slot="calendar-nav-chevron" {...props} />;
 				},
 				DropdownNav: (props) => <div data-slot="calendar-dropdowns" {...props} />,
-				MonthsDropdown: ({ options, components, classNames, ...props }) => (
+				MonthsDropdown: ({ options, components: _, classNames: __, ...props }) => (
 					<div data-slot="calendar-dropdown">
 						<select id="months-dropdown" {...props}>
 							{options?.map((o) => (
@@ -102,7 +116,7 @@ function Calendar({
 						</select>
 					</div>
 				),
-				YearsDropdown: ({ options, components, classNames, ...props }) => (
+				YearsDropdown: ({ options, components: _, classNames: __, ...props }) => (
 					<div data-slot="calendar-dropdown">
 						<select id="years-dropdown" {...props}>
 							{options?.map((o) => (
@@ -114,15 +128,15 @@ function Calendar({
 					</div>
 				),
 			}}
-			{...props}
+			{...(props as ComponentProps<typeof DayPicker>)}
 		/>
 	);
 }
 
 function DayButtonTemplate({
 	modifiers,
-	locale,
-	day,
+	locale: _,
+	day: __,
 	...props
 }: ComponentProps<typeof DayButton> & {
 	locale?: Partial<Locale>;

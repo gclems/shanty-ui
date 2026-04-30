@@ -42,9 +42,10 @@ function DateInput({
 		setInputValue(value ?? null);
 	}, [value]);
 
-	const handleSelectChange = (date: Date | null) => {
-		setInputValue(date);
-		onValueChange?.(date);
+	const handleSelectChange = (date: Date | undefined) => {
+		const normalized = date ?? null;
+		setInputValue(normalized);
+		onValueChange?.(normalized);
 	};
 
 	return (
