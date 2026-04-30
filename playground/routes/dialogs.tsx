@@ -2,7 +2,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Dialog } from "@/components/dialogs/dialog/dialog";
-import { AlertDialog, Button, Drawer } from "@/index";
+import { AlertDialog, Button, Drawer, Select } from "@/index";
 
 export const Route = createFileRoute("/dialogs")({
 	component: RouteComponent,
@@ -72,6 +72,20 @@ function RouteComponent() {
 											description="This is the dialog description"
 										/>
 										<Dialog.Body>
+											<Select
+												items={Array.from({ length: 100 }).map((_, index) => ({
+													value: `option-${index}`,
+													label: `Option ${index}`,
+												}))}
+												placeholder="Select an option"
+											/>
+											<Select
+												items={Array.from({ length: 13 }).map((_, index) => ({
+													value: `option-${index}`,
+													label: `Option ${index}`,
+												}))}
+												placeholder="Select an option"
+											/>
 											<p>
 												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
 												eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

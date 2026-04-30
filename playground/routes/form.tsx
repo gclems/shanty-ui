@@ -6,12 +6,14 @@ import {
 	Checkbox,
 	CheckboxGroup,
 	CurrencyInput,
+	DateInput,
 	Field,
 	Fieldset,
 	Input,
 	Radio,
 	RadioGroup,
 	Select,
+	format,
 } from "@/index";
 
 export const Route = createFileRoute("/form")({
@@ -112,6 +114,16 @@ function RouteComponent() {
 						{ label: "Banana", value: "banana" },
 						{ label: "Cherry", value: "cherry" },
 					]}
+				/>
+			</Item>
+
+			<Item title="Date input">
+				<DateInput />
+			</Item>
+
+			<Item title="Date input - custom format">
+				<DateInput
+					formatter={(date, locale) => format(date, "EEEE dd MMM yyyy", { locale })}
 				/>
 			</Item>
 		</div>

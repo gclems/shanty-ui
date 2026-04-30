@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+	[data-slot="date-input-wrapper"] {
+		@apply h-10 w-fit;
+		@apply min-w-40;
+		@apply px-3.5;
+		@apply rounded-sm;
+		@apply bg-input;
+		@apply border border-input-border;
+		@apply text-base text-input-foreground;
+		@apply has-focus:outline-2 has-focus:-outline-offset-1 has-focus:outline-primary;
+		@apply data-invalid:border-destructive data-invalid:text-destructive;
+	}
+
+	[data-slot="date-input-button"] {
+		@apply w-full h-full flex items-center gap-2 justify-start cursor-pointer;
+		@apply focus:outline-none focus:ring-0;
+	}
+
+	[data-slot="date-input-placeholder"] {
+		@apply text-input-placeholder;
+	}
+}

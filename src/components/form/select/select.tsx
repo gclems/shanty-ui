@@ -47,11 +47,7 @@ function Root({
 				</BaseSelect.Icon>
 			</BaseSelect.Trigger>
 			<BaseSelect.Portal>
-				<BaseSelect.Positioner
-					data-slot="select-positioner"
-					className="outline-hidden select-none z-10"
-					sideOffset={8}
-				>
+				<BaseSelect.Positioner data-slot="select-positioner" sideOffset={8}>
 					<BaseSelect.Popup data-slot="select-popup">
 						<BaseSelect.ScrollUpArrow data-slot="select-scroll-up-arrow" />
 						<BaseSelect.List data-slot="select-list">
