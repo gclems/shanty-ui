@@ -3,6 +3,7 @@
  */
 
 export * from "./components/shanty-root";
+export * from "./components/alert/alert";
 export * from "./components/avatar/avatar";
 export * from "./components/badge/badge";
 export * from "./components/button/button";

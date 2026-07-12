@@ -2,6 +2,8 @@ import type { ComponentProps } from "react";
 
 import "./card.css";
 
+import { ScrollArea } from "../scroll-area/scroll-area";
+
 function Root(props: ComponentProps<"div"> & ComponentProps<typeof Header>) {
 	return <div data-slot="card" {...props} />;
 }
@@ -21,8 +23,14 @@ function Header({
 	);
 }
 
-function Body(props: ComponentProps<"div">) {
-	return <div data-slot="card-body" {...props} />;
+function Body({ children, ...props }: ComponentProps<"div">) {
+	return (
+		<div data-slot="card-body" {...props}>
+			<ScrollArea data-card-slot="scroll-area" vertical>
+				{children}
+			</ScrollArea>
+		</div>
+	);
 }
 
 function Footer(props: ComponentProps<"div">) {

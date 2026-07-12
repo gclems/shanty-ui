@@ -4,14 +4,14 @@
 
 @layer components {
 	[data-slot="card"] {
-		@apply flex flex-col p-4 gap-4 overflow-hidden;
+		@apply flex flex-col py-4 gap-4 overflow-hidden;
 		@apply rounded-xl;
 		@apply bg-surface text-foreground;
 		@apply border-border border;
 	}
 
 	[data-slot="card-header"] {
-		@apply space-y-2;
+		@apply space-y-2 px-4;
 	}
 
 	[data-slot="card-title"] {
@@ -22,9 +22,14 @@
 		@apply text-base text-muted-foreground;
 	}
 
-	/* [data-slot="card-body"] {
+	[data-slot="card-body"] {
+		@apply flex-1 min-h-0;
+	}
+	[data-slot="card-body"] > [data-card-slot="scroll-area"] {
+		@apply h-full px-4;
 	}
 
 	[data-slot="card-footer"] {
-	} */
+		@apply px-4
+	}
 }

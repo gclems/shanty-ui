@@ -9,17 +9,50 @@ export const Route = createFileRoute("/card")({
 
 function RouteComponent() {
 	return (
-		<Card>
-			<Card.Header title="Card title" />
-			<Card.Body>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-					veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-					commodo consequat.
-				</p>
-			</Card.Body>
-			<Card.Footer></Card.Footer>
-		</Card>
+		<div className="space-y-6">
+			<Card>
+				<Card.Header title="Card title" />
+				<Card.Body>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+						veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+						commodo consequat.
+					</p>
+				</Card.Body>
+				<Card.Footer>Here's the footer</Card.Footer>
+			</Card>
+
+			<Card className="h-60">
+				<Card.Header title="Card with scroll" />
+				<Card.Body>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+						veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+						commodo consequat.
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+						veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+						commodo consequat.
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+						veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+						commodo consequat.
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+						veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+						commodo consequat.
+					</p>
+				</Card.Body>
+				<Card.Footer>Here's the footer</Card.Footer>
+			</Card>
+		</div>
 	);
 }
