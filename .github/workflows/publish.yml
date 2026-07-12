@@ -59,7 +59,7 @@ jobs:
         run: |
           echo "Setting version to ${{ inputs.version }}-${{ inputs.qualifier }}.${{ inputs.qualifier-number }}"
           if [ "${{ inputs.qualifier }}" != "release" ]; then
-            pnpm version ${{ inputs.version }}-${{ inputs.qualifier }}.${{ inputs.qualifier-number }} --no-git-tag-version --prerelease --preid ${{ inputs.qualifier }}.${{ inputs.qualifier-number }}
+            pnpm version ${{ inputs.version }}-${{ inputs.qualifier }}.${{ inputs.qualifier-number }} --no-git-tag-version
           else
             pnpm version ${{ inputs.version }} --no-git-tag-version
           fi
