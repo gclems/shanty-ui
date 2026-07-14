@@ -10,8 +10,8 @@ export const Route = createFileRoute("/card")({
 function RouteComponent() {
 	return (
 		<div className="space-y-6">
-			<Card>
-				<Card.Header title="Card title" />
+			<Card size="xs">
+				<Card.Header title="Card title (xs)" />
 				<Card.Body>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
@@ -23,8 +23,8 @@ function RouteComponent() {
 				<Card.Footer>Here's the footer</Card.Footer>
 			</Card>
 
-			<Card className="h-60">
-				<Card.Header title="Card with scroll" />
+			<Card className="h-60" size="xl">
+				<Card.Header title="Card with scroll (xl)" />
 				<Card.Body>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod

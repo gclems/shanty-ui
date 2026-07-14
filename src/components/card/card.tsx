@@ -4,8 +4,14 @@ import "./card.css";
 
 import { ScrollArea } from "../scroll-area/scroll-area";
 
-function Root(props: ComponentProps<"div"> & ComponentProps<typeof Header>) {
-	return <div data-slot="card" {...props} />;
+function Root({
+	size = "md",
+	...props
+}: ComponentProps<"div"> &
+	ComponentProps<typeof Header> & {
+		size?: "xs" | "sm" | "md" | "lg" | "xl";
+	}) {
+	return <div data-slot="card" data-size={size} {...props} />;
 }
 
 function Header({
