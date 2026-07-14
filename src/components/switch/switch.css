@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+	[data-slot="switch"] {
+		@apply flex h-5 w-9 p-0.5 rounded-full;
+		@apply items-center;
+		@apply shrink-0;
+		@apply border border-input-border bg-transparent;
+		@apply transition-colors duration-150 ease-[ease];
+		@apply focus-visible:outline-2 focus-visible:outline-offset-20;
+	}
+
+	[data-slot="switch"][data-color="primary"] {
+		@apply data-checked:bg-primary focus-visible:outline-primary/30;
+		@apply text-primary data-checked:text-primary-foreground;
+	}
+
+	[data-slot="switch"][data-color="secondary"] {
+		@apply data-checked:bg-secondary focus-visible:outline-secondary/30;
+		@apply text-secondary data-checked:text-secondary-foreground;
+	}
+
+	[data-slot="switch"][data-color="neutral"] {
+		@apply data-checked:bg-neutral focus-visible:outline-neutral/30;
+		@apply text-neutral data-checked:text-neutral-foreground;
+	}
+
+	[data-slot="switch"][data-color="info"] {
+		@apply data-checked:bg-info focus-visible:outline-info/30;
+		@apply text-info data-checked:text-info-foreground;
+	}
+
+	[data-slot="switch"][data-color="success"] {
+		@apply data-checked:bg-success focus-visible:outline-success/30;
+		@apply text-success data-checked:text-success-foreground;
+	}
+
+	[data-slot="switch"][data-color="warning"] {
+		@apply data-checked:bg-warning focus-visible:outline-warning/30;
+		@apply text-warning data-checked:text-warning-foreground;
+	}
+
+	[data-slot="switch"][data-color="destructive"] {
+		@apply data-checked:bg-destructive focus-visible:outline-destructive/30;
+		@apply text-destructive data-checked:text-destructive-foreground;
+	}
+
+	[data-slot="switch"] > [data-slot="switch-thumb"] {
+		@apply size-4 rounded-full;
+		@apply bg-current;
+		@apply transition-[translate,background-color] duration-150 ease-[ease];
+		@apply data-checked:translate-x-3.5;
+	}
+}

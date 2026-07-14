@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ToastRouteImport } from './routes/toast'
 import { Route as TabsRouteImport } from './routes/tabs'
 import { Route as TableRouteImport } from './routes/table'
+import { Route as SwitchRouteImport } from './routes/switch'
 import { Route as SeparatorRouteImport } from './routes/separator'
 import { Route as ScrollAreaRouteImport } from './routes/scroll-area'
 import { Route as PreviewCardRouteImport } from './routes/preview-card'
@@ -40,6 +41,11 @@ const TabsRoute = TabsRouteImport.update({
 const TableRoute = TableRouteImport.update({
   id: '/table',
   path: '/table',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SwitchRoute = SwitchRouteImport.update({
+  id: '/switch',
+  path: '/switch',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SeparatorRoute = SeparatorRouteImport.update({
@@ -128,6 +134,7 @@ export interface FileRoutesByFullPath {
   '/preview-card': typeof PreviewCardRoute
   '/scroll-area': typeof ScrollAreaRoute
   '/separator': typeof SeparatorRoute
+  '/switch': typeof SwitchRoute
   '/table': typeof TableRoute
   '/tabs': typeof TabsRoute
   '/toast': typeof ToastRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/preview-card': typeof PreviewCardRoute
   '/scroll-area': typeof ScrollAreaRoute
   '/separator': typeof SeparatorRoute
+  '/switch': typeof SwitchRoute
   '/table': typeof TableRoute
   '/tabs': typeof TabsRoute
   '/toast': typeof ToastRoute
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/preview-card': typeof PreviewCardRoute
   '/scroll-area': typeof ScrollAreaRoute
   '/separator': typeof SeparatorRoute
+  '/switch': typeof SwitchRoute
   '/table': typeof TableRoute
   '/tabs': typeof TabsRoute
   '/toast': typeof ToastRoute
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/preview-card'
     | '/scroll-area'
     | '/separator'
+    | '/switch'
     | '/table'
     | '/tabs'
     | '/toast'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/preview-card'
     | '/scroll-area'
     | '/separator'
+    | '/switch'
     | '/table'
     | '/tabs'
     | '/toast'
@@ -226,6 +237,7 @@ export interface FileRouteTypes {
     | '/preview-card'
     | '/scroll-area'
     | '/separator'
+    | '/switch'
     | '/table'
     | '/tabs'
     | '/toast'
@@ -246,6 +258,7 @@ export interface RootRouteChildren {
   PreviewCardRoute: typeof PreviewCardRoute
   ScrollAreaRoute: typeof ScrollAreaRoute
   SeparatorRoute: typeof SeparatorRoute
+  SwitchRoute: typeof SwitchRoute
   TableRoute: typeof TableRoute
   TabsRoute: typeof TabsRoute
   ToastRoute: typeof ToastRoute
@@ -272,6 +285,13 @@ declare module '@tanstack/react-router' {
       path: '/table'
       fullPath: '/table'
       preLoaderRoute: typeof TableRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/switch': {
+      id: '/switch'
+      path: '/switch'
+      fullPath: '/switch'
+      preLoaderRoute: typeof SwitchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/separator': {
@@ -390,6 +410,7 @@ const rootRouteChildren: RootRouteChildren = {
   PreviewCardRoute: PreviewCardRoute,
   ScrollAreaRoute: ScrollAreaRoute,
   SeparatorRoute: SeparatorRoute,
+  SwitchRoute: SwitchRoute,
   TableRoute: TableRoute,
   TabsRoute: TabsRoute,
   ToastRoute: ToastRoute,

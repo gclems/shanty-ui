@@ -35,6 +35,7 @@ export * from "./components/preview-card/preview-card";
 export * from "./components/scroll-area/scroll-area";
 export * from "./components/separator/separator";
 export * from "./components/sidebar/sidebar";
+export * from "./components/switch/switch";
 export * from "./components/table/table";
 export * from "./components/tabs/tabs";
 export * from "./components/toast/toast";
