@@ -25,7 +25,7 @@ function RouteComponent() {
 
 			<Card className="h-60" size="xl">
 				<Card.Header title="Card with scroll (xl)" />
-				<Card.Body>
+				<Card.ScrollableBody>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -50,7 +50,7 @@ function RouteComponent() {
 						veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
 						commodo consequat.
 					</p>
-				</Card.Body>
+				</Card.ScrollableBody>
 				<Card.Footer>Here's the footer</Card.Footer>
 			</Card>
 		</div>

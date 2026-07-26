@@ -43,10 +43,16 @@
 		@apply text-base text-muted-foreground;
 	}
 
-	[data-slot="card"] [data-slot="card-body"] {
+	[data-slot="card"] [data-slot="card-body"]:not([data-scrollable]) {
+		@apply flex-1 px-(--card-padding);
+	}
+
+	[data-slot="card"] [data-slot="card-body"][data-scrollable] {
 		@apply flex-1 min-h-0;
 	}
-	[data-slot="card"] [data-slot="card-body"] > [data-card-slot="scroll-area"] {
+	[data-slot="card"]
+		[data-slot="card-body"][data-scrollable]
+		> [data-card-slot="scroll-area"] {
 		@apply h-full px-(--card-padding);
 	}
 

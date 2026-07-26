@@ -29,9 +29,13 @@ function Header({
 	);
 }
 
-function Body({ children, ...props }: ComponentProps<"div">) {
+function Body(props: ComponentProps<"div">) {
+	return <div data-slot="card-body" {...props} />;
+}
+
+function ScrollableBody({ children, ...props }: ComponentProps<"div">) {
 	return (
-		<div data-slot="card-body" {...props}>
+		<div data-slot="card-body" data-scrollable {...props}>
 			<ScrollArea data-card-slot="scroll-area" vertical>
 				{children}
 			</ScrollArea>
@@ -43,6 +47,6 @@ function Footer(props: ComponentProps<"div">) {
 	return <div data-slot="card-footer" {...props} />;
 }
 
-const Card = Object.assign(Root, { Header, Body, Footer });
+const Card = Object.assign(Root, { Header, Body, ScrollableBody, Footer });
 
 export { Card };
