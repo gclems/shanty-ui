@@ -9,6 +9,7 @@ export * from "./components/badge/badge";
 export * from "./components/button/button";
 export * from "./components/calendar/calendar";
 export * from "./components/card/card";
+export * from "./components/data-list/data-list";
 export * from "./components/dialogs/alert-dialog/alert-dialog";
 export * from "./components/dialogs/backdrop/backdrop";
 export * from "./components/dialogs/dialog/dialog";

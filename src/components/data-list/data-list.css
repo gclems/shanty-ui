@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@reference "../../css/shanty-ui.css";
+
+[data-slot="data-list"] {
+	@apply grid grid-cols-2 @container/dl border border-border rounded-md;
+}
+
+[data-slot="data-list-label"] {
+	@apply font-semibold not-last-of-type:border-b border-border px-2;
+}
+
+[data-slot="data-list-value"] {
+	@apply not-last-of-type:border-b border-border px-2;
+}

@@ -20,6 +20,7 @@ import { Route as PopoverRouteImport } from './routes/popover'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as FormRouteImport } from './routes/form'
 import { Route as DialogsRouteImport } from './routes/dialogs'
+import { Route as DataListRouteImport } from './routes/data-list'
 import { Route as CardRouteImport } from './routes/card'
 import { Route as CalendarRouteImport } from './routes/calendar'
 import { Route as ButtonRouteImport } from './routes/button'
@@ -83,6 +84,11 @@ const DialogsRoute = DialogsRouteImport.update({
   path: '/dialogs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DataListRoute = DataListRouteImport.update({
+  id: '/data-list',
+  path: '/data-list',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CardRoute = CardRouteImport.update({
   id: '/card',
   path: '/card',
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/button': typeof ButtonRoute
   '/calendar': typeof CalendarRoute
   '/card': typeof CardRoute
+  '/data-list': typeof DataListRoute
   '/dialogs': typeof DialogsRoute
   '/form': typeof FormRoute
   '/menu': typeof MenuRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/button': typeof ButtonRoute
   '/calendar': typeof CalendarRoute
   '/card': typeof CardRoute
+  '/data-list': typeof DataListRoute
   '/dialogs': typeof DialogsRoute
   '/form': typeof FormRoute
   '/menu': typeof MenuRoute
@@ -168,6 +176,7 @@ export interface FileRoutesById {
   '/button': typeof ButtonRoute
   '/calendar': typeof CalendarRoute
   '/card': typeof CardRoute
+  '/data-list': typeof DataListRoute
   '/dialogs': typeof DialogsRoute
   '/form': typeof FormRoute
   '/menu': typeof MenuRoute
@@ -190,6 +199,7 @@ export interface FileRouteTypes {
     | '/button'
     | '/calendar'
     | '/card'
+    | '/data-list'
     | '/dialogs'
     | '/form'
     | '/menu'
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/button'
     | '/calendar'
     | '/card'
+    | '/data-list'
     | '/dialogs'
     | '/form'
     | '/menu'
@@ -230,6 +241,7 @@ export interface FileRouteTypes {
     | '/button'
     | '/calendar'
     | '/card'
+    | '/data-list'
     | '/dialogs'
     | '/form'
     | '/menu'
@@ -251,6 +263,7 @@ export interface RootRouteChildren {
   ButtonRoute: typeof ButtonRoute
   CalendarRoute: typeof CalendarRoute
   CardRoute: typeof CardRoute
+  DataListRoute: typeof DataListRoute
   DialogsRoute: typeof DialogsRoute
   FormRoute: typeof FormRoute
   MenuRoute: typeof MenuRoute
@@ -343,6 +356,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DialogsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/data-list': {
+      id: '/data-list'
+      path: '/data-list'
+      fullPath: '/data-list'
+      preLoaderRoute: typeof DataListRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/card': {
       id: '/card'
       path: '/card'
@@ -403,6 +423,7 @@ const rootRouteChildren: RootRouteChildren = {
   ButtonRoute: ButtonRoute,
   CalendarRoute: CalendarRoute,
   CardRoute: CardRoute,
+  DataListRoute: DataListRoute,
   DialogsRoute: DialogsRoute,
   FormRoute: FormRoute,
   MenuRoute: MenuRoute,
