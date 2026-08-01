@@ -57,7 +57,13 @@ function Item({
 	color = "neutral",
 	...props
 }: BaseMenu.Item.Props & {
-	color: "neutral" | "primary" | "secondary" | "danger" | "success" | "warning";
+	color?:
+		| "neutral"
+		| "primary"
+		| "secondary"
+		| "destructive"
+		| "success"
+		| "warning";
 }) {
 	return <BaseMenu.Item data-slot="menu-item" data-color={color} {...props} />;
 }
