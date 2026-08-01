@@ -53,8 +53,13 @@ function ArrowSvg(props: React.ComponentProps<"svg">) {
 	);
 }
 
-function Item(props: BaseMenu.Item.Props) {
-	return <BaseMenu.Item data-slot="menu-item" {...props} />;
+function Item({
+	color = "neutral",
+	...props
+}: BaseMenu.Item.Props & {
+	color: "neutral" | "primary" | "secondary" | "danger" | "success" | "warning";
+}) {
+	return <BaseMenu.Item data-slot="menu-item" data-color={color} {...props} />;
 }
 
 function Separator(props: BaseMenu.Separator.Props) {

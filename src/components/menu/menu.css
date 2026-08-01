@@ -2,34 +2,64 @@
 @reference "../../css/shanty-ui.css";
 
 @layer components {
-  [data-slot="menu-positioner"] {
-    @apply outline-none;
-  }
+	[data-slot="menu-positioner"] {
+		@apply outline-none;
+	}
 
-  [data-slot="menu-popup"] {
-    @apply origin-(--transform-origin);
-    @apply rounded-lg bg-surface text-foreground;
-    @apply py-1 shadow-2xl;
-    @apply outline-0;
-    @apply transition-[transform,scale,opacity] motion-reduce:transition-none;
-    @apply data-ending-style:scale-90 data-ending-style:opacity-0;
-    @apply data-starting-style:scale-90 data-starting-style:opacity-0;
-  }
+	[data-slot="menu-popup"] {
+		@apply origin-(--transform-origin);
+		@apply rounded-lg bg-surface text-foreground;
+		@apply py-1 shadow-2xl;
+		@apply outline-0;
+		@apply transition-[transform,scale,opacity] motion-reduce:transition-none;
+		@apply data-ending-style:scale-90 data-ending-style:opacity-0;
+		@apply data-starting-style:scale-90 data-starting-style:opacity-0;
+	}
 
-  [data-slot="menu-arrow"] {
-    @apply data-[side=bottom]:-top-2 data-[side=left]:-right-3.25 data-[side=left]:rotate-90 data-[side=right]:-left-3.25 data-[side=right]:-rotate-90 data-[side=top]:-bottom-2 data-[side=top]:rotate-180;
-  }
+	[data-slot="menu-arrow"] {
+		@apply data-[side=bottom]:-top-2 data-[side=left]:-right-3.25 data-[side=left]:rotate-90 data-[side=right]:-left-3.25 data-[side=right]:-rotate-90 data-[side=top]:-bottom-2 data-[side=top]:rotate-180;
+	}
 
-  [data-slot="menu-item"] {
-    @apply flex;
-    @apply cursor-default;
-    @apply py-2 pr-8 pl-4;
-    @apply text-sm leading-4;
-    @apply outline-none select-none;
-    @apply data-highlighted:relative data-highlighted:z-0 data-highlighted:text-accent-foreground data-highlighted:before:z-[-1]  data-highlighted:before:bg-accent data-highlighted:before:absolute data-highlighted:before:inset-x-1 data-highlighted:before:inset-y-0;
-  }
+	[data-slot="menu-item"] {
+		@apply flex;
+		@apply cursor-default;
+		@apply py-2 pr-8 pl-4;
+		@apply text-sm leading-4;
+		@apply outline-none select-none;
+		@apply data-highlighted:relative data-highlighted:z-0 data-highlighted:text-accent-foreground data-highlighted:before:z-[-1] data-highlighted:before:bg-accent data-highlighted:before:absolute data-highlighted:before:inset-x-1 data-highlighted:before:inset-y-0;
+		@apply text-(--menu-item-text);
+	}
 
-  [data-slot="menu-separator"] {
-    @apply mx-2 my-1.5 h-px bg-muted;
-  }
+	[data-slot="menu-separator"] {
+		@apply mx-2 my-1.5 h-px bg-muted;
+	}
+
+	/** COLORS */
+	[data-slot="menu-item"][data-color="primary"] {
+		--menu-item-text: var(--primary);
+	}
+
+	[data-slot="menu-item"][data-color="secondary"] {
+		--menu-item-text: var(--secondary);
+	}
+
+	[data-slot="menu-item"][data-color="neutral"] {
+		--menu-item-text: var(--foreground);
+	}
+
+	[data-slot="menu-item"][data-color="info"] {
+		--menu-item-text: var(--info);
+	}
+
+	[data-slot="menu-item"][data-color="success"] {
+		--menu-item-text: var(--success);
+	}
+
+	[data-slot="menu-item"][data-color="warning"] {
+		--menu-item-text: var(--warning);
+	}
+
+	[data-slot="menu-item"][data-color="destructive"] {
+		--menu-item-text: var(--destructive);
+	}
 }

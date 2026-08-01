@@ -2,16 +2,29 @@ import type { ComponentProps } from "react";
 
 import "./card.css";
 
+import { useRender } from "@base-ui/react";
+import { mergeProps } from "node_modules/@base-ui/react/merge-props";
+
 import { ScrollArea } from "../scroll-area/scroll-area";
 
-function Root({
-	size = "md",
-	...props
-}: ComponentProps<"div"> &
-	ComponentProps<typeof Header> & {
-		size?: "xs" | "sm" | "md" | "lg" | "xl";
-	}) {
-	return <div data-slot="card" data-size={size} {...props} />;
+interface RootProps extends useRender.ComponentProps<"div"> {
+	size?: "xs" | "sm" | "md" | "lg" | "xl";
+}
+
+function Root({ size = "md", render, ...props }: RootProps) {
+	const element = useRender({
+		defaultTagName: "div",
+		render,
+		props: mergeProps<"div">(
+			{
+				"data-slot": "card",
+				"data-size": size,
+			} as React.ComponentPropsWithRef<"div">,
+			props,
+		),
+	});
+
+	return element;
 }
 
 function Header({
