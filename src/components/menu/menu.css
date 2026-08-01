@@ -26,8 +26,10 @@
 		@apply py-2 pr-8 pl-4;
 		@apply text-sm leading-4;
 		@apply outline-none select-none;
-		@apply data-highlighted:relative data-highlighted:z-0 data-highlighted:text-accent-foreground data-highlighted:before:z-[-1] data-highlighted:before:bg-accent data-highlighted:before:absolute data-highlighted:before:inset-x-1 data-highlighted:before:inset-y-0;
-		@apply text-(--menu-item-text);
+		@apply data-highlighted:relative data-highlighted:z-0 data-highlighted:before:z-[-1] data-highlighted:before:bg-accent data-highlighted:before:absolute data-highlighted:before:inset-x-1 data-highlighted:before:inset-y-0;
+		@apply text-(--menu-item-main);
+		@apply data-highlighted:bg-(--menu-item-main);
+		@apply data-highlighted:text-(--menu-item-secondary);
 	}
 
 	[data-slot="menu-separator"] {
@@ -36,30 +38,37 @@
 
 	/** COLORS */
 	[data-slot="menu-item"][data-color="primary"] {
-		--menu-item-text: var(--primary);
+		--menu-item-main: var(--primary);
+		--menu-item-secondary: var(--primary-foreground);
 	}
 
 	[data-slot="menu-item"][data-color="secondary"] {
-		--menu-item-text: var(--secondary);
+		--menu-item-main: var(--secondary);
+		--menu-item-secondary: var(--secondary-foreground);
 	}
 
 	[data-slot="menu-item"][data-color="neutral"] {
-		--menu-item-text: var(--foreground);
+		--menu-item-main: var(--foreground);
+		--menu-item-secondary: var(--accent-foreground);
 	}
 
 	[data-slot="menu-item"][data-color="info"] {
-		--menu-item-text: var(--info);
+		--menu-item-main: var(--info);
+		--menu-item-secondary: var(--info-foreground);
 	}
 
 	[data-slot="menu-item"][data-color="success"] {
-		--menu-item-text: var(--success);
+		--menu-item-main: var(--success);
+		--menu-item-secondary: var(--success-foreground);
 	}
 
 	[data-slot="menu-item"][data-color="warning"] {
-		--menu-item-text: var(--warning);
+		--menu-item-main: var(--warning);
+		--menu-item-secondary: var(--warning-foreground);
 	}
 
 	[data-slot="menu-item"][data-color="destructive"] {
-		--menu-item-text: var(--destructive);
+		--menu-item-main: var(--destructive);
+		--menu-item-secondary: var(--destructive-foreground);
 	}
 }
