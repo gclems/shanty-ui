@@ -2,40 +2,48 @@
 @reference "../../css/shanty-ui.css";
 
 @layer components {
-  [data-slot="scroll-area"] {
-    @apply overflow-hidden;
-  }
+	[data-slot="scroll-area"] {
+		@apply overflow-hidden;
+	}
 
-  [data-slot="scroll-area-viewport"] {
-    @apply h-full overscroll-contain;
-  }
+	[data-slot="scroll-area-viewport"] {
+		@apply h-full overscroll-contain;
+	}
 
-  [data-slot="scroll-area-content"][data-vertical="true"] {
-    @apply pr-2;
-  }
+	[data-slot="scroll-area-content"][data-vertical="true"] {
+		@apply pr-2;
+	}
 
-  [data-slot="scroll-area-content"][data-horizontal="true"] {
-    @apply pb-2;
-  }
+	[data-slot="scroll-area-content"][data-horizontal="true"] {
+		@apply pb-2;
+	}
 
-  [data-slot="scroll-bar"] {
-    @apply pointer-events-none;
-    @apply relative flex;
-    @apply rounded;
-    @apply bg-muted;
-    @apply before:absolute before:content-[''] data-hovering:pointer-events-auto data-hovering:opacity-100 data-hovering:delay-0;
-    @apply data-scrolling:pointer-events-auto data-scrolling:opacity-100 data-scrolling:duration-0;
-  }
+	[data-slot="scroll-bar"] {
+		@apply pointer-events-none;
+		@apply relative flex;
+		@apply rounded;
+		@apply bg-muted;
+		@apply before:absolute before:content-[''] data-hovering:pointer-events-auto data-hovering:opacity-100 data-hovering:delay-0;
+		@apply data-scrolling:pointer-events-auto data-scrolling:opacity-100 data-scrolling:duration-0;
+	}
 
-  [data-slot="scroll-bar"][data-orientation="vertical"] {
-    @apply w-1 before:left-1/2 before:h-full before:w-5 before:-translate-x-1/2;
-  }
+	[data-slot="scroll-bar"][data-orientation="vertical"] {
+		@apply w-1 before:left-1/2 before:h-full before:w-5 before:-translate-x-1/2;
+	}
 
-  [data-slot="scroll-bar"][data-orientation="horizontal"] {
-    @apply h-1 before:right-0 before:-bottom-2 before:left-0 before:h-5 before:w-full;
-  }
+	[data-slot="scroll-bar"][data-orientation="horizontal"] {
+		@apply h-1 before:right-0 before:-bottom-2 before:left-0 before:h-5 before:w-full;
+	}
 
-  [data-slot="scroll-bar-thumb"] {
-    @apply w-full rounded bg-muted-foreground;
-  }
+	[data-slot="scroll-bar-thumb"] {
+		@apply w-full rounded bg-muted-foreground;
+	}
+
+	[data-slot="scroll-area-viewport"]:not([data-horizontal="true"]) {
+		@apply overflow-x-hidden!;
+	}
+
+	[data-slot="scroll-area-content"]:not([data-horizontal="true"]) {
+		@apply min-w-0! w-fulll;
+	}
 }
