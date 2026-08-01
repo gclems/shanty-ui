@@ -44,6 +44,6 @@
 	}
 
 	[data-slot="scroll-area-content"]:not([data-horizontal="true"]) {
-		@apply min-w-0! w-fulll;
+		@apply min-w-0! w-full;
 	}
 }
