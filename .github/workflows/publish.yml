@@ -1,15 +1,25 @@
 name: ✈️ Publish on NPMJS
-run-name: ✈️ Publish ${{ inputs.version }}
+run-name: ✈️ Release ${{ inputs.version }}-${{ inputs.qualifier }}.${{ inputs.qualifier-number }} by @${{ github.actor }}
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version (e.g., 2.0.0)"
+        description: "Target version (e.g., 1.0.0)"
         required: true
-      tag:
-        description: "Pre-release tag (e.g., alpha.1)"
+      qualifier:
+        description: "Qualifier (e.g., release, alpha, beta)"
+        required: true
+        type: choice
+        options:
+          - release
+          - alpha
+          - beta
+          - rc
+      qualifier-number:
+        description: "Pre-release number (e.g., 1, 2,...). Ignored if qualifier is 'release'."
         required: false
+        default: "1"
 
 permissions:
   id-token: write
@@ -26,7 +36,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 26
           registry-url: "https://registry.npmjs.org"
 
       - uses: pnpm/action-setup@v4
@@ -47,21 +57,20 @@ jobs:
 
       - name: Set version
         run: |
-          echo "Setting version to ${{ inputs.version }} ${{ inputs.tag || 'latest' }}"
-          if [ -n "${{ inputs.tag }}" ]; then
-            pnpm version ${{ inputs.version }} --no-git-tag-version --prerelease --preid ${{ inputs.tag }}
+          echo "Setting version to ${{ inputs.version }}-${{ inputs.qualifier }}.${{ inputs.qualifier-number }}"
+          if [ "${{ inputs.qualifier }}" != "release" ]; then
+            pnpm version ${{ inputs.version }}-${{ inputs.qualifier }}.${{ inputs.qualifier-number }} --no-git-tag-version
           else
             pnpm version ${{ inputs.version }} --no-git-tag-version
           fi
-
       # Ensure npm 11.5.1 or later is installed
       - name: Update npm
         run: npm install -g npm@latest
 
       - name: Publish to npmjs
         run: |
-          if [ -n "${{ inputs.tag }}" ]; then
-           pnpm publish --access public --no-git-checks --tag ${{ inputs.tag }}
+          if [ "${{ inputs.qualifier }}" != "release" ]; then
+            pnpm publish --access public --no-git-checks --tag ${{ inputs.qualifier }}
           else
-            pnpm publish --access public --no-git-checks
+            pnpm publish --access public --no-git-checks --tag latest
           fi

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+  [data-slot="alert-dialog-popup"] {
+    @apply fixed top-1/2 left-1/2;
+    @apply -mt-8 -translate-x-1/2 -translate-y-1/2;
+    @apply rounded-lg bg-surface text-foreground;
+    @apply shadow-2xl;
+    @apply py-6;
+    @apply transition-all duration-150;
+    @apply data-ending-style:scale-90 data-ending-style:opacity-0;
+    @apply data-starting-style:scale-90 data-starting-style:opacity-0;
+    @apply motion-reduce:transition-none;
+    @apply flex flex-col gap-4;
+  }
+
+  [data-slot="alert-dialog-popup"][data-size="sm"] {
+    @apply w-[min(20rem,calc(100vw-4rem))];
+  }
+
+  [data-slot="alert-dialog-popup"][data-size="md"] {
+    @apply w-[min(31.25rem,calc(100vw-4rem))];
+  }
+
+  [data-slot="alert-dialog-popup"][data-size="lg"] {
+    @apply w-[min(50rem,calc(100vw-4rem))];
+  }
+
+  [data-slot="alert-dialog-popup"][data-size="xl"] {
+    @apply w-[min(71.25rem,calc(100vw-4rem))];
+  }
+
+  [data-slot="alert-dialog-title"] {
+    @apply px-6 text-lg font-medium;
+  }
+
+  [data-slot="alert-dialog-body"] {
+    @apply px-6 text-sm;
+  }
+
+  [data-slot="alert-dialog-footer"] {
+    @apply flex justify-between gap-4 px-6;
+  }
+}

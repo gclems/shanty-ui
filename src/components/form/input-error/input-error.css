@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+  [data-slot="input-error"] {
+    @apply text-sm text-destructive;
+  }
+}

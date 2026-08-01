@@ -1,76 +1,108 @@
-import path from "path";
+import path from "node:path";
 
 import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react-swc";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
 import pkg from "./package.json";
 
+const externalDeps = new Set([
+	...Object.keys(pkg.dependencies || {}),
+	...Object.keys(pkg.peerDependencies || {}),
+]);
+
+const isExternal = (id: string) => {
+	if (id.endsWith(".css")) {
+		return true;
+	}
+
+	if (id.startsWith(".") || path.isAbsolute(id)) {
+		return false;
+	}
+
+	const cleanId = id.split("?")[0].split("#")[0];
+	const pkgName = cleanId.startsWith("@")
+		? cleanId.split("/").slice(0, 2).join("/")
+		: cleanId.split("/")[0];
+
+	return (
+		externalDeps.has(pkgName) ||
+		cleanId === "react/jsx-runtime" ||
+		cleanId === "react/compiler-runtime"
+	);
+};
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    viteStaticCopy({
-      targets: [
-        // {
-        //   src: "src/fonts",
-        //   dest: "",
-        // },
-        {
-          src: "src/css",
-          dest: "",
-        },
-      ],
-    }),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  server: {
-    open: "./index.html",
-  },
-  build: {
-    outDir: "dist",
-    emptyOutDir: false,
-    cssCodeSplit: true,
-    lib: {
-      entry: "src/index.ts",
-      formats: ["es"],
-    },
-    minify: "esbuild",
-    rollupOptions: {
-      input: {
-        index: "src/index.ts",
-        "unstyled-primitives": "src/unstyled-primitives.ts",
-      },
-      output: {
-        preserveModules: true,
-        preserveModulesRoot: "src",
-        entryFileNames: "[name].js",
-      },
-      external: (id) => {
-        return (
-          /^react/.test(id) ||
-          /^@mui\/base/.test(id) ||
-          /^@floating-ui/.test(id) ||
-          Object.keys(pkg.dependencies || {}).some(
-            (dep) => id === dep || id.startsWith(dep + "/"),
-          ) ||
-          Object.keys(pkg.peerDependencies || {}).some(
-            (dep) => id === dep || id.startsWith(dep + "/"),
-          )
-        );
-      },
-      treeshake: {
-        moduleSideEffects: false,
-      },
-    },
-  },
-  esbuild: {
-    keepNames: true, // Keep original function and class names
-  },
+	plugins: [
+		tanstackRouter({
+			target: "react",
+			autoCodeSplitting: true,
+			routesDirectory: "playground/routes",
+			generatedRouteTree: "playground/routeTree.gen.tsx",
+		}),
+		react({
+			babel: {
+				plugins: [["babel-plugin-react-compiler"]],
+			},
+		}),
+		tailwindcss(),
+		viteStaticCopy({
+			targets: [
+				{
+					src: "src/css",
+					dest: "",
+				},
+				{
+					src: "src/components/**/*.css",
+					dest: "components",
+					rename: (_name, _ext, fullPath) => {
+						const marker = "/src/components/";
+						const idx = fullPath.lastIndexOf(marker);
+						return fullPath.slice(idx + marker.length);
+					},
+				},
+			],
+		}),
+	],
+	resolve: {
+		alias: {
+			"@pg": path.resolve(__dirname, "./playground"),
+			"@": path.resolve(__dirname, "./src"),
+		},
+	},
+	server: {
+		open: true,
+	},
+	build: {
+		outDir: "dist",
+		emptyOutDir: false,
+		cssCodeSplit: false, // TO VERIFY
+		sourcemap: "inline",
+		lib: {
+			entry: ["src/index.ts", "src/base-ui.ts"],
+			formats: ["es"],
+		},
+		minify: "esbuild",
+		rollupOptions: {
+			output: {
+				format: "es",
+				preserveModules: true,
+				preserveModulesRoot: "src",
+				entryFileNames: "[name].js",
+				inlineDynamicImports: false,
+			},
+			external: isExternal,
+			treeshake: {
+				moduleSideEffects: (id) => id.endsWith(".css"),
+			},
+		},
+	},
+	esbuild: {
+		keepNames: true, // Keep original function and class names
+		legalComments: "none", // Remove comments from bundle
+		minifyIdentifiers: true, // Better minification
+	},
 });

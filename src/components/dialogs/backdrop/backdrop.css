@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+  [data-slot="dialog-backdrop"] {
+    @apply fixed inset-0 min-h-dvh;
+    @apply bg-black/30;
+    @apply transition-all duration-150;
+    @apply data-ending-style:opacity-0 data-starting-style:opacity-0;
+    @apply supports-[-webkit-touch-callout:none]:absolute;
+    @apply motion-reduce:transition-none;
+  }
+}

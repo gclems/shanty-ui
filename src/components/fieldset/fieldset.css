@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+	[data-slot="fieldset-root"] {
+		@apply flex w-full flex-col;
+	}
+
+	[data-slot="fieldset-legend"] {
+		@apply border-b border-border mb-3 text-lg font-medium text-foreground;
+	}
+}

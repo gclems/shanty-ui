@@ -1,0 +1,146 @@
+import { createFileRoute } from "@tanstack/react-router";
+
+import { Password } from "@/components/form/password/password";
+import { PhoneNumberInput } from "@/components/form/phone-number-input/phone-number-input";
+import {
+	Checkbox,
+	CheckboxGroup,
+	CurrencyInput,
+	DateInput,
+	Field,
+	Fieldset,
+	Input,
+	Radio,
+	RadioGroup,
+	Select,
+	format,
+} from "@/index";
+
+export const Route = createFileRoute("/form")({
+	component: RouteComponent,
+});
+
+function RouteComponent() {
+	return (
+		<div className="space-y-6">
+			<Item title="Input (independant)">
+				<Input placeholder="Type something..." />
+			</Item>
+
+			<Fieldset legend="Fields">
+				<Item title="Field">
+					<Field
+						description="This is a description"
+						label="Field label"
+						error="oh non"
+						required
+					>
+						<Input placeholder="Type something" />
+					</Field>
+				</Item>
+
+				<Item title="horizontal field">
+					<Field
+						label="Horizontal field"
+						description="This is a description"
+						orientation="horizontal"
+						required
+						error="This field is in error"
+					>
+						<Input
+							name="horizontal"
+							ignorePasswordManagers
+							placeholder="Type something"
+						/>
+					</Field>
+				</Item>
+			</Fieldset>
+
+			<Item title="Password">
+				<Password placeholder="Type something..." ignorePasswordManagers />
+			</Item>
+
+			<Item title="phone number">
+				<PhoneNumberInput />
+			</Item>
+
+			<Item title="Currency">
+				<Field description="This is a description" label="Field label" required>
+					<CurrencyInput placeholder="Type something" />
+				</Field>
+			</Item>
+
+			<Fieldset legend="Checkboxes">
+				<Item title="Checkbox">
+					<Checkbox label="Accept terms and conditions" />
+				</Item>
+
+				<Item title="Checkbox Group">
+					<CheckboxGroup>
+						<Checkbox value="fuji-apple" label="Fuji Apple" />
+						<Checkbox value="granny-smith" label="Granny Smith" />
+						<Checkbox value="honeycrisp" label="Honeycrisp" />
+					</CheckboxGroup>
+				</Item>
+			</Fieldset>
+			<Item title="Radio Group">
+				<RadioGroup>
+					<Radio value="fuji-apple" label="Fuji Apple" />
+					<Radio value="granny-smith" label="Granny Smith" />
+					<Radio value="honeycrisp" label="Honeycrisp" />
+				</RadioGroup>
+			</Item>
+
+			<Item title="Combobox">
+				{/* <Select
+					placeholder="Fruit"
+					items={[
+						{ label: "Apple", value: "apple" },
+						{ label: "Banana", value: "banana" },
+						{ label: "Cherry", value: "cherry" },
+					]}
+				/> */}
+			</Item>
+			<Item title="Select">
+				<Select
+					name="fruits"
+					placeholder="Fruit"
+					onValueChange={(value, item) => {
+						console.log("select change", value, item);
+					}}
+					items={[
+						{ label: "None", value: "" },
+						{ label: "Apple", value: "apple" },
+						{ label: "Banana", value: "banana" },
+						{ label: "Cherry", value: "cherry" },
+					]}
+				/>
+			</Item>
+
+			<Item title="Date input">
+				<DateInput />
+			</Item>
+
+			<Item title="Date input - custom format">
+				<DateInput
+					formatter={(date, locale) => format(date, "EEEE dd MMM yyyy", { locale })}
+				/>
+			</Item>
+		</div>
+	);
+}
+
+function Item({
+	title,
+	children,
+}: {
+	title: string;
+	children: React.ReactNode;
+}) {
+	return (
+		<div className="space-y-2">
+			<h2 className="text-lg font-medium">{title}</h2>
+			<div>{children}</div>
+		</div>
+	);
+}

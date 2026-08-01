@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+	[data-slot="calendar"] {
+		@apply w-fit;
+	}
+
+	[data-slot="calendar-months"] {
+		@apply relative flex gap-4 flex-col;
+	}
+
+	[data-slot="calendar-nav"] {
+		@apply absolute top-0 left-0 right-0;
+		@apply flex items-center justify-between p-2;
+		pointer-events: none;
+	}
+
+	[data-slot="calendar-nav"] button {
+		pointer-events: auto;
+	}
+
+	[data-slot="calendar-nav-chevron"] {
+		@apply size-6 cursor-pointer;
+		@apply hover:text-primary;
+		@apply hover:bg-primary/10 rounded-full;
+	}
+
+	[data-slot="calendar-dropdowns"] {
+		@apply flex gap-4 items-center;
+		@apply relative z-10;
+	}
+
+	[data-slot="calendar-month-caption"] {
+		@apply flex h-8 w-full items-center justify-center px-8;
+	}
+
+	[data-slot="calendar-week-number"] {
+		@apply flex size-8 items-center justify-center text-center;
+	}
+
+	[data-slot="calendar-day-button"] {
+		@apply flex size-8 items-center justify-center rounded-full text-center transition-colors;
+		@apply hover:bg-primary/10;
+	}
+
+	[data-slot="calendar-dropdown"] select {
+		@apply cursor-pointer;
+        @apply h-6
+	}
+
+	[data-slot="calendar-day-button"][data-selected-single="true"] {
+		@apply bg-primary text-primary-foreground;
+	}
+
+	[data-slot="calendar-day-button"][data-range-start="true"] {
+		@apply bg-primary text-primary-foreground;
+		@apply rounded-r-none;
+	}
+
+	[data-slot="calendar-day-button"][data-range-middle="true"] {
+		@apply bg-primary text-primary-foreground;
+		@apply rounded-none;
+	}
+
+	[data-slot="calendar-day-button"][data-range-end="true"] {
+		@apply bg-primary text-primary-foreground;
+		@apply rounded-l-none;
+	}
+
+	[data-slot="calendar-day-button"][data-range-start="true"][data-range-end="true"] {
+		@apply rounded-full;
+	}
+
+	[data-slot="calendar"] [data-outside="true"] {
+		@apply opacity-50;
+	}
+
+	[data-slot="calendar"] [data-today="true"] [data-slot="calendar-day-button"] {
+		@apply font-semibold;
+	}
+
+	[data-slot="calendar"]
+		[data-today="true"]
+		[data-slot="calendar-day-button"]:not([data-selected-single="true"]):not(
+			[data-range-start="true"]
+		):not([data-range-middle="true"]):not([data-range-end="true"]) {
+		@apply text-primary;
+	}
+}

@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+	[data-slot="input-group"] {
+		@apply h-10 w-full;
+		@apply flex items-center gap-2;
+		@apply px-3.5;
+		@apply rounded-sm;
+		@apply bg-input;
+		@apply border border-input-border;
+		@apply text-base text-input-foreground;
+		@apply placeholder:text-input-placeholder;
+		@apply has-focus:outline-2 has-focus:-outline-offset-1 has-focus:outline-primary;
+		@apply has-data-invalid:border-destructive has-data-invalid:text-destructive;
+	}
+
+	[data-slot="input-group"] [data-slot="input-group-input"] {
+		@apply h-full w-full;
+		@apply bg-transparent;
+		@apply border-none;
+		@apply outline-none;
+	}
+
+	[data-slot="input-group"] [data-sub-slot="input-group-button"] {
+		@apply outline-0 ring-0;
+		@apply focus:outline-0;
+	}
+}

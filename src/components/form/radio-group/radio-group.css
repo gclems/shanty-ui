@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+  [data-slot="radio-group"] {
+    @apply flex flex-col items-start gap-1 text-current;
+  }
+}

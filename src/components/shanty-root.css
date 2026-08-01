@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  [data-slot="shanty-root"] {
+    isolation: isolate;
+  }
+}

@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+  [data-slot="tabs"] {
+    @apply rounded-md;
+  }
+
+  [data-slot="tabs"][data-orientation="vertical"] {
+    @apply flex;
+  }
+
+  [data-slot="tabs-list"] {
+    @apply relative z-0;
+  }
+
+  [data-slot="tabs-list"][data-orientation="horizontal"] {
+    @apply flex gap-1 border-b border-muted;
+  }
+
+  [data-slot="tabs-list"][data-orientation="vertical"] {
+    @apply flex flex-col gap-1 border-r border-muted;
+  }
+
+  [data-slot="tabs-indicator"] {
+    @apply h-8 w-[var(--active-tab-width)];
+    @apply bg-(--primary) transition-all duration-200 ease-in-out;
+    @apply motion-reduce:transition-none;
+  }
+
+  [data-slot="tabs-indicator"][data-orientation="horizontal"] {
+    @apply absolute top-1/2 left-0 z-[-1];
+    @apply translate-x-[var(--active-tab-left)] -translate-y-1/2;
+  }
+
+  [data-slot="tabs-indicator"][data-orientation="vertical"] {
+    @apply absolute top-0 left-1/2 z-[-1];
+    @apply -translate-x-1/2 translate-y-[var(--active-tab-top)];
+  }
+
+  [data-slot="tabs-tab"] {
+    @apply flex items-center justify-center;
+    @apply h-8;
+    @apply border-0 px-2;
+    @apply text-sm font-medium;
+    @apply break-keep whitespace-nowrap;
+    @apply text-(--foreground);
+    @apply outline-none select-none;
+    @apply before:inset-x-0 before:inset-y-1;
+    @apply before:rounded-sm before:-outline-offset-1;
+    @apply before:outline-(--primary);
+    @apply focus-visible:relative focus-visible:before:absolute focus-visible:before:outline-2;
+    @apply data-[active]:text-(--primary-foreground);
+    @apply hover:not-data-[active]:text-(--primary);
+    @apply transition-all duration-200 ease-in-out;
+    @apply motion-reduce:transition-none;
+  }
+
+  [data-slot="tabs-panel"] {
+    @apply w-full p-4;
+  }
+}

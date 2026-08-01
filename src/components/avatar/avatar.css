@@ -1,0 +1,102 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+  [data-slot="avatar"] {
+     @apply relative flex shrink-0 rounded-full select-none;
+  }
+
+  [data-slot="avatar-group"] {
+     @apply flex -space-x-2;
+  }
+
+  [data-slot="avatar-group"] [data-slot="avatar"] {
+    @apply ring-2 ring-surface;
+  }
+
+  /* SIZE */
+  [data-slot="avatar"][data-size="sm"],
+  [data-slot="avatar-group"][data-size="sm"] [data-slot="avatar-group-count"]{
+    @apply size-6;
+  }
+
+  [data-slot="avatar"][data-size="default"],
+  [data-slot="avatar-group"][data-size="default"] [data-slot="avatar-group-count"]{
+    @apply size-8;
+  }
+
+  [data-slot="avatar"][data-size="lg"],
+  [data-slot="avatar-group"][data-size="lg"] [data-slot="avatar-group-count"]{
+    @apply size-10;
+  }
+
+  [data-slot="avatar-image"] {
+    @apply size-full overflow-hidden rounded-full object-cover aspect-square;
+  }
+
+  [data-slot="avatar-fallback"] {
+    @apply flex size-full items-center justify-center overflow-hidden rounded-full;
+    @apply bg-muted text-muted-foreground;
+    @apply uppercase;
+  }
+
+  [data-slot="avatar-badge"] {
+    @apply select-none;
+    @apply absolute right-0 bottom-0 z-10;
+    @apply inline-flex items-center justify-center rounded-full;
+    @apply ring-2 ring-surface;
+  }
+
+  [data-slot="avatar"][data-size="sm"] [data-slot="avatar-badge"]{
+    @apply size-2;
+   
+  }
+
+  [data-slot="avatar"][data-size="default"] [data-slot="avatar-badge"]{
+    @apply size-2.5;
+  }
+
+  [data-slot="avatar"][data-size="lg"] [data-slot="avatar-badge"]{
+    @apply size-3;
+  }
+
+  [data-slot="avatar-badge"][data-color="primary"] {
+    @apply bg-primary;
+  }
+
+  [data-slot="avatar-badge"][data-color="secondary"] {
+    @apply bg-secondary;
+  }
+
+  [data-slot="avatar-badge"][data-color="success"] {
+    @apply bg-success;
+  }
+
+  [data-slot="avatar-badge"][data-color="warning"] {
+    @apply bg-warning;
+  }
+
+  [data-slot="avatar-badge"][data-color="error"] {
+    @apply bg-destructive;
+  }
+
+  /* biome-ignore lint/style/noDescendingSpecificity: No risk here */
+  [data-slot="avatar-group-count"] {
+    @apply relative flex items-center justify-center overflow-hidden rounded-full;
+    @apply bg-muted text-muted-foreground;
+    @apply uppercase;
+    @apply ring-2 ring-surface;
+  }
+
+  [data-slot="avatar"][data-size="sm"] [data-slot="avatar-fallback"],
+  [data-slot="avatar-group"][data-size="sm"] [data-slot="avatar-group-count"]{
+    @apply text-xs;
+  }
+
+  [data-slot="avatar"][data-size="default"] [data-slot="avatar-fallback"],
+  [data-slot="avatar-group"][data-size="default"] [data-slot="avatar-group-count"],
+  [data-slot="avatar"][data-size="lg"] [data-slot="avatar-fallback"],
+  [data-slot="avatar-group"][data-size="lg"] [data-slot="avatar-group-count"]{
+    @apply text-sm;
+  }
+}

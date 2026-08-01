@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+  [data-slot="currency-input"] {
+    @apply relative w-full;
+  }
+
+  [data-slot="currency-input-input"][data-has-overlay="true"] {
+    @apply text-transparent caret-black;
+  }
+
+  [data-slot="currency-input-overlay"] {
+    @apply pointer-events-none;
+    @apply absolute inset-0;
+    @apply flex items-center px-3.5;
+    @apply text-base;
+  }
+
+  [data-slot="currency-input-overlay-major"] {
+    @apply text-(--input-foreground);
+  }
+  [data-slot="currency-input-overlay-minor"] {
+    @apply text-(--input-placeholder);
+  }
+}

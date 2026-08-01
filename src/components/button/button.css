@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+  [data-slot="button"] {
+    @apply inline-flex;
+    @apply items-center justify-center;
+    @apply rounded-md;
+    @apply cursor-pointer;
+    @apply transition duration-100;
+    @apply outline-0 outline-(--button-main)/50 focus:outline-3;
+    @apply ring-0 focus:ring-0;
+    @apply motion-reduce:transition-none;
+  }
+
+  /** VARIANTS */
+  [data-slot="button"][data-variant="contained"] {
+    @apply border-transparent;
+    @apply bg-(--button-main) hover:bg-(--button-main)/80 active:bg-(--button-main)/60;
+    @apply text-(--button-secondary);
+  }
+
+  [data-slot="button"][data-variant="outlined"] {
+    @apply border border-(--button-main) hover:border-transparent active:border-transparent;
+    @apply text-(--button-main) hover:text-(--button-secondary) active:text-(--button-secondary);
+    @apply bg-transparent hover:bg-(--button-main)/80 active:bg-(--button-main)/60;
+  }
+
+  [data-slot="button"][data-variant="light"] {
+    @apply border-transparent;
+    @apply bg-transparent;
+    @apply text-current hover:text-(--button-secondary) active:text-(--button-secondary);
+    @apply hover:bg-(--button-main)/80 active:bg-(--button-main)/60;
+  }
+
+  [data-slot="button"][data-variant="ghost"] {
+    @apply border-transparent;
+    @apply bg-transparent;
+    @apply text-current hover:text-(--button-main)/80 active:text-(--button-main)/60;
+  }
+
+  /** SIZES */
+  [data-slot="button"][data-square="true"] {
+    @apply px-0;
+  }
+
+  [data-slot="button"][data-size="sm"] {
+    @apply h-6 px-1.5 text-xs [&_svg]:size-4;
+  }
+
+  [data-slot="button"][data-size="sm"][data-square="true"] {
+    @apply size-6;
+  }
+
+  [data-slot="button"][data-size="md"] {
+    @apply h-8 px-2 text-base [&_svg]:size-5;
+  }
+
+  [data-slot="button"][data-size="md"][data-square="true"] {
+    @apply size-8;
+  }
+
+  [data-slot="button"][data-size="lg"] {
+    @apply h-9 px-2.5;
+  }
+
+  [data-slot="button"][data-size="lg"][data-square="true"] {
+    @apply size-9;
+  }
+
+  /** COLORS */
+  [data-slot="button"][data-color="primary"] {
+    --button-main: var(--primary);
+    --button-secondary: var(--primary-foreground);
+  }
+
+  [data-slot="button"][data-color="secondary"] {
+    --button-main: var(--secondary);
+    --button-secondary: var(--secondary-foreground);
+  }
+
+  [data-slot="button"][data-color="neutral"] {
+    --button-main: var(--neutral);
+    --button-secondary: var(--neutral-foreground);
+  }
+
+  [data-slot="button"][data-color="info"] {
+    --button-main: var(--info);
+    --button-secondary: var(--info-foreground);
+  }
+
+  [data-slot="button"][data-color="success"] {
+    --button-main: var(--success);
+    --button-secondary: var(--success-foreground);
+  }
+
+  [data-slot="button"][data-color="warning"] {
+    --button-main: var(--warning);
+    --button-secondary: var(--warning-foreground);
+  }
+
+  [data-slot="button"][data-color="destructive"] {
+    --button-main: var(--destructive);
+    --button-secondary: var(--destructive-foreground);
+  }
+}

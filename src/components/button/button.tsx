@@ -1,0 +1,39 @@
+import type { ComponentProps } from "react";
+
+import { Button as BaseButton } from "@base-ui/react/button";
+import "./button.css";
+
+function Button({
+	variant = "contained",
+	color = "neutral",
+	square = false,
+	size = "md",
+	...props
+}: BaseButton.Props & {
+	variant?: "contained" | "outlined" | "light" | "ghost";
+	color?:
+		| "primary"
+		| "secondary"
+		| "neutral"
+		| "info"
+		| "success"
+		| "warning"
+		| "destructive"
+		| string;
+	square?: boolean;
+	size?: "sm" | "md" | "lg";
+	type?: ComponentProps<"button">["type"];
+}) {
+	return (
+		<BaseButton
+			{...props}
+			data-slot="button"
+			data-variant={variant}
+			data-color={color}
+			data-size={size}
+			data-square={square || undefined}
+		/>
+	);
+}
+
+export { Button };

@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@reference "../../../css/shanty-ui.css";
+
+@layer components {
+	[data-slot="label"] {
+		@apply font-semibold;
+	}
+
+	[data-slot="label-required"] {
+		@apply text-destructive;
+	}
+}

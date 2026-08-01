@@ -1,0 +1,13 @@
+{
+  "directory": ["src"],
+  "location": "top",
+  "delete": true,
+  "structure": "flat",
+  "extensions": ["ts", "tsx"],
+  "exclude": [
+    ".*\\.test\\.tsx$",
+    ".*\\.stories\\.tsx$",
+    ".*\\.d\\.ts$",
+    "base-ui\\.ts$"
+  ]
+}

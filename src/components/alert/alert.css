@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+[data-slot="alert"] {
+	@apply px-4 py-2;
+	@apply rounded-md;
+	@apply border;
+}
+
+[data-slot="alert"][data-color="info"] {
+	@apply bg-info text-info-foreground border-info;
+}
+
+[data-slot="alert"][data-color="success"] {
+	@apply bg-success text-success-foreground border-success;
+}
+
+[data-slot="alert"][data-color="warning"] {
+	@apply bg-warning text-warning-foreground border-warning;
+}
+
+[data-slot="alert"][data-color="destructive"] {
+	@apply bg-destructive text-destructive-foreground border-destructive;
+}
+
+[data-slot="alert"][data-color="info-discrete"] {
+	@apply bg-info/30 text-foreground border-info;
+}
+
+[data-slot="alert"][data-color="success-discrete"] {
+	@apply bg-success/30 text-foreground border-success;
+}
+
+[data-slot="alert"][data-color="warning-discrete"] {
+	@apply bg-warning/30 text-foreground border-warning;
+}
+
+[data-slot="alert"][data-color="destructive-discrete"] {
+	@apply bg-destructive/30 text-foreground border-destructive;
+}

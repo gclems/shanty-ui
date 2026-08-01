@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+  [data-slot="separator"] {
+    @apply bg-muted;
+  }
+
+  [data-slot="separator"][data-orientation="horizontal"] {
+    @apply h-px w-full;
+  }
+
+  [data-slot="separator"][data-orientation="vertical"] {
+    @apply h-full w-px;
+  }
+}

@@ -1,4 +1,6 @@
+allowBuilds:
+  core-js-pure: true
+  esbuild: true
 onlyBuiltDependencies:
-  - '@swc/core'
-  - '@tailwindcss/oxide'
+  - core-js-pure
   - esbuild

@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@reference "../../css/shanty-ui.css";
+
+[data-slot="data-list"] {
+	@apply grid grid-cols-2 @container/dl;
+	@apply border border-border rounded-md;
+}
+
+[data-slot="data-list-label"] {
+	@apply font-semibold px-2;
+	@apply not-last-of-type:border-b border-border;
+	@apply hover:bg-accent hover:text-accent-foreground;
+}
+
+[data-slot="data-list-value"] {
+	@apply not-last-of-type:border-b border-border px-2;
+	@apply hover:bg-accent hover:text-accent-foreground;
+}
+
+[data-slot="data-list-label"]:hover + [data-slot="data-list-value"] {
+	@apply bg-accent text-accent-foreground;
+}
+
+[data-slot="data-list-label"]:has(+ [data-slot="data-list-value"]:hover) {
+	@apply bg-accent text-accent-foreground;
+}

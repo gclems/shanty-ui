@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+	:root {
+		--sidebar-width: 16rem;
+		--sidebar-width-icon: 3rem;
+		--sidebar-width-mobile: 18rem;
+	}
+
+	[data-slot="sidebar-wrapper"] {
+		@apply flex min-h-svh w-full;
+	}
+
+	[data-sidebar="sidebar"][data-sub-slot="sidebar-drawer"] {
+		@apply w-(--sidebar-width) p-0;
+		@apply bg-surface text-foreground;
+		@apply [&>button]:hidden;
+	}
+
+	[data-sidebar="sidebar"][data-sub-slot="sidebar-drawer"]
+		[data-slot="drawer-header"] {
+		@apply sr-only;
+	}
+
+	[data-slot="sidebar"]:not([data-sub-slot="sidebar-drawer"]) {
+		@apply hidden text-foreground md:block;
+	}
+
+	[data-slot="sidebar-gap"] {
+		@apply relative w-(--sidebar-width);
+		@apply bg-transparent transition-[width] duration-200 ease-linear;
+	}
+
+	[data-collapsible="icon"] [data-slot="sidebar-gap"] {
+		@apply w-(--sidebar-width-icon);
+	}
+
+	[data-side="right"] [data-slot="sidebar-gap"] {
+		@apply rotate-180;
+	}
+
+	[data-collapsible="offcanvas"] [data-slot="sidebar-gap"] {
+		@apply w-0;
+	}
+
+	[data-collapsible="icon"][data-variant="floating"] [data-slot="sidebar-gap"],
+	[data-collapsible="icon"][data-variant="inset"] [data-slot="sidebar-gap"] {
+		@apply w-[calc(var(--sidebar-width-icon)+(--spacing(4)))];
+	}
+
+	[data-slot="sidebar-container"] {
+		@apply border-border;
+		@apply fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear;
+		@apply md:flex;
+	}
+
+	/* [data-variant="floating"] [data-slot="sidebar-container"] {
+		@apply rounded-lg;
+	} */
+
+	[data-slot="sidebar-container"][data-side="left"] {
+		@apply left-0;
+	}
+
+	[data-collapsible="offcanvas"]
+		[data-slot="sidebar-container"][data-side="left"] {
+		@apply left-[calc(var(--sidebar-width)*-1)];
+	}
+
+	[data-slot="sidebar-container"][data-side="right"] {
+		@apply right-0;
+	}
+
+	[data-collapsible="offcanvas"]
+		[data-slot="sidebar-container"][data-side="right"] {
+		@apply right-[calc(var(--sidebar-width)*-1)];
+	}
+
+	[data-collapsible="icon"] [data-slot="sidebar-container"] {
+		@apply w-(--sidebar-width-icon);
+	}
+
+	[data-side="left"]:not([data-variant="floating"])
+		[data-slot="sidebar-container"] {
+		@apply border-r;
+	}
+
+	[data-side="right"]:not([data-variant="floating"])
+		[data-slot="sidebar-container"] {
+		@apply border-l;
+	}
+
+	[data-variant="floating"] [data-slot="sidebar-container"],
+	[data-variant="inset"] [data-slot="sidebar-container"] {
+		@apply p-2 m-2;
+	}
+
+	[data-collapsible="icon"][data-variant="floating"]
+		[data-slot="sidebar-container"],
+	[data-collapsible="icon"][data-variant="floating"]
+		[data-slot="sidebar-container"] {
+		@apply w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)];
+	}
+
+	[data-slot="sidebar-inner"] {
+		@apply flex size-full flex-col bg-surface;
+	}
+
+	[data-variant="floating"] [data-slot="sidebar-inner"] {
+		@apply rounded-lg shadow-sm ring-1 ring-border;
+	}
+
+	[data-slot="sidebar-content"] {
+		@apply flex min-h-0 flex-1 flex-col gap-0 overflow-auto;
+	}
+
+	[data-collapsible="icon"] [data-slot="sidebar-content"] {
+		@apply overflow-hidden;
+	}
+
+	[data-slot="sidebar-menu"] {
+		@apply flex w-full min-w-0 flex-col gap-0;
+	}
+
+	[data-sidebar="trigger"] [data-slot="sidebar-trigger-label"] {
+		@apply sr-only;
+	}
+
+	[data-slot="sidebar-item"] {
+		@apply my-0.5;
+	}
+
+	[data-slot="sidebar-item-button"] {
+		@apply w-full px-3 py-1 text-left;
+		@apply bg-background text-foreground;
+		@apply pl-6 pr-2;
+
+		@apply flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left;
+		@apply outline-hidden transition-[width,height,padding];
+		@apply hover:bg-accent hover:text-accent-foreground;
+		@apply focus-visible:ring-2 active:bg-accent active:text-accent-foreground;
+		@apply disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none;
+		@apply aria-disabled:opacity-50;
+		@apply [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate;
+	}
+
+	[data-collapsible="icon"] [data-slot="sidebar-item-button"] {
+		@apply size-8! p-2! mx-auto;
+	}
+
+	[data-slot="sidebar-item-button"][data-active="true"] {
+		@apply bg-primary text-primary-foreground;
+	}
+
+	[data-slot="sidebar-item-button"][data-active="false"] {
+		@apply hover:bg-accent hover:text-accent-foreground;
+	}
+}

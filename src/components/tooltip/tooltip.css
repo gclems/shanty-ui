@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@reference "../../css/shanty-ui.css";
+
+@layer components {
+    [data-slot="tooltip-popup"] {
+        @apply flex flex-col;
+        @apply px-2 py-1;
+        @apply rounded-md;
+        @apply bg-tooltip text-tooltip-foreground;
+        @apply text-sm;
+        @apply origin-(--transform-origin);
+        @apply transition-[transform,scale,opacity];
+        @apply data-ending-style:opacity-0 data-ending-style:scale-90;
+        @apply data-instant:transition-none;
+        @apply data-starting-style:opacity-0 data-starting-style:scale-90;
+    }
+
+    [data-slot="tooltip-arrow"] {
+        @apply flex;
+        @apply data-[side=bottom]:-top-2 data-[side=bottom]:rotate-0;
+        @apply data-[side=left]:right-[-13px] data-[side=left]:rotate-90;
+        @apply data-[side=right]:left-[-13px] data-[side=right]:-rotate-90;
+        @apply data-[side=top]:-bottom-2 data-[side=top]:rotate-180;
+    }
+}
