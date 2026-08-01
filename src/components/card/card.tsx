@@ -2,8 +2,7 @@ import type { ComponentProps } from "react";
 
 import "./card.css";
 
-import { useRender } from "@base-ui/react";
-import { mergeProps } from "node_modules/@base-ui/react/merge-props";
+import { mergeProps, useRender } from "@base-ui/react";
 
 import { ScrollArea } from "../scroll-area/scroll-area";
 
